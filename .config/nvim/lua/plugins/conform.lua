@@ -6,6 +6,7 @@ return {
       lua = { "stylua" },
       fish = { "fish_indent" },
       sh = { "shfmt" },
+      go = { "gofmt" },
     },
   },
 }
