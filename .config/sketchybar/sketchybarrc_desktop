@@ -94,7 +94,10 @@ sketchybar --add item disk right \
            --set disk update_freq=120 script="$PLUGIN_DIR/disk.sh" 
 
 sketchybar --add item ram right \
-           --set ram update_freq=5 script="$PLUGIN_DIR/ram.sh" 
+           --set ram update_freq=1 script="$PLUGIN_DIR/ram.sh" 
+
+sketchybar --add item cpu right \
+           --set cpu update_freq=1 script="$PLUGIN_DIR/cpu.sh" 
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
