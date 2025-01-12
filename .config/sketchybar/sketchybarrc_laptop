@@ -12,7 +12,7 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 # If you are looking for other colors, see the color picker:
 # https://felixkratz.github.io/SketchyBar/config/tricks#color-picker
 
-sketchybar --bar position=top height=30 blur_radius=30 color=0x40000000
+sketchybar --bar position=top height=25 blur_radius=30 color=0x40000000
 
 ##### Changing Defaults #####
 # We now change some default values, which are applied to all further items.
@@ -20,16 +20,16 @@ sketchybar --bar position=top height=30 blur_radius=30 color=0x40000000
 # https://felixkratz.github.io/SketchyBar/config/items
 
 default=(
-  padding_left=5
-  padding_right=5
+  padding_left=3
+  padding_right=3
   icon.font="JetBrainsMonoNL Nerd Font:bold:12.0"
   label.font="JetBrainsMonoNL Nerd Font:bold:12.0"
   icon.color=0xffffffff
   label.color=0xffffffff
-  icon.padding_left=4
-  icon.padding_right=4
-  label.padding_left=4
-  label.padding_right=4
+  icon.padding_left=3
+  icon.padding_right=3
+  label.padding_left=3
+  label.padding_right=3
 )
 sketchybar --default "${default[@]}"
 
@@ -38,19 +38,20 @@ sketchybar --default "${default[@]}"
 # https://felixkratz.github.io/SketchyBar/config/components#space----associate-mission-control-spaces-with-an-item
 # to indicate active and available mission control spaces.
 
-SPACE_ICONS=("1" "2" "3" "4" "5" "6" "7" "8" "9" "10")
+SPACE_ICONS=("" "" "" "󰦪" "" "󰎇" "" "" "" "")
+SPACE_TEXTS=("shell" "code" "net" "chat" "call" "music" "misc" "8" "9" "10")
 for i in "${!SPACE_ICONS[@]}"
 do
   sid="$(($i+1))"
   space=(
     space="$sid"
     icon="${SPACE_ICONS[i]}"
+    label="${SPACE_TEXTS[i]}"
     icon.padding_left=7
     icon.padding_right=7
     background.color=0x40ffffff
     background.corner_radius=5
     background.height=25
-    label.drawing=off
     script="$PLUGIN_DIR/space.sh"
     click_script="yabai -m space --focus $sid"
   )
@@ -79,13 +80,21 @@ sketchybar --add item chevron left \
 # https://felixkratz.github.io/SketchyBar/config/events
 
 sketchybar --add item clock right \
-           --set clock update_freq=10 icon=  script="$PLUGIN_DIR/clock.sh" \
-           --add item volume right \
+           --set clock update_freq=1 icon=  script="$PLUGIN_DIR/clock.sh" 
+
+sketchybar --add item volume right \
            --set volume script="$PLUGIN_DIR/volume.sh" \
-           --subscribe volume volume_change \
-           --add item battery right \
-           --set battery update_freq=120 script="$PLUGIN_DIR/battery.sh" \
+           --subscribe volume volume_change
+
+sketchybar --add item battery right \
+           --set battery update_freq=30 script="$PLUGIN_DIR/battery.sh" \
            --subscribe battery system_woke power_source_change
+
+sketchybar --add item disk right \
+           --set disk update_freq=120 script="$PLUGIN_DIR/disk.sh" 
+
+sketchybar --add item ram right \
+           --set ram update_freq=5 script="$PLUGIN_DIR/ram.sh" 
 
 ##### Force all scripts to run the first time (never do this in a script) #####
 sketchybar --update
