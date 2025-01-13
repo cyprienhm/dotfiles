@@ -30,6 +30,7 @@ esac
 
 if [[ "$CHARGING" != "" ]]; then
   ICON="󱋥"
+  ICON="󰄌"
   ICON_FONT="JetBrainsMonoNL Nerd Font:bold:18.0"
   COLOR=0xff50fa7b
 fi

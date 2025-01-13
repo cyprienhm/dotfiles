@@ -1,3 +1,5 @@
+#!/usr/bin/env sh
+
 SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
 
 PROFILER_OUTPUT=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:')
