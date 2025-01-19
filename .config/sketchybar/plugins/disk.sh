@@ -19,4 +19,4 @@ COLOR=0xffffb86c
 #   ;;
 # esac
 
-sketchybar --set "$NAME" icon="$ICON" label="$PERCENTAGE% ($FREE)" icon.color=${COLOR} icon.font="JetBrainsMonoNL Nerd Font:bold:15.0"
+sketchybar --set "$NAME" icon="$ICON" label="$PERCENTAGE% ($FREE)" icon.color=${COLOR} label.color=${COLOR} icon.font="JetBrainsMonoNL Nerd Font:bold:15.0"
