@@ -1,6 +1,6 @@
 #!/bin/sh
 
-FREE=$(df -H | grep -E '^(/dev/disk3s5).' | awk '{ printf ("%s\n", $2) }')
+FREE=$(df -H | grep -E '^(/dev/disk3s5).' | awk '{ printf ("%s\n", $4) }')
 # USED=$(df -H | grep -E '^(/dev/disk3s5).' | awk '{ printf ("%s\n", $3) }')
 PERCENTAGE=$((100 - $(df -H | grep -E '^(/dev/disk3s5).' | awk '{ printf ("%s\n", $5) }' | grep -oE '\d*')))
 
