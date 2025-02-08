@@ -115,5 +115,7 @@ eval "$(pyenv init - zsh)"
 alias ll="ls -lha"
 alias vim="nvim"
 alias vi="nvim"
+alias nivm="nvim"
+alias nvmi="nvim"
 
 export EDITOR="nvim"
