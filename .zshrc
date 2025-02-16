@@ -118,4 +118,6 @@ alias vi="nvim"
 alias nivm="nvim"
 alias nvmi="nvim"
 
+alias sandbox="source ~/sandbox/bin/activate"
+
 export EDITOR="nvim"
