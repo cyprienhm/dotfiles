@@ -118,6 +118,7 @@ eval "$(pyenv init - zsh)"
 alias ll="ls -lha"
 alias vim="nvim"
 alias vi="nvim"
+alias iv="nvim"
 
 # all permutations of vim & nvim
 alias vim="nvim"
