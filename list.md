@@ -32,3 +32,4 @@ brew install pure
 - catppuccin colorscheme
 - solarized light colorscheme
 - dracula colorscheme
+- zk
