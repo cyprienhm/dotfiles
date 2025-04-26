@@ -30,6 +30,8 @@ brew install pure
 - btop
 - bat
 - catppuccin colorscheme
+- catppuccin userstyles
 - solarized light colorscheme
 - dracula colorscheme
 - zk
+- vimium for chrome
