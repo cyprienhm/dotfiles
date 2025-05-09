@@ -155,3 +155,6 @@ alias mivn="nvim"
 alias sandbox="source ~/sandbox/bin/activate"
 
 export EDITOR="nvim"
+
+alias uvactivate="source .venv/bin/activate"
+
