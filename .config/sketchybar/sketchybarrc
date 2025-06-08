@@ -4,7 +4,8 @@ SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
 
 PROFILER_OUTPUT=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:')
 if [[ $PROFILER_OUTPUT = *"Built-in"* ]]; then
-    source "$SKETCHYBAR_CONFIG/sketchybarrc_laptop"
+  source "$SKETCHYBAR_CONFIG/sketchybarrc_laptop"
 else
-    source "$SKETCHYBAR_CONFIG/sketchybarrc_desktop"
+  source "$SKETCHYBAR_CONFIG/sketchybarrc_desktop"
 fi
+source "$SKETCHYBAR_CONFIG/sketchybarrc_shared"
