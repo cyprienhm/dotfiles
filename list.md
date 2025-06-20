@@ -18,7 +18,8 @@ scutil --set HostName 0
 brew install pure
 ```
 
-- on iterm2, remember in profiles settings: Keys -> Left Option key -> set as Esc+
+- on iterm2, remember in profiles settings: Keys -> Left Option key -> set as Esc+. and,
+remember to Keys -> Key Mappings -> Import the preset Natural Text Editing
 - fzf
 - lazyvim
 - fd
