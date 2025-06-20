@@ -18,9 +18,11 @@ scutil --set HostName 0
 brew install pure
 ```
 
+- on iterm2, remember in profiles settings: Keys -> Left Option key -> set as Esc+
 - fzf
 - lazyvim
 - fd
+- brew install ripgrep
 - pyenv
 - python
 - keyboard shortcuts > mission control > ^1-9 to switch spaces
