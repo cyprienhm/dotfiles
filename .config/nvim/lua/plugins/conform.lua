@@ -10,6 +10,7 @@ return {
       html = { "prettier" },
       css = { "prettier" },
       json = { "prettier" },
+      jsonc = { "prettier" },
       md = { "prettier" },
       yaml = { "prettier" },
       javascript = { "prettier" },
