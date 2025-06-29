@@ -14,3 +14,10 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
     vim.opt_local.formatoptions:append("t")
   end,
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+  pattern = ".zshrc",
+  callback = function()
+    vim.bo.filetype = "sh"
+  end,
+})
