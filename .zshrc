@@ -107,7 +107,8 @@ source $ZSH/oh-my-zsh.sh
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #
 
-autoload -U promptinit; promptinit
+autoload -U promptinit
+promptinit
 prompt pure
 source <(fzf --zsh)
 
@@ -118,7 +119,6 @@ eval "$(pyenv init - zsh)"
 alias ll="ls -lha"
 alias vim="nvim"
 alias vi="nvim"
-alias iv="nvim"
 
 # all permutations of vim & nvim
 alias vim="nvim"
@@ -151,10 +151,18 @@ alias mvin="nvim"
 alias minv="nvim"
 alias mivn="nvim"
 
-
 alias sandbox="source ~/sandbox/bin/activate"
 
 export EDITOR="nvim"
 
 alias uvactivate="source .venv/bin/activate"
 
+export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+
+alias zathura="/opt/homebrew/bin/zathura"
+
+function zp() {
+  local file
+  file=$(fd . ~/papers | fzf) || return
+  [ -n "$file" ] && zathura "$file" &
+}
