@@ -148,4 +148,5 @@ ctrl + cmd - h : yabai -m window --focus west
 ctrl + cmd - l : yabai -m window --focus east
 ctrl + cmd - j : yabai -m window --focus south
 ctrl + cmd - k : yabai -m window --focus north
+ctrl + cmd - y : ~/toggleyabai.sh
 shift + cmd - space : yabai -m window --toggle float
