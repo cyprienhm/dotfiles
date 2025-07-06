@@ -8,6 +8,7 @@ return {
       sh = { "shfmt" },
       go = { "gofmt" },
       html = { "prettier" },
+      htmldjango = { "prettier" },
       css = { "prettier" },
       json = { "prettier" },
       jsonc = { "prettier" },
