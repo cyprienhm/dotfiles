@@ -145,8 +145,12 @@
 # alt - p : yabai -m window --toggle sticky --toggle pip
 
 ctrl + cmd - h : yabai -m window --focus west
+ctrl + cmd + shift - h : yabai -m window --swap west
 ctrl + cmd - l : yabai -m window --focus east
+ctrl + cmd + shift - l : yabai -m window --swap east
 ctrl + cmd - j : yabai -m window --focus south
+ctrl + cmd + shift - j : yabai -m window --swap south
 ctrl + cmd - k : yabai -m window --focus north
+ctrl + cmd + shift - k : yabai -m window --swap north
 ctrl + cmd - y : ~/toggleyabai.sh
-shift + cmd - space : yabai -m window --toggle float
+ctrl + shift + cmd - space : yabai -m window --toggle float
