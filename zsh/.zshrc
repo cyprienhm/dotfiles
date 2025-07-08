@@ -48,6 +48,8 @@ alias mvin="nvim"
 alias minv="nvim"
 alias mivn="nvim"
 
+alias glog="git log --oneline --graph --decorate"
+
 alias uvactivate="source .venv/bin/activate"
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
