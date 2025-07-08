@@ -1,3 +1,5 @@
+fpath+=("$(brew --prefix)/share/zsh/site-functions")
+
 autoload -U promptinit
 promptinit
 prompt pure
@@ -10,7 +12,9 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init - zsh)"
+if [[ -z "$VIRTUAL_ENV" ]]; then
+  eval "$(pyenv init - zsh)"
+fi
 
 alias ls="ls -G"
 alias ll="ls -lhaG"
