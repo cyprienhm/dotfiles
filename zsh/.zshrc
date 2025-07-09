@@ -4,6 +4,10 @@ autoload -U promptinit
 promptinit
 prompt pure
 
+autoload -U compinit
+compinit
+zstyle ':completion:*' menu select
+
 export EDITOR="nvim"
 
 source <(fzf --zsh)
