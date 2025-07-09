@@ -12,14 +12,16 @@ scutil --set HostName 0
 
 - JetBrainsMono Nerd Font
 - zsh
-- pure
+- pure & zsh-autosuggestions
 
 ```zsh
 brew install pure
+brew install zsh-autosuggestions
 ```
 
 - on iterm2, remember in profiles settings: Keys -> Left Option key -> set as Esc+. and,
 remember to Keys -> Key Mappings -> Import the preset Natural Text Editing
+- on kitty, just use conf
 - fzf
 - lazyvim
 - fd
