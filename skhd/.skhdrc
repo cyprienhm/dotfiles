@@ -152,5 +152,7 @@ ctrl + cmd - j : yabai -m window --focus south
 ctrl + cmd + shift - j : yabai -m window --swap south
 ctrl + cmd - k : yabai -m window --focus north
 ctrl + cmd + shift - k : yabai -m window --swap north
+ctrl + cmd + shift - r : yabai -m space --rotate 90
+ctrl + cmd + shift - b : yabai -m space --balance
 ctrl + cmd - y : ~/toggleyabai.sh
 ctrl + shift + cmd - space : yabai -m window --toggle float
