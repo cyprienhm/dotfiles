@@ -40,3 +40,9 @@ remember to Keys -> Key Mappings -> Import the preset Natural Text Editing
 - dracula colorscheme
 - zk
 - vimium for chrome
+- jankyborders
+```sh
+brew tap FelixKratz/formulae
+brew install borders
+```
+
