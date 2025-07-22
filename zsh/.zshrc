@@ -71,3 +71,5 @@ function zp() {
   file=$(fd . ~/papers | fzf) || return
   [ -n "$file" ] && zathura "$file" &
 }
+
+eval "$(zoxide init zsh)"

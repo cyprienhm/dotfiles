@@ -47,4 +47,6 @@ brew install --cask ghostty
 brew tap FelixKratz/formulae
 brew install borders
 ```
+- zoxide
+brew install zoxide
 
