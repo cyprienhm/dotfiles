@@ -55,7 +55,9 @@ alias mvni="nvim"
 alias mvin="nvim"
 alias minv="nvim"
 alias mivn="nvim"
+alias n=nvim
 
+alias l="lazygit"
 alias glog="git log --oneline --graph --decorate"
 
 alias uvactivate="source .venv/bin/activate"
