@@ -48,5 +48,12 @@ brew tap FelixKratz/formulae
 brew install borders
 ```
 - zoxide
+```sh
 brew install zoxide
+```
+- p10k
+```sh
+brew install powerlevel10k
+echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
+```
 
