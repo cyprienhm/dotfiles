@@ -22,6 +22,8 @@ brew install zsh-autosuggestions
 - on iterm2, remember in profiles settings: Keys -> Left Option key -> set as Esc+. and,
 remember to Keys -> Key Mappings -> Import the preset Natural Text Editing
 - on kitty, just use conf
+- on ghostty, just use confg
+brew install --cask ghostty
 - fzf
 - lazyvim
 - fd
