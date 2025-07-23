@@ -1,2 +1,2 @@
 install:
-  stow btop colorschemes htop ipython iterm2 nvim sketchybar skhd system_prompt wallpapers yabai zsh kitty borders
+  stow btop colorschemes htop ipython nvim sketchybar skhd system_prompt wallpapers yabai zsh borders p10k ghostty
