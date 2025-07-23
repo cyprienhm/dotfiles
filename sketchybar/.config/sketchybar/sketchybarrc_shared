@@ -89,7 +89,7 @@ sketchybar --add item battery right \
            --subscribe battery system_woke power_source_change
 
 sketchybar --add item disk right \
-           --set disk update_freq=120 script="$PLUGIN_DIR/disk.sh" 
+           --set disk update_freq=1 script="$PLUGIN_DIR/disk.sh" 
 
 sketchybar --add item ram right \
            --set ram update_freq=1 script="$PLUGIN_DIR/ram.sh" 
