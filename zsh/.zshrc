@@ -68,7 +68,7 @@ alias n=nvim
 alias l="lazygit"
 alias glog="git log --oneline --graph --decorate"
 
-alias uvactivate="source .venv/bin/activate"
+alias u="source .venv/bin/activate"
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
