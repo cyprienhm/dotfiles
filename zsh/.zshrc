@@ -68,7 +68,11 @@ alias n=nvim
 alias l="lazygit"
 alias glog="git log --oneline --graph --decorate"
 
-alias u="source .venv/bin/activate"
+u() {
+  repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || return 1
+  venv_path="$repo_root/.venv/bin/activate"
+  [ -f "$venv_path" ] && source "$venv_path"
+}
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 
