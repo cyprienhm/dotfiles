@@ -57,3 +57,7 @@ brew install powerlevel10k
 echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 ```
 
+- tmux
+```sh
+brew install tmux
+```
