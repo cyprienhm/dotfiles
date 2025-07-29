@@ -90,3 +90,7 @@ export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p
 batdiff() {
   git diff --name-only --relative --diff-filter=d -z | xargs --null bat --diff
 }
+
+alias t=tmux
+alias ta="tmux attach"
+alias tl="tmux list-sessions"
