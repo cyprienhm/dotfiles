@@ -94,3 +94,5 @@ batdiff() {
 alias t=tmux
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
+
+[ -f ~/.ghcup/env ] && . ~/.ghcup/env # ghcup-env
