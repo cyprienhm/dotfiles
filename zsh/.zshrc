@@ -79,9 +79,23 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 alias zathura="/opt/homebrew/bin/zathura"
 
 function zp() {
-  local file
-  file=$(fd . ~/papers | fzf) || return
-  [ -n "$file" ] && zathura "$file" &
+    local dir="${HOME}/papers"
+    local oldpwd=$PWD
+    cd "$dir"
+    command -v fd >/dev/null || { echo "fd not found"; return 1; }
+    command -v fzf >/dev/null || { echo "fzf not found"; return 1; }
+
+    local selected_file=$(fd --type f . --strip-cwd-prefix | fzf --reverse --height=80% --preview '
+    p='$dir'/{}
+    case "$p" in
+      *.pdf) command -v pdftotext >/dev/null && pdftotext -l 1 "$p" - 2>/dev/null | sed -n "1,80p" || file -b "$p" ;;
+        *) file -b "$p" ;;
+    esac
+    ') || return
+    [ -z "$selected_file" ] && return
+
+    nohup zathura "$dir/$selected_file" >/dev/null 2>&1 & disown || true
+    cd "$oldpwd"
 }
 
 eval "$(zoxide init zsh)"
