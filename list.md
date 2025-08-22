@@ -61,3 +61,8 @@ echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.
 ```sh
 brew install tmux
 ```
+
+- zathura
+```sh
+brew install poppler
+```
