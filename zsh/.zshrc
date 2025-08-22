@@ -2,7 +2,7 @@
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
 if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
 source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
@@ -25,7 +25,7 @@ source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
 if [[ -z "$VIRTUAL_ENV" ]]; then
-  eval "$(pyenv init - zsh)"
+    eval "$(pyenv init - zsh)"
 fi
 
 alias ls="ls -G"
@@ -69,9 +69,9 @@ alias l="lazygit"
 alias glog="git log --oneline --graph --decorate"
 
 u() {
-  repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || return 1
-  venv_path="$repo_root/.venv/bin/activate"
-  [ -f "$venv_path" ] && source "$venv_path"
+    repo_root=$(git rev-parse --show-toplevel 2>/dev/null) || return 1
+    venv_path="$repo_root/.venv/bin/activate"
+    [ -f "$venv_path" ] && source "$venv_path"
 }
 
 export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
@@ -102,7 +102,7 @@ eval "$(zoxide init zsh)"
 
 export MANPAGER="sh -c 'sed -u -e \"s/\\x1B\[[0-9;]*m//g; s/.\\x08//g\" | bat -p -lman'"
 batdiff() {
-  git diff --name-only --relative --diff-filter=d -z | xargs --null bat --diff
+    git diff --name-only --relative --diff-filter=d -z | xargs --null bat --diff
 }
 
 alias t=tmux
