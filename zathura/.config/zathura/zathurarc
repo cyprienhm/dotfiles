@@ -1,0 +1,4 @@
+set selection-clipboard clipboard
+set selection-notification false
+set recolor true
+set recolor-keephue true
