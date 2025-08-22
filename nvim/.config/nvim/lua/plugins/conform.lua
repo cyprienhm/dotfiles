@@ -10,6 +10,7 @@ return {
       go = { "gofmt" },
       html = { "prettier" },
       htmldjango = { "prettier" },
+      htmlangular = { "prettier" },
       css = { "prettier" },
       json = { "prettier" },
       jsonc = { "prettier" },
