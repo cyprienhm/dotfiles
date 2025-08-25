@@ -1,3 +1,5 @@
+local servers = { "lua_ls", "pyright" }
+
 return {
 	{
 		"williamboman/mason.nvim",
@@ -9,7 +11,7 @@ return {
 		"williamboman/mason-lspconfig.nvim",
 		config = function()
 			require("mason-lspconfig").setup({
-				ensure_installed = { "lua_ls" },
+				ensure_installed = servers,
 			})
 		end,
 	},
@@ -17,6 +19,18 @@ return {
 		"neovim/nvim-lspconfig",
 		config = function(_, opts)
 			vim.diagnostic.config(opts.diagnostics)
+
+			local lspconfig = require("lspconfig")
+			local keymaps = require("config.lsp_keymaps")
+
+			local capabilities = vim.lsp.protocol.make_client_capabilities()
+
+			for _, server in ipairs(servers) do
+				lspconfig[server].setup({
+					on_attach = keymaps.on_attach,
+					capabilities = capabilities,
+				})
+			end
 		end,
 		opts = {
 			diagnostics = {
