@@ -13,3 +13,7 @@ opt.termguicolors = true -- True color support
 opt.number = true -- Print line number
 opt.relativenumber = true -- Relative line numbers
 opt.wrap = false -- Disable line wrap
+opt.splitbelow = true -- Put new windows below current
+opt.splitright = true -- Put new windows right of current
+opt.termguicolors = true -- True color support
+opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
