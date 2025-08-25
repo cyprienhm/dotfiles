@@ -3,11 +3,107 @@ return {
 	"folke/snacks.nvim",
 	keys = {
 		{
+			"<leader><space>",
+			function()
+				Snacks.picker.files()
+			end,
+			desc = "Find Files (Root Dir)",
+		},
+		{
+			"<leader>sg",
+			function()
+				Snacks.picker.grep()
+			end,
+			desc = "Grep",
+		},
+		{
+			"<leader>sk",
+			function()
+				Snacks.picker.keymaps()
+			end,
+			desc = "Keymaps",
+		},
+
+		{
+			"<leader>sM",
+			function()
+				Snacks.picker.man()
+			end,
+			desc = "Man Pages",
+		},
+
+		{
+			"<leader>sm",
+			function()
+				Snacks.picker.marks()
+			end,
+			desc = "Marks",
+		},
+
+		{
+			"<leader>su",
+			function()
+				Snacks.picker.undo()
+			end,
+			desc = "Undotree",
+		},
+
+		{
+			"<leader>sh",
+			function()
+				Snacks.picker.help()
+			end,
+			desc = "Help Pages",
+		},
+
+		{
+			"<leader>sd",
+			function()
+				Snacks.picker.diagnostics()
+			end,
+			desc = "Diagnostics",
+		},
+		{
+			"<leader>sD",
+			function()
+				Snacks.picker.diagnostics_buffer()
+			end,
+			desc = "Buffer Diagnostics",
+		},
+		{
+			"<leader>ss",
+			function()
+				Snacks.picker.lsp_symbols()
+			end,
+			desc = "LSP Symbols",
+		},
+		{
+			"<leader>sS",
+			function()
+				Snacks.picker.lsp_workspace_symbols()
+			end,
+			desc = "LSP Workspace Symbols",
+		},
+		{
+			"<leader>,",
+			function()
+				Snacks.picker.buffers()
+			end,
+			desc = "Buffers",
+		},
+		{
 			"<leader>fe",
 			function()
 				Snacks.explorer({ cwd = utils.git_root() })
 			end,
 			desc = "Explorer Snacks (root dir)",
+		},
+		{
+			"<leader>fR",
+			function()
+				Snacks.picker.recent({ filter = { cwd = true } })
+			end,
+			desc = "Recent (cwd)",
 		},
 		{
 			"<leader>fE",
@@ -16,8 +112,6 @@ return {
 			end,
 			desc = "Explorer Snacks (cwd)",
 		},
-		{ "<leader>e", "<leader>fe", desc = "Explorer Snacks (root dir)", remap = true },
-		{ "<leader>E", "<leader>fE", desc = "Explorer Snacks (cwd)", remap = true },
 		{
 			"<c-/>",
 			function()
@@ -82,6 +176,13 @@ return {
 				Snacks.picker.git_log()
 			end,
 			desc = "Git Log (cwd)",
+		},
+		{
+			"<leader>gd",
+			function()
+				Snacks.picker.git_diff()
+			end,
+			desc = "Git Diff (hunks)",
 		},
 	},
 	opts = {
