@@ -9,3 +9,11 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 		(vim.hl or vim.highlight).on_yank()
 	end,
 })
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = augroup("format_on_save"),
+	pattern = "*",
+	callback = function(args)
+		require("conform").format({ bufnr = args.buf })
+	end,
+})
