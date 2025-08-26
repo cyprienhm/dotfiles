@@ -85,3 +85,18 @@ map("n", "]e", diagnostic_goto(true, "ERROR"), { desc = "Next Error" })
 map("n", "[e", diagnostic_goto(false, "ERROR"), { desc = "Prev Error" })
 map("n", "]w", diagnostic_goto(true, "WARN"), { desc = "Next Warning" })
 map("n", "[w", diagnostic_goto(false, "WARN"), { desc = "Prev Warning" })
+
+vim.keymap.set("n", "<leader>fo", function()
+	require("oil").open()
+end, { desc = "Open Oil", noremap = true, silent = true })
+
+vim.keymap.set("n", "<leader>zn", function()
+	local title = vim.fn.input("Title: ")
+	if title ~= "" then
+		require("zk.commands").get("ZkNew")({ title = title })
+	end
+end, { desc = "ZkNew with title" })
+
+vim.keymap.set("n", "<leader>zj", function()
+	require("zk.commands").get("ZkNew")({ dir = "journal/daily" })
+end, { desc = "ZkNew journal/daily" })
