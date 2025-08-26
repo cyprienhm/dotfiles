@@ -30,19 +30,6 @@ return {
 					on_attach = keymaps.on_attach,
 					capabilities = capabilities,
 				}
-
-				if server == "lua_ls" then
-					server_opts.settings = {
-						Lua = {
-							diagnostics = { globals = { "vim" } },
-							workspace = {
-								library = vim.api.nvim_get_runtime_file("", true),
-								checkThirdParty = false,
-							},
-						},
-					}
-				end
-
 				lspconfig[server].setup(server_opts)
 			end
 		end,
