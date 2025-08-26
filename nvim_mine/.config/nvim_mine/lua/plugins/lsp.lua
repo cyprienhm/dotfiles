@@ -26,10 +26,24 @@ return {
 			local capabilities = vim.lsp.protocol.make_client_capabilities()
 
 			for _, server in ipairs(servers) do
-				lspconfig[server].setup({
+				local server_opts = {
 					on_attach = keymaps.on_attach,
 					capabilities = capabilities,
-				})
+				}
+
+				if server == "lua_ls" then
+					server_opts.settings = {
+						Lua = {
+							diagnostics = { globals = { "vim" } },
+							workspace = {
+								library = vim.api.nvim_get_runtime_file("", true),
+								checkThirdParty = false,
+							},
+						},
+					}
+				end
+
+				lspconfig[server].setup(server_opts)
 			end
 		end,
 		opts = {
