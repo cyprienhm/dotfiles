@@ -1,6 +1,7 @@
 local utils = require("utils")
 return {
 	"folke/snacks.nvim",
+	lazy = false,
 	keys = {
 		{
 			"<leader><space>",
@@ -232,5 +233,6 @@ return {
 		require("snacks").setup(opts)
 		Snacks.toggle.zoom():map("<leader>wm"):map("<leader>uZ")
 		Snacks.toggle.zen():map("<leader>uz")
+		Snacks.toggle.option("wrap", { name = "Wrap" }):map("<leader>uw")
 	end,
 }

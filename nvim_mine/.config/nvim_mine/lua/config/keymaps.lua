@@ -100,3 +100,10 @@ end, { desc = "ZkNew with title" })
 vim.keymap.set("n", "<leader>zj", function()
 	require("zk.commands").get("ZkNew")({ dir = "journal/daily" })
 end, { desc = "ZkNew journal/daily" })
+
+-- toggle function
+local function toggle_buffer_format()
+	vim.b.autoformat = not vim.b.autoformat
+	vim.notify("Buffer format " .. (vim.b.autoformat and "enabled" or "disabled"))
+end
+map("n", "<leader>uf", toggle_buffer_format, { desc = "Toggle buffer format" })

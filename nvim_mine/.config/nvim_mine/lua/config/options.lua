@@ -2,6 +2,7 @@ print("hi")
 vim.cmd.colorscheme("tokyonight-night")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
+vim.b.autoformat = true
 
 local opt = vim.opt
 
@@ -18,4 +19,5 @@ opt.splitright = true -- Put new windows right of current
 opt.termguicolors = true -- True color support
 opt.virtualedit = "block" -- Allow cursor to move where there is no text in visual block mode
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
-
+opt.undofile = true
+opt.undolevels = 10000

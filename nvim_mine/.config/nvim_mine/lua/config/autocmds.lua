@@ -10,10 +10,16 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	end,
 })
 
+local function maybe_format(bufnr)
+	if vim.b.autoformat ~= false then
+		require("conform").format({ bufnr = bufnr })
+	end
+end
+
 vim.api.nvim_create_autocmd("BufWritePre", {
 	group = augroup("format_on_save"),
 	pattern = "*",
 	callback = function(args)
-		require("conform").format({ bufnr = args.buf })
+		maybe_format(args.buf)
 	end,
 })
