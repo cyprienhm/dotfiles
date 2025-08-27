@@ -37,9 +37,9 @@ return {
 			diagnostics = {
 				underline = true,
 				virtual_text = {
-					spacing = 4,
+					spacing = 2,
 					source = "if_many",
-					prefix = "x",
+					prefix = ">",
 				},
 				update_in_insert = true,
 				signs = {
