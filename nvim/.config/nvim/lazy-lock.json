@@ -17,6 +17,7 @@
   "nvim-treesitter-textobjects": { "branch": "master", "commit": "71385f191ec06ffc60e80e6b0c9a9d5daed4824c" },
   "oil.nvim": { "branch": "master", "commit": "07f80ad645895af849a597d1cac897059d89b686" },
   "persistence.nvim": { "branch": "main", "commit": "166a79a55bfa7a4db3e26fc031b4d92af71d0b51" },
+  "smear-cursor.nvim": { "branch": "main", "commit": "4b86df8a0c5f46e708616b21a02493bb0e47ecbd" },
   "snacks.nvim": { "branch": "main", "commit": "bc0630e43be5699bb94dadc302c0d21615421d93" },
   "tokyonight.nvim": { "branch": "main", "commit": "057ef5d260c1931f1dffd0f052c685dcd14100a3" },
   "zk-nvim": { "branch": "main", "commit": "b18782530b23ad118d578c0fa0e4d0b8d386db4c" }
