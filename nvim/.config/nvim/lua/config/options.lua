@@ -21,3 +21,4 @@ opt.virtualedit = "block" -- Allow cursor to move where there is no text in visu
 opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clipboard
 opt.undofile = true
 opt.undolevels = 10000
+opt.confirm = true -- Confirm to save changes before exiting modified buffer
