@@ -41,6 +41,7 @@ return {
 					source = "if_many",
 					prefix = "x",
 				},
+				update_in_insert = true,
 				signs = {
 					text = {
 						[vim.diagnostic.severity.ERROR] = "",
