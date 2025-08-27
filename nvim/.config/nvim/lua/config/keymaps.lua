@@ -104,7 +104,7 @@ end, { desc = "ZkNew journal/daily" })
 -- toggle function
 local function toggle_buffer_format()
 	if vim.b.autoformat == nil then
-		vim.b.autoformat = true
+		vim.b.autoformat = false
 	else
 		vim.b.autoformat = not vim.b.autoformat
 	end
