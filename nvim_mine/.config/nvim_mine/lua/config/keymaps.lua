@@ -103,7 +103,11 @@ end, { desc = "ZkNew journal/daily" })
 
 -- toggle function
 local function toggle_buffer_format()
-	vim.b.autoformat = not vim.b.autoformat
+	if vim.b.autoformat == nil then
+		vim.b.autoformat = true
+	else
+		vim.b.autoformat = not vim.b.autoformat
+	end
 	vim.notify("Buffer format " .. (vim.b.autoformat and "enabled" or "disabled"))
 end
 map("n", "<leader>uf", toggle_buffer_format, { desc = "Toggle buffer format" })
