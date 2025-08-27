@@ -1,9 +1,7 @@
-print("hi")
 vim.cmd.colorscheme("tokyonight-night")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.b.autoformat = true
-
 local opt = vim.opt
 
 opt.cursorline = true -- Enable highlighting of the current line
@@ -22,3 +20,4 @@ opt.clipboard = vim.env.SSH_TTY and "" or "unnamedplus" -- Sync with system clip
 opt.undofile = true
 opt.undolevels = 10000
 opt.confirm = true -- Confirm to save changes before exiting modified buffer
+opt.signcolumn = "yes"
