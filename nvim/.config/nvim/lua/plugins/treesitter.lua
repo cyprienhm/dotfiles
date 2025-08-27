@@ -3,7 +3,7 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		version = false, -- last release is way too old and doesn't work on Windows
 		build = ":TSUpdate",
-		lazy = vim.fn.argc(-1) == 0, -- load treesitter early when opening a file from the cmdline
+		lazy = false,
 		dependencies = { "nvim-treesitter/nvim-treesitter" },
 		init = function(plugin)
 			-- PERF: add nvim-treesitter queries to the rtp and it's custom query predicates early
