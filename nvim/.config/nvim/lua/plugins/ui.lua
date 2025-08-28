@@ -41,6 +41,33 @@ local colors = {
   blue     = '#51afef',
   red      = '#ec5f67',
 }
+			-- -- Function to get the current mode indicator
+			local function mode()
+				-- Map of modes to their respective shorthand indicators
+				local mode_map = {
+					n = "normal", -- Normal mode
+					i = "insert", -- Insert mode
+					v = "visual", -- Visual mode
+					[""] = "visual block", -- Visual block mode
+					V = "visual line", -- Visual line mode
+					c = "command line", -- Command-line mode
+					no = "ninsert", -- NInsert mode
+					s = "select", -- Select mode
+					S = "select line", -- Select line mode
+					ic = "insert (completion)", -- Insert mode (completion)
+					R = "replace", -- Replace mode
+					Rv = "virtual replace", -- Virtual Replace mode
+					cv = "command-line", -- Command-line mode
+					ce = "ex", -- Ex mode
+					r = "prompt", -- Prompt mode
+					rm = "more", -- More mode
+					["r?"] = "confirm?", -- Confirm mode
+					["!"] = "shell!", -- Shell mode
+					t = "terminal", -- Terminal mode
+				}
+				-- Return the mode shorthand or [UNKNOWN] if no match
+				return mode_map[vim.fn.mode()] or "[UNKNOWN]"
+			end
 
 			local conditions = {
 				buffer_not_empty = function()
@@ -111,9 +138,7 @@ local colors = {
 
 			ins_left({
 				-- mode component
-				function()
-					return ""
-				end,
+				mode,
 				color = function()
 					-- auto change color according to neovims mode
 					local mode_color = {
@@ -202,15 +227,8 @@ local colors = {
 			-- Add components to right sections
 			ins_right({
 				"o:encoding", -- option component same as &encoding in viml
-				fmt = string.upper, -- I'm not sure why it's upper case either ;)
+				fmt = string.lower, -- I'm not sure why it's upper case either ;)
 				cond = conditions.hide_in_width,
-				color = { fg = colors.green, gui = "bold" },
-			})
-
-			ins_right({
-				"fileformat",
-				fmt = string.upper,
-				icons_enabled = false, -- I think icons are cool but Eviline doesn't have them. sigh
 				color = { fg = colors.green, gui = "bold" },
 			})
 
