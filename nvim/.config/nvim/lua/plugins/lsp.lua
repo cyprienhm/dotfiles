@@ -1,4 +1,4 @@
-local servers = { "lua_ls", "pyright" }
+local servers = { "lua_ls", "pyright", "ast_grep", "ts_ls", "marksman" }
 
 return {
 	{
