@@ -23,3 +23,11 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		maybe_format(args.buf)
 	end,
 })
+
+vim.api.nvim_create_autocmd("LspAttach", {
+	callback = function(args)
+		local buffer = args.buf ---@type number
+		local client = vim.lsp.get_client_by_id(args.data.client_id)
+		require("config.lsp_keymaps").on_attach(client, buffer)
+	end,
+})
