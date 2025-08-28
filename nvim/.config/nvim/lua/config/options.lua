@@ -36,3 +36,4 @@ opt.fillchars = {
 	diff = "╱",
 	eob = " ",
 }
+opt.showmode = false
