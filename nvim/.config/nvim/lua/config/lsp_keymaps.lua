@@ -15,11 +15,11 @@ function M.get()
 			end,
 			desc = "Lsp Info",
 		},
-		{ "gd", vim.lsp.buf.definition, desc = "Goto Definition", has = "definition" },
-		{ "gr", vim.lsp.buf.references, desc = "References", nowait = true },
-		{ "gI", vim.lsp.buf.implementation, desc = "Goto Implementation" },
-		{ "gy", vim.lsp.buf.type_definition, desc = "Goto T[y]pe Definition" },
-		{ "gD", vim.lsp.buf.declaration, desc = "Goto Declaration" },
+		{ "gd", Snacks.picker.lsp_definitions, desc = "Goto Definition" },
+		{ "gr", Snacks.picker.lsp_references, desc = "References", nowait = true },
+		{ "gI", Snacks.picker.lsp_implementations, desc = "Goto Implementation" },
+		{ "gy", Snacks.picker.lsp_type_definitions, desc = "Goto T[y]pe Definition" },
+		{ "gD", Snacks.picker.lsp_declarations, desc = "Goto Declaration" },
 		{
 			"K",
 			function()
