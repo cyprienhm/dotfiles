@@ -31,3 +31,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		require("config.lsp_keymaps").on_attach(client, buffer)
 	end,
 })
+
+vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
+	pattern = vim.fn.expand("~/notes") .. "/*",
+	callback = function()
+		vim.opt_local.textwidth = 80
+		vim.opt_local.formatoptions:append("t")
+	end,
+})
