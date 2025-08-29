@@ -111,3 +111,18 @@ local function toggle_buffer_format()
 	vim.notify("Buffer format " .. (vim.b.autoformat and "enabled" or "disabled"))
 end
 map("n", "<leader>uf", toggle_buffer_format, { desc = "Toggle buffer format" })
+
+map("n", "<leader>fY", function()
+	local filepath = vim.api.nvim_buf_get_name(0)
+	vim.fn.setreg("+", filepath)
+	vim.notify("Yanked: " .. filepath)
+end, { desc = "Yank full path" })
+
+map("n", "<leader>fy", function()
+	local cwd = vim.uv.cwd()
+	local buf = vim.api.nvim_buf_get_name(0)
+	local filepath = vim.fn.fnamemodify(buf, ":." .. cwd)
+
+	vim.fn.setreg("+", filepath)
+	vim.notify("Yanked: " .. filepath)
+end, { desc = "Yank relative path" })
