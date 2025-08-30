@@ -35,15 +35,6 @@ function M.get()
 			desc = "Signature Help",
 			has = "signatureHelp",
 		},
-		{
-			"<c-k>",
-			function()
-				return vim.lsp.buf.signature_help()
-			end,
-			mode = "i",
-			desc = "Signature Help",
-			has = "signatureHelp",
-		},
 		{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
 		{ "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
 		{
