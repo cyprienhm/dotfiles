@@ -18,6 +18,7 @@ return {
 		{ "<leader>sS", function() Snacks.picker.lsp_workspace_symbols() end, desc = "LSP Workspace Symbols", },
 		{ "<leader>,", function() Snacks.picker.buffers() end, desc = "Buffers", },
 		{ "<leader>fe", function() Snacks.explorer({ cwd = utils.git_root() }) end, desc = "Explorer Snacks (root dir)", },
+		{ "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent", },
 		{ "<leader>fR", function() Snacks.picker.recent({ filter = { cwd = true } }) end, desc = "Recent (cwd)", },
 		{ "<leader>fE", function() Snacks.explorer() end, desc = "Explorer Snacks (cwd)", },
 		{ "<c-/>", function() Snacks.terminal(nil, { cwd = utils.git_root() }) end, desc = "Terminal (Root Dir)", },
