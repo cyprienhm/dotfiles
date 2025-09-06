@@ -37,4 +37,5 @@ opt.fillchars = {
 	eob = " ",
 }
 opt.showmode = false
+opt.ignorecase = true
 opt.smartcase = true
