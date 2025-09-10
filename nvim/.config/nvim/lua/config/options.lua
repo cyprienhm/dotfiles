@@ -39,3 +39,4 @@ opt.fillchars = {
 opt.showmode = false
 opt.ignorecase = true
 opt.smartcase = true
+opt.winborder = "rounded"
