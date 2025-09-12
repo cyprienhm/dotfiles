@@ -1,8 +1,13 @@
-local servers = { "lua_ls", "pyright", "pyrefly", "ast_grep", "ts_ls", "marksman", "stylua" }
+-- mason-tool-installer only accepts mason names
+local servers =
+	{ "lua-language-server", "pyright", "pyrefly", "ast-grep", "typescript-language-server", "marksman", "stylua" }
 
-vim.lsp.config["pyright"] = require("plugins.lspconfigs.pyright")
-vim.lsp.config["pyrefly"] = require("plugins.lspconfigs.pyrefly")
+-- configs will automatically be read from lsp/. use these names
 vim.lsp.enable("pyrefly")
+vim.lsp.enable("lua_ls")
+vim.lsp.enable("ast_grep")
+vim.lsp.enable("ts_ls")
+vim.lsp.enable("marksman")
 
 vim.diagnostic.config({ virtual_text = true })
 
@@ -14,9 +19,9 @@ return {
 		end,
 	},
 	{
-		"williamboman/mason-lspconfig.nvim",
+		"WhoIsSethDaniel/mason-tool-installer.nvim",
 		config = function()
-			require("mason-lspconfig").setup({
+			require("mason-tool-installer").setup({
 				ensure_installed = servers,
 			})
 		end,
