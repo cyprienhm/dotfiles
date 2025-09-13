@@ -16,7 +16,7 @@ function M.get()
 			desc = "Lsp Info",
 		},
 		{ "gd", Snacks.picker.lsp_definitions, desc = "Goto Definition" },
-		{ "gr", Snacks.picker.lsp_references, desc = "References", nowait = true },
+		{ "grr", Snacks.picker.lsp_references, desc = "References", nowait = true },
 		{ "gI", Snacks.picker.lsp_implementations, desc = "Goto Implementation" },
 		{ "gy", Snacks.picker.lsp_type_definitions, desc = "Goto T[y]pe Definition" },
 		{ "gD", Snacks.picker.lsp_declarations, desc = "Goto Declaration" },
@@ -35,7 +35,6 @@ function M.get()
 			desc = "Signature Help",
 			has = "signatureHelp",
 		},
-		{ "<leader>ca", vim.lsp.buf.code_action, desc = "Code Action", mode = { "n", "v" }, has = "codeAction" },
 		{ "<leader>cc", vim.lsp.codelens.run, desc = "Run Codelens", mode = { "n", "v" }, has = "codeLens" },
 		{
 			"<leader>cC",
