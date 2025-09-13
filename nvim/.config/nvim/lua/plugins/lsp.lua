@@ -31,7 +31,7 @@ vim.diagnostic.config({
 		},
 	},
 	virtual_text = {
-		source = "if_many",
+		source = true,
 		spacing = 2,
 		format = function(diagnostic)
 			local diagnostic_message = {
