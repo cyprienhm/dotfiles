@@ -9,6 +9,7 @@ local servers = {
 	"stylua",
 	"ruff",
 	"tinymist",
+	"beautysh",
 }
 
 -- configs will automatically be read from lsp/. use these names
