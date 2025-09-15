@@ -8,6 +8,7 @@ local servers = {
 	"marksman",
 	"stylua",
 	"ruff",
+	"tinymist",
 }
 
 -- configs will automatically be read from lsp/. use these names
@@ -17,6 +18,7 @@ vim.lsp.enable("lua_ls")
 vim.lsp.enable("ast_grep")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("marksman")
+vim.lsp.enable("tinymist")
 
 vim.diagnostic.config({
 	severity_sort = true,
