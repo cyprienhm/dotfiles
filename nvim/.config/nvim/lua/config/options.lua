@@ -40,3 +40,4 @@ opt.showmode = false
 opt.ignorecase = true
 opt.smartcase = true
 opt.winborder = "rounded"
+opt.grepprg = "rg --vimgrep"
