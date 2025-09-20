@@ -2,7 +2,6 @@
 local servers = {
 	"lua-language-server",
 	"pyright",
-	"pyrefly",
 	"ast-grep",
 	"typescript-language-server",
 	"marksman",
@@ -13,7 +12,7 @@ local servers = {
 }
 
 -- configs will automatically be read from lsp/. use these names
-vim.lsp.enable("pyrefly")
+vim.lsp.enable("pyright")
 vim.lsp.enable("ruff")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("ast_grep")
