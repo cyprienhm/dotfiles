@@ -9,6 +9,7 @@ local servers = {
 	"ruff",
 	"tinymist",
 	"beautysh",
+	"css-lsp",
 }
 
 -- configs will automatically be read from lsp/. use these names
@@ -19,6 +20,7 @@ vim.lsp.enable("ast_grep")
 vim.lsp.enable("ts_ls")
 vim.lsp.enable("marksman")
 vim.lsp.enable("tinymist")
+vim.lsp.enable("cssls")
 
 vim.diagnostic.config({
 	severity_sort = true,
