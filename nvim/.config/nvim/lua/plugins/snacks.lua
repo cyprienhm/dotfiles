@@ -35,6 +35,28 @@ return {
 		{ "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (hunks)", },
 	},
 	opts = {
+		picker = {
+			layout = {
+				preview = false,
+				layout = {
+					position = "float",
+					row = -2,
+					col = 7,
+					box = "horizontal",
+					height = 0.6,
+					width = 0.7,
+					backdrop = false,
+					{
+						box = "vertical",
+						border = "single",
+						title = "",
+						{ win = "input", height = 1, border = "bottom" },
+						{ win = "list", border = "none", cursorline = false },
+					},
+					{ win = "preview", title = "{preview}", border = "single", width = 0.5 },
+				},
+			},
+		},
 		explorer = {},
 		toggle = { map = vim.keymap.set },
 		animate = { enabled = false },
