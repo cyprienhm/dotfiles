@@ -1,5 +1,5 @@
 if pgrep -x yabai >/dev/null; then
-  yabai --stop-service
+    yabai --stop-service
 else
-  yabai --start-service
+    yabai --start-service
 fi
