@@ -3,3 +3,4 @@ font-family = "JetBrainsMonoNL Nerd Font Mono"
 font-thicken = true
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 keybind = shift+enter=text:\n
+macos-titlebar-style = hidden
