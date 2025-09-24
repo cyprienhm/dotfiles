@@ -11,11 +11,23 @@
 # sudo yabai --load-sa
 #
 
+SKETCHYBAR_UP=$(brew services info sketchybar --json | jq '.[0].running')
 PROFILER_OUTPUT=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:')
-if [[ $PROFILER_OUTPUT = *"Built-in"* ]]; then
-    TOP_PADDING=12
+
+if [ "$SKETCHYBAR_UP" = "false" ]; then
+    TOP_PADDING=0
+    BOTTOM_PADDING=0
+    LEFT_PADDING=0
+    RIGHT_PADDING=0
 else
-    TOP_PADDING=40
+    if [[ $PROFILER_OUTPUT = *"Built-in"* ]]; then
+        TOP_PADDING=12
+    else
+        TOP_PADDING=40
+    fi
+    BOTTOM_PADDING=20
+    LEFT_PADDING=20
+    RIGHT_PADDING=20
 fi
 
 yabai -m config \
@@ -39,9 +51,9 @@ yabai -m config \
     split_type auto \
     auto_balance off \
     top_padding $TOP_PADDING \
-    bottom_padding 20 \
-    left_padding 20 \
-    right_padding 20 \
+    bottom_padding $BOTTOM_PADDING \
+    left_padding $LEFT_PADDING \
+    right_padding $RIGHT_PADDING \
     window_gap 12 \
     layout bsp \
     mouse_modifier fn \
