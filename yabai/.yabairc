@@ -19,6 +19,7 @@ if [ "$SKETCHYBAR_UP" = "false" ]; then
     BOTTOM_PADDING=0
     LEFT_PADDING=0
     RIGHT_PADDING=0
+    WINDOW_GAP=3
 else
     if [[ $PROFILER_OUTPUT = *"Built-in"* ]]; then
         TOP_PADDING=12
@@ -28,6 +29,7 @@ else
     BOTTOM_PADDING=20
     LEFT_PADDING=20
     RIGHT_PADDING=20
+    WINDOW_GAP=12
 fi
 
 yabai -m config \
@@ -54,7 +56,7 @@ yabai -m config \
     bottom_padding $BOTTOM_PADDING \
     left_padding $LEFT_PADDING \
     right_padding $RIGHT_PADDING \
-    window_gap 12 \
+    window_gap $WINDOW_GAP \
     layout bsp \
     mouse_modifier fn \
     mouse_action1 move \
