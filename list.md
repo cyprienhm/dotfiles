@@ -8,6 +8,10 @@ scutil --set LocalHostName 0
 scutil --set HostName 0
 ```
 
+- make windows draggable w ctrl+cmd+drag (must log out/in to apply)
+```sh
+defaults write -g NSWindowShouldDragOnGesture -bool true
+```
 - brew
 
 - JetBrainsMono Nerd Font
