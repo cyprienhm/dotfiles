@@ -4,3 +4,5 @@ font-thicken = true
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 keybind = shift+enter=text:\n
 macos-titlebar-style = hidden
+background-opacity = 0.8
+background-blur = 40
