@@ -75,3 +75,7 @@ brew install poppler
 ```sh
 brew install eza
 ```
+- zen
+always show bookmarks in single toolbar mode:
+`zen.view.hide-window-controls <- false` in about:config
+
