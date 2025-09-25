@@ -1,3 +1,4 @@
+[[ $- == *i* ]] && fastfetch
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -110,3 +111,4 @@ alias ta="tmux attach"
 alias tl="tmux list-sessions"
 
 [ -f ~/.ghcup/env ] && . ~/.ghcup/env # ghcup-env
+
