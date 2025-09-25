@@ -70,3 +70,8 @@ brew install tmux
 ```sh
 brew install poppler
 ```
+
+- eza
+```sh
+brew install eza
+```
