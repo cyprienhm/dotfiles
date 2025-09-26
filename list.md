@@ -40,10 +40,6 @@ brew install --cask ghostty
 - skhd
 - btop
 - bat
-- catppuccin colorscheme
-- catppuccin userstyles
-- solarized light colorscheme
-- dracula colorscheme
 - zk
 - vimium for chrome
 - jankyborders
@@ -78,4 +74,14 @@ brew install eza
 - zen
 always show bookmarks in single toolbar mode:
 `zen.view.hide-window-controls <- false` in about:config
+
+colorschemes
+- catppuccin
+- rose-pine
+- solarized light
+- dracula
+
+userstyles
+- install stylus extension
+- import `userstyles/stylus.json`
 
