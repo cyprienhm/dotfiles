@@ -1,4 +1,4 @@
-theme = catppuccin-mocha.conf
+theme = Rose Pine Moon
 font-family = "JetBrainsMonoNL Nerd Font Mono"
 font-thicken = true
 keybind = global:cmd+grave_accent=toggle_quick_terminal
