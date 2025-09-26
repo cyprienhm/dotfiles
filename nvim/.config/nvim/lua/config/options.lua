@@ -1,4 +1,4 @@
-vim.cmd.colorscheme("tokyonight-night")
+vim.cmd.colorscheme("rose-pine-moon")
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 vim.b.autoformat = true
