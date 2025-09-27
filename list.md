@@ -85,3 +85,7 @@ userstyles
 - install stylus extension
 - import `userstyles/stylus.json`
 
+- yazi
+```sh
+brew install yazi
+```
