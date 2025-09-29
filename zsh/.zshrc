@@ -31,11 +31,8 @@ fi
 
 alias ls="ls -G"
 alias ll="ls -lhaG"
-alias vim="nvim"
-alias vi="nvim"
 
 # all permutations of vim & nvim
-alias vim="nvim"
 alias vmi="nvim"
 alias ivm="nvim"
 alias imv="nvim"
