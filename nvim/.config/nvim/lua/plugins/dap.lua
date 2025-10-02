@@ -36,7 +36,7 @@ return {
   },
 
 		config = function()
-			require("dap-python").setup()
+			require("dap-python").setup("uv")
 			vim.api.nvim_set_hl(0, "DapStoppedLine", { default = true, link = "Visual" })
 		end,
 	},
