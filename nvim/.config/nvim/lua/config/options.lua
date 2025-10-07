@@ -1,6 +1,4 @@
 vim.cmd.colorscheme("rose-pine-moon")
-vim.g.mapleader = " "
-vim.g.maplocalleader = "\\"
 vim.b.autoformat = true
 local opt = vim.opt
 
