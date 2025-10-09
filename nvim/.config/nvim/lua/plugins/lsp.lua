@@ -1,7 +1,7 @@
 -- mason-tool-installer only accepts mason names
 local servers = {
 	"lua-language-server",
-	"pyright",
+	"basedpyright",
 	"ast-grep",
 	"typescript-language-server",
 	"marksman",
@@ -13,7 +13,7 @@ local servers = {
 }
 
 -- configs will automatically be read from lsp/. use these names
-vim.lsp.enable("pyright")
+vim.lsp.enable("basedpyright")
 vim.lsp.enable("ruff")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("ast_grep")
