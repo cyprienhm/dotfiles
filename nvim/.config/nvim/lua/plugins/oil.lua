@@ -10,6 +10,15 @@ return {
 			["<C-s>"] = { "actions.select", opts = { horizontal = true } },
 			["<C-h>"] = {},
 		},
+		lsp_file_methods = {
+			-- Enable or disable LSP file operations
+			enabled = true,
+			-- Time to wait for LSP file operations to complete before skipping
+			timeout_ms = 10000,
+			-- Set to true to autosave buffers that are updated with LSP willRenameFiles
+			-- Set to "unmodified" to only save unmodified buffers
+			autosave_changes = false,
+		},
 	},
 	-- Optional dependencies
 	dependencies = { { "nvim-mini/mini.icons", opts = {} } },
