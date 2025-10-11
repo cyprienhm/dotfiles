@@ -33,6 +33,7 @@ return {
 		{ "<leader>gd", function() Snacks.picker.git_diff() end, desc = "Git Diff (hunks)", },
 	},
 	opts = {
+		image = {},
 		picker = {
 			layout = {
 				preview = false,
