@@ -4,7 +4,7 @@ return {
 	lazy = false,
   -- stylua: ignore
 	keys = {
-		{ "<leader><space>", function() Snacks.picker.files() end, desc = "Find Files (Root Dir)", },
+		{ "<leader><space>", function() Snacks.picker.smart() end, desc = "Find Files (Root Dir)", },
 		{ "<leader>sg", function() Snacks.picker.grep() end, desc = "Grep", },
 		{ "<leader>sk", function() Snacks.picker.keymaps() end, desc = "Keymaps", },
     { "<leader>sM", function() Snacks.picker.man() end, desc = "Man Pages", },
@@ -21,11 +21,9 @@ return {
 		{ "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent", },
 		{ "<leader>fR", function() Snacks.picker.recent({ filter = { cwd = true } }) end, desc = "Recent (cwd)", },
 		{ "<leader>fE", function() Snacks.explorer() end, desc = "Explorer Snacks (cwd)", },
-		{ "<c-/>", function() Snacks.terminal(nil, { cwd = utils.git_root() }) end, desc = "Terminal (Root Dir)", },
-		{ "<c-_>", function() Snacks.terminal(nil, { cwd = utils.git_root() }) end, desc = "which_key_ignore", },
 		{ "<C-/>", "<cmd>close<cr>", desc = "Hide Terminal", mode = "t" },
 		{ "<c-_>", "<cmd>close<cr>", desc = "which_key_ignore", mode = "t" },
-		{ "<leader>bd", function() Snacks.bufdelete() end, desc = "Delete Buffer", },
+		{ "<leader>bd", "<cmd>bd<cr>", desc = "Delete Buffer", },
 		{ "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete Other Buffers", },
 		{ "<leader>gg", function() Snacks.lazygit({ cwd = utils.git_root() }) end, desc = "Lazygit (Root Dir)", },
 		{ "<leader>gG", function() Snacks.lazygit() end, desc = "Lazygit (cwd)", },
