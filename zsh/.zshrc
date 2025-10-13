@@ -17,6 +17,11 @@ autoload -U compinit
 compinit
 zstyle ':completion:*' menu select
 
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^Xe' edit-command-line
+bindkey '^X^e' edit-command-line
+
 export EDITOR="nvim"
 
 source <(fzf --zsh)
