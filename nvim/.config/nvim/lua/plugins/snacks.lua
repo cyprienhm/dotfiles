@@ -23,7 +23,6 @@ return {
 		{ "<leader>fE", function() Snacks.explorer() end, desc = "Explorer Snacks (cwd)", },
 		{ "<C-/>", "<cmd>close<cr>", desc = "Hide Terminal", mode = "t" },
 		{ "<c-_>", "<cmd>close<cr>", desc = "which_key_ignore", mode = "t" },
-		{ "<leader>bd", "<cmd>bd<cr>", desc = "Delete Buffer", },
 		{ "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete Other Buffers", },
 		{ "<leader>gg", function() Snacks.lazygit({ cwd = utils.git_root() }) end, desc = "Lazygit (Root Dir)", },
 		{ "<leader>gG", function() Snacks.lazygit() end, desc = "Lazygit (cwd)", },
