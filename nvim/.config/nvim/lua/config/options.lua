@@ -22,16 +22,8 @@ opt.foldlevel = 99
 opt.smoothscroll = true
 opt.foldexpr = "v:lua.require'utils.ui'.foldexpr()"
 opt.foldmethod = "expr"
-opt.foldtext = ""
+opt.foldtext = "" -- text displayed on closed fold
 opt.foldcolumn = "auto"
-opt.fillchars = {
-	foldopen = "",
-	foldclose = "",
-	fold = " ",
-	foldsep = " ",
-	diff = "╱",
-	eob = " ",
-}
 opt.showmode = false
 opt.ignorecase = true
 opt.smartcase = true
