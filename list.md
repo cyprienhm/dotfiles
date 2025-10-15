@@ -54,8 +54,14 @@ brew install zoxide
 - p10k
 ```sh
 brew install powerlevel10k
-echo "source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme" >>~/.zshrc
 ```
+and add `source $(brew --prefix)/share/powerlevel10k/powerlevel10k.zsh-theme` in ~/.zshrc
+
+- starship
+```sh
+curl -sS https://starship.rs/install.sh | sh
+```
+and add `eval "$(starship init zsh)"` ~/.zshrc
 
 - tmux
 ```sh
