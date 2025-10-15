@@ -1,15 +1,6 @@
 [[ $- == *i* ]] && fastfetch
-# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
-# Initialization code that may require console input (password prompts, [y/n]
-# confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
-    source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
-fi
 
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
-
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+eval "$(starship init zsh)"
 
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
@@ -37,35 +28,6 @@ fi
 alias ls="ls -G"
 alias ll="ls -lhaG"
 
-# all permutations of vim & nvim
-alias vmi="nvim"
-alias ivm="nvim"
-alias imv="nvim"
-alias mvi="nvim"
-alias miv="nvim"
-alias nvmi="nvim"
-alias nivm="nvim"
-alias nimv="nvim"
-alias nmvi="nvim"
-alias nmiv="nvim"
-alias vnim="nvim"
-alias vnmi="nvim"
-alias vinm="nvim"
-alias vimn="nvim"
-alias vmni="nvim"
-alias vmin="nvim"
-alias invm="nvim"
-alias inmv="nvim"
-alias ivnm="nvim"
-alias ivmn="nvim"
-alias imnv="nvim"
-alias imvn="nvim"
-alias mnvi="nvim"
-alias mniv="nvim"
-alias mvni="nvim"
-alias mvin="nvim"
-alias minv="nvim"
-alias mivn="nvim"
 alias n=nvim
 
 alias l="lazygit"
