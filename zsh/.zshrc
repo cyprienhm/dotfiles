@@ -109,6 +109,7 @@ batdiff() {
 }
 
 alias t=tmux
+alias tn="tmux new-session"
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
 tt() {
