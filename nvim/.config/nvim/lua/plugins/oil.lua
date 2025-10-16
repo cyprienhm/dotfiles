@@ -9,6 +9,7 @@ return {
 			["<C-v>"] = { "actions.select", opts = { vertical = true } },
 			["<C-s>"] = { "actions.select", opts = { horizontal = true } },
 			["<C-h>"] = {},
+			["gS"] = { "actions.change_sort", mode = "n" },
 		},
 		lsp_file_methods = {
 			-- Enable or disable LSP file operations
