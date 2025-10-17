@@ -68,3 +68,4 @@ yabai -m rule --add app="python3" manage=off
 yabai -m rule --add app="Finder" manage=off
 yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="Activity Monitor" manage=off
+yabai -m rule --add app="licecap" manage=off
