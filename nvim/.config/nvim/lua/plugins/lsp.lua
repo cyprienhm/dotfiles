@@ -4,6 +4,7 @@ local servers = {
 	"basedpyright",
 	"ast-grep",
 	"typescript-language-server",
+	"svelte-language-server",
 	"marksman",
 	"stylua",
 	"ruff",
@@ -18,6 +19,7 @@ vim.lsp.enable("ruff")
 vim.lsp.enable("lua_ls")
 vim.lsp.enable("ast_grep")
 vim.lsp.enable("ts_ls")
+vim.lsp.enable("svelte")
 vim.lsp.enable("marksman")
 vim.lsp.enable("tinymist")
 vim.lsp.enable("cssls")
