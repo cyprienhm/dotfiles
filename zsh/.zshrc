@@ -2,6 +2,9 @@
 
 eval "$(starship init zsh)"
 
+bindkey -e
+set -o emacs
+
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 autoload -U compinit
