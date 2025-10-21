@@ -21,7 +21,7 @@ return {
 		{ "<leader>fr", function() Snacks.picker.recent() end, desc = "Recent", },
 		{ "<leader>fR", function() Snacks.picker.recent({ filter = { cwd = true } }) end, desc = "Recent (cwd)", },
 		{ "<leader>fE", function() Snacks.explorer() end, desc = "Explorer Snacks (cwd)", },
-		{ "<leader>fl", function() Snacks.picker.resume() end, desc = "Last picker", },
+		{ "<leader>sl", function() Snacks.picker.resume() end, desc = "Last picker", },
 		{ "<C-/>", "<cmd>close<cr>", desc = "Hide Terminal", mode = "t" },
 		{ "<c-_>", "<cmd>close<cr>", desc = "which_key_ignore", mode = "t" },
 		{ "<leader>bo", function() Snacks.bufdelete.other() end, desc = "Delete Other Buffers", },
