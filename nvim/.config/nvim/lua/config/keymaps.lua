@@ -112,6 +112,8 @@ local function toggle_buffer_format()
 end
 map("n", "<leader>uf", toggle_buffer_format, { desc = "Toggle buffer format" })
 
+map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
+
 map("n", "<leader>fY", function()
 	local filepath = vim.api.nvim_buf_get_name(0)
 	vim.fn.setreg("+", filepath)
