@@ -301,6 +301,7 @@ require("conform").setup({
 
 require("snacks").setup({
 	image = {},
+	words = {},
 	picker = {
 		layout = {
 			preview = false,
@@ -389,6 +390,17 @@ end, { desc = "Git Log (cwd)" })
 map("n", "<leader>gd", function()
 	Snacks.picker.git_diff()
 end, { desc = "Git Diff (hunks)" })
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		map("n", "[[", function()
+			Snacks.words.jump(-1, true)
+		end, { buffer = true, desc = "Jump to previous word" })
+		map("n", "]]", function()
+			Snacks.words.jump(1, true)
+		end, { buffer = true, desc = "Jump to next word" })
+	end,
+})
 
 -- snippets
 local ls = require("luasnip")
