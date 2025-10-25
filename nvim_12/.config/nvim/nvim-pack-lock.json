@@ -24,9 +24,17 @@
       "rev": "ad7146a",
       "src": "https://github.com/williamboman/mason.nvim"
     },
+    "mini.ai": {
+      "rev": "11c5718",
+      "src": "https://github.com/nvim-mini/mini.ai"
+    },
     "oil.nvim": {
       "rev": "7e1cd77",
       "src": "https://github.com/stevearc/oil.nvim"
+    },
+    "persistence.nvim": {
+      "rev": "51eef57",
+      "src": "https://github.com/folke/persistence.nvim"
     },
     "rose-pine": {
       "rev": "72a04c4",

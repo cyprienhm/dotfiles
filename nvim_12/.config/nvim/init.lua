@@ -182,6 +182,7 @@ opt.grepprg = "rg --vimgrep"
 vim.pack.add({
 	{ src = "https://github.com/folke/snacks.nvim" },
 	{ src = "https://github.com/folke/lazydev.nvim" },
+	{ src = "https://github.com/folke/persistence.nvim" },
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
@@ -189,6 +190,7 @@ vim.pack.add({
 	{ src = "https://github.com/williamboman/mason.nvim" },
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
+	{ src = "https://github.com/nvim-mini/mini.ai" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -649,3 +651,12 @@ ins_right({
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
+
+require("mini.ai").setup({})
+
+-- persistence
+require("persistence").setup()
+
+map("n", "<leader>qs", function()
+	require("persistence").load()
+end, { desc = "Restore Session" })
