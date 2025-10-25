@@ -194,6 +194,7 @@ vim.pack.add({
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim", name = "ibl" },
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
+	{ src = "https://github.com/Bekaboo/dropbar.nvim" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -780,3 +781,6 @@ require("gitsigns").setup({
       map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
 	end,
 })
+
+-- breadcrumbs
+require("dropbar").setup()
