@@ -329,7 +329,6 @@ require("snacks").setup({
 	scroll = { enabled = false },
 })
 
-map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 map("n", "<leader><space>", function()
 	Snacks.picker.smart()
 end, { desc = "Find Files (Root Dir)" })
