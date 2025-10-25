@@ -4,6 +4,10 @@
       "rev": "ccf25a5",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
+    "blink.cmp": {
+      "rev": "8743384",
+      "src": "https://github.com/saghen/blink.cmp"
+    },
     "conform.nvim": {
       "rev": "9fd3d5e",
       "src": "https://github.com/stevearc/conform.nvim"
