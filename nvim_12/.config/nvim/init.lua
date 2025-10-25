@@ -193,6 +193,7 @@ vim.pack.add({
 	{ src = "https://github.com/nvim-mini/mini.ai" },
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim", name = "ibl" },
 	{ src = "https://github.com/saghen/blink.cmp" },
+	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -729,4 +730,53 @@ require("blink.cmp").setup({
 	--
 	-- See the fuzzy documentation for more information
 	fuzzy = { implementation = "prefer_rust_with_warning", prebuilt_binaries = { force_version = "v1.7.0" } },
+})
+
+-- gitsigns
+require("gitsigns").setup({
+	signs = {
+		add = { text = "+" },
+		change = { text = "~" },
+		delete = { text = "-" },
+		topdelete = { text = "-" },
+		changedelete = { text = "~" },
+		untracked = { text = "?" },
+	},
+	signs_staged = {
+		add = { text = "++" },
+		change = { text = "~~" },
+		delete = { text = "--" },
+		topdelete = { text = "--" },
+		changedelete = { text = "~~" },
+	},
+	on_attach = function(buffer)
+		local gs = package.loaded.gitsigns
+
+		local function map(mode, l, r, desc)
+			vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
+		end
+
+      -- stylua: ignore start
+      map("n", "]h", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "]c", bang = true })
+        else
+          gs.nav_hunk("next")
+        end
+      end, "Next Hunk")
+      map("n", "[h", function()
+        if vim.wo.diff then
+          vim.cmd.normal({ "[c", bang = true })
+        else
+          gs.nav_hunk("prev")
+        end
+      end, "Prev Hunk")
+      map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+      map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+      map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
+      map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+      map("n", "<leader>ghB", function() gs.blame() end, "Blame Buffer")
+      map("n", "<leader>ghd", gs.diffthis, "Diff This")
+      map("n", "<leader>ghD", function() gs.diffthis("~") end, "Diff This ~")
+	end,
 })
