@@ -8,6 +8,10 @@
       "rev": "9fd3d5e",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "ibl": {
+      "rev": "005b560",
+      "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
+    },
     "lazydev.nvim": {
       "rev": "01bc2aa",
       "src": "https://github.com/folke/lazydev.nvim"
