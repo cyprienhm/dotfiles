@@ -218,15 +218,7 @@ require("mason-tool-installer").setup({
 })
 
 -- configs will automatically be read from lsp/. use these names
-vim.lsp.enable("basedpyright")
-vim.lsp.enable("ruff")
-vim.lsp.enable("lua_ls")
-vim.lsp.enable("ast_grep")
-vim.lsp.enable("ts_ls")
-vim.lsp.enable("svelte")
-vim.lsp.enable("marksman")
-vim.lsp.enable("tinymist")
-vim.lsp.enable("cssls")
+vim.lsp.enable({ "basedpyright", "ruff", "lua_ls", "ast_grep", "ts_ls", "svelte", "marksman", "tinymist", "cssls" })
 
 vim.diagnostic.config({
 	severity_sort = true,
