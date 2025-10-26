@@ -196,6 +196,7 @@ vim.pack.add({
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/Bekaboo/dropbar.nvim" },
+	{ src = "https://github.com/chentoast/marks.nvim" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -788,3 +789,6 @@ require("dropbar").setup()
 
 -- which-key
 require("which-key").setup({ delay = 500 })
+
+-- marks
+require("marks").setup()
