@@ -199,6 +199,7 @@ vim.pack.add({
 	{ src = "https://github.com/chentoast/marks.nvim" },
 	{ src = "https://github.com/jpalardy/vim-slime" },
 	{ src = "https://github.com/nvim-mini/mini.surround" },
+	{ src = "https://github.com/akinsho/bufferline.nvim" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -812,3 +813,6 @@ require("mini.surround").setup({
 		update_n_lines = "gsn", -- Update `n_lines`
 	},
 })
+
+-- bufferline
+require("bufferline").setup()

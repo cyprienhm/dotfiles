@@ -8,6 +8,10 @@
       "rev": "8743384",
       "src": "https://github.com/saghen/blink.cmp"
     },
+    "bufferline.nvim": {
+      "rev": "655133c",
+      "src": "https://github.com/akinsho/bufferline.nvim"
+    },
     "conform.nvim": {
       "rev": "9fd3d5e",
       "src": "https://github.com/stevearc/conform.nvim"
