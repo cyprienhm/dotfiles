@@ -59,6 +59,10 @@
     "snacks.nvim": {
       "rev": "c952834",
       "src": "https://github.com/folke/snacks.nvim"
+    },
+    "which-key.nvim": {
+      "rev": "b4177e3",
+      "src": "https://github.com/folke/which-key.nvim"
     }
   }
 }

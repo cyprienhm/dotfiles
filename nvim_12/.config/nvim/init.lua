@@ -183,6 +183,7 @@ vim.pack.add({
 	{ src = "https://github.com/folke/snacks.nvim" },
 	{ src = "https://github.com/folke/lazydev.nvim" },
 	{ src = "https://github.com/folke/persistence.nvim" },
+	{ src = "https://github.com/folke/which-key.nvim" },
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
@@ -784,3 +785,6 @@ require("gitsigns").setup({
 
 -- breadcrumbs
 require("dropbar").setup()
+
+-- which-key
+require("which-key").setup({ delay = 500 })
