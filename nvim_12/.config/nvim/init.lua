@@ -197,6 +197,7 @@ vim.pack.add({
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
 	{ src = "https://github.com/Bekaboo/dropbar.nvim" },
 	{ src = "https://github.com/chentoast/marks.nvim" },
+	{ src = "https://github.com/jpalardy/vim-slime" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -792,3 +793,8 @@ require("which-key").setup({ delay = 500 })
 
 -- marks
 require("marks").setup()
+
+-- slime
+vim.cmd('let g:slime_target = "tmux"')
+vim.cmd('let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}')
+vim.cmd("let g:slime_bracketed_paste = 1")

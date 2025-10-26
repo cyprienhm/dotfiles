@@ -64,6 +64,10 @@
       "rev": "c952834",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "vim-slime": {
+      "rev": "67b24bf",
+      "src": "https://github.com/jpalardy/vim-slime"
+    },
     "which-key.nvim": {
       "rev": "b4177e3",
       "src": "https://github.com/folke/which-key.nvim"
