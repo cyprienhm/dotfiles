@@ -48,6 +48,10 @@
       "rev": "11c5718",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
+    "mini.surround": {
+      "rev": "444e155",
+      "src": "https://github.com/nvim-mini/mini.surround"
+    },
     "oil.nvim": {
       "rev": "7e1cd77",
       "src": "https://github.com/stevearc/oil.nvim"

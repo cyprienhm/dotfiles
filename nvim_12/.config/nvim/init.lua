@@ -198,6 +198,7 @@ vim.pack.add({
 	{ src = "https://github.com/Bekaboo/dropbar.nvim" },
 	{ src = "https://github.com/chentoast/marks.nvim" },
 	{ src = "https://github.com/jpalardy/vim-slime" },
+	{ src = "https://github.com/nvim-mini/mini.surround" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -798,3 +799,16 @@ require("marks").setup()
 vim.cmd('let g:slime_target = "tmux"')
 vim.cmd('let g:slime_default_config = {"socket_name": "default", "target_pane": "{last}"}')
 vim.cmd("let g:slime_bracketed_paste = 1")
+
+-- surround
+require("mini.surround").setup({
+	mappings = {
+		add = "gsa", -- Add surrounding in Normal and Visual modes
+		delete = "gsd", -- Delete surrounding
+		find = "gsf", -- Find surrounding (to the right)
+		find_left = "gsF", -- Find surrounding (to the left)
+		highlight = "gsh", -- Highlight surrounding
+		replace = "gsr", -- Replace surrounding
+		update_n_lines = "gsn", -- Update `n_lines`
+	},
+})
