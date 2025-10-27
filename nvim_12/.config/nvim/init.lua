@@ -1,4 +1,3 @@
--- keymaps
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -32,15 +31,6 @@ map({ "i", "n", "s" }, "<esc>", function()
 	return "<esc>"
 end, { expr = true, desc = "Escape and Clear hlsearch" })
 
--- Clear search, diff update and redraw
--- taken from runtime/lua/_editor.lua
-map(
-	"n",
-	"<leader>ur",
-	"<Cmd>nohlsearch<Bar>diffupdate<Bar>normal! <C-L><CR>",
-	{ desc = "Redraw / Clear hlsearch / Diff Update" }
-)
-
 -- better indenting
 map("v", "<", "<gv")
 map("v", ">", ">gv")
@@ -48,23 +38,12 @@ map("v", ">", ">gv")
 -- new file
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
-map("n", "[q", vim.cmd.cprev, { desc = "Previous Quickfix" })
-map("n", "]q", vim.cmd.cnext, { desc = "Next Quickfix" })
-
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
 
--- windows
-map("n", "<leader>-", "<C-W>s", { desc = "Split Window Below", remap = true })
-map("n", "<leader>|", "<C-W>v", { desc = "Split Window Right", remap = true })
-
 -- tabs
-map("n", "<leader><tab>l", "<cmd>tablast<cr>", { desc = "Last Tab" })
 map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
-map("n", "<leader><tab>f", "<cmd>tabfirst<cr>", { desc = "First Tab" })
 map("n", "<leader><tab><tab>", "<cmd>tabnew<cr>", { desc = "New Tab" })
-map("n", "<leader><tab>]", "<cmd>tabnext<cr>", { desc = "Next Tab" })
 map("n", "<leader><tab>d", "<cmd>tabclose<cr>", { desc = "Close Tab" })
-map("n", "<leader><tab>[", "<cmd>tabprevious<cr>", { desc = "Previous Tab" })
 
 -- diagnostics
 map("n", "<leader>cd", vim.diagnostic.open_float, { desc = "Line Diagnostics" })
@@ -81,7 +60,7 @@ map("n", "[e", function()
 	vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Previous Error" })
 
-vim.keymap.set("n", "<leader>fo", function()
+vim.keymap.set("n", "<leader>e", function()
 	require("oil").open()
 end, { desc = "Open Oil", noremap = true, silent = true })
 
@@ -95,6 +74,20 @@ local function toggle_buffer_format()
 	vim.notify("Buffer format " .. (vim.b.autoformat and "enabled" or "disabled"))
 end
 map("n", "<leader>uf", toggle_buffer_format, { desc = "Toggle buffer format" })
+
+local function maybe_format(bufnr)
+	if vim.b.autoformat ~= false then
+		require("conform").format({ bufnr = bufnr })
+	end
+end
+
+vim.api.nvim_create_autocmd("BufWritePre", {
+	group = vim.api.nvim_create_augroup("format_on_save", { clear = true }),
+	pattern = "*",
+	callback = function(args)
+		maybe_format(args.buf)
+	end,
+})
 
 map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
 
@@ -122,20 +115,6 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 	group = vim.api.nvim_create_augroup("highlight_yank", { clear = true }),
 	callback = function()
 		vim.hl.on_yank()
-	end,
-})
-
-local function maybe_format(bufnr)
-	if vim.b.autoformat ~= false then
-		require("conform").format({ bufnr = bufnr })
-	end
-end
-
-vim.api.nvim_create_autocmd("BufWritePre", {
-	group = vim.api.nvim_create_augroup("format_on_save", { clear = true }),
-	pattern = "*",
-	callback = function(args)
-		maybe_format(args.buf)
 	end,
 })
 
@@ -179,6 +158,7 @@ opt.smartcase = true
 opt.winborder = "rounded"
 opt.grepprg = "rg --vimgrep"
 
+-- plugins
 vim.pack.add({
 	{ src = "https://github.com/folke/snacks.nvim" },
 	{ src = "https://github.com/folke/lazydev.nvim" },
@@ -205,6 +185,7 @@ vim.pack.add({
 
 require("lazydev").setup()
 
+-- lsp
 -- mason-tool-installer only accepts mason names
 local servers = {
 	"lua-language-server",
@@ -255,9 +236,11 @@ vim.diagnostic.config({
 	},
 })
 
+-- colorscheme
 require("rose-pine").setup({ styles = { transparency = true } })
 vim.cmd.colorscheme("rose-pine-moon")
 
+-- oil
 require("oil").setup({
 	default_file_explorer = true,
 	columns = { "icon", "size", "mtime" },
@@ -278,6 +261,7 @@ require("oil").setup({
 	},
 })
 
+-- conform
 require("conform").setup({
 	formatters_by_ft = {
 		python = { "ruff_format", "ruff_organize_imports" },
@@ -299,6 +283,7 @@ require("conform").setup({
 	},
 })
 
+-- snacks
 require("snacks").setup({
 	image = {},
 	words = {},
@@ -326,8 +311,6 @@ require("snacks").setup({
 	},
 	explorer = {},
 	toggle = { map = vim.keymap.set },
-	animate = { enabled = false },
-	scroll = { enabled = false },
 })
 
 map("n", "<leader><space>", function()
@@ -665,6 +648,7 @@ ins_right({
 -- Now don't forget to initialize lualine
 lualine.setup(config)
 
+-- mini.ai
 require("mini.ai").setup({})
 
 -- persistence
