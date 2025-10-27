@@ -56,6 +56,10 @@
       "rev": "444e155",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
+    "nvim-lspconfig": {
+      "rev": "a9b2fb5",
+      "src": "https://github.com/neovim/nvim-lspconfig"
+    },
     "oil.nvim": {
       "rev": "7e1cd77",
       "src": "https://github.com/stevearc/oil.nvim"
