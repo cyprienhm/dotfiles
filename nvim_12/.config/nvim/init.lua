@@ -311,7 +311,7 @@ require("snacks").setup({
 				col = 7,
 				box = "horizontal",
 				height = 0.6,
-				width = 0.7,
+				width = 0.9,
 				backdrop = false,
 				{
 					box = "vertical",
@@ -320,7 +320,7 @@ require("snacks").setup({
 					{ win = "input", height = 1, border = "bottom" },
 					{ win = "list", border = "none", cursorline = false },
 				},
-				{ win = "preview", title = "{preview}", border = "rounded", width = 0.5 },
+				{ win = "preview", title = "{preview}", border = "rounded", width = 0.9 },
 			},
 		},
 	},
