@@ -181,6 +181,11 @@ vim.pack.add({
 	{ src = "https://github.com/jpalardy/vim-slime" },
 	{ src = "https://github.com/nvim-mini/mini.surround" },
 	{ src = "https://github.com/akinsho/bufferline.nvim" },
+	{ src = "https://github.com/nvim-neotest/nvim-nio" },
+	{ src = "https://codeberg.org/mfussenegger/nvim-dap.git" },
+	{ src = "https://github.com/rcarriga/nvim-dap-ui" },
+	{ src = "https://github.com/mfussenegger/nvim-dap-python" },
+	{ src = "https://github.com/theHamsta/nvim-dap-virtual-text" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -801,3 +806,34 @@ require("mini.surround").setup({
 
 -- bufferline
 require("bufferline").setup()
+
+-- dap
+require("dapui").setup()
+require("nvim-dap-virtual-text").setup({ enabled = true, virt_text_pos = "inline" })
+require("dap-python").setup("uv")
+
+local dap = require("dap")
+local dapui = require("dapui")
+
+map("n", "<leader>db", function()
+	dap.set_breakpoint()
+end, { desc = "Dap Breakpoint" })
+map("n", "<leader>dB", function()
+	dap.set_breakpoint(vim.fn.input("Breakpoint condition: "))
+end, { desc = "Dap Breakpoint Condition" })
+map("n", "<leader>dc", function()
+	dap.continue()
+end, { desc = "Dap Continue" })
+map("n", "<leader>du", function()
+	require("dapui").toggle()
+end, { desc = "Dap UI" })
+
+dap.listeners.after.event_initialized["dapui_config"] = function()
+	dapui.open({})
+end
+dap.listeners.before.event_terminated["dapui_config"] = function()
+	dapui.close({})
+end
+dap.listeners.before.event_exited["dapui_config"] = function()
+	dapui.close({})
+end
