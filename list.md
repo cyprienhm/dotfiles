@@ -95,3 +95,8 @@ userstyles
 ```sh
 brew install yazi
 ```
+
+- imagemagick (for neovim image viewing usually)
+```sh
+brew install imagemagick
+```
