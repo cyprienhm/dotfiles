@@ -32,6 +32,7 @@ brew install --cask ghostty
 - lazyvim
 - fd
 - brew install ripgrep
+- pyenv
 - python
 - keyboard shortcuts > mission control > ^1-9 to switch spaces
 - trackpad > one tap
