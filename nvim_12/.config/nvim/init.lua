@@ -292,29 +292,6 @@ require("conform").setup({
 require("snacks").setup({
 	image = {},
 	words = {},
-	picker = {
-		layout = {
-			preview = false,
-			layout = {
-				position = "float",
-				row = -2,
-				col = 7,
-				box = "horizontal",
-				height = 0.6,
-				width = 0.9,
-				backdrop = false,
-				{
-					box = "vertical",
-					border = "rounded",
-					title = "",
-					{ win = "input", height = 1, border = "bottom" },
-					{ win = "list", border = "none", cursorline = false },
-				},
-				{ win = "preview", title = "{preview}", border = "rounded", width = 0.9 },
-			},
-		},
-	},
-	explorer = {},
 	toggle = { map = vim.keymap.set },
 })
 
