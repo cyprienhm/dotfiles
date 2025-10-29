@@ -160,6 +160,7 @@ opt.grepprg = "rg --vimgrep"
 
 -- plugins
 vim.pack.add({
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/folke/snacks.nvim" },
 	{ src = "https://github.com/folke/lazydev.nvim" },
 	{ src = "https://github.com/folke/persistence.nvim" },
@@ -189,6 +190,11 @@ vim.pack.add({
 }, { confirm = false })
 
 require("lazydev").setup()
+
+-- treesitter
+require("nvim-treesitter.configs").setup({
+	ensure_installed = { "python" },
+})
 
 -- lsp
 -- mason-tool-installer only accepts mason names

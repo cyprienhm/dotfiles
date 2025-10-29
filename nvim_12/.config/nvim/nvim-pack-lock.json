@@ -80,6 +80,10 @@
       "rev": "21f5324",
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
+    "nvim-treesitter": {
+      "rev": "42fc28ba",
+      "src": "https://github.com/nvim-treesitter/nvim-treesitter"
+    },
     "oil.nvim": {
       "rev": "7e1cd77",
       "src": "https://github.com/stevearc/oil.nvim"
