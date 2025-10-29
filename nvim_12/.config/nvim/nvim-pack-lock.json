@@ -20,6 +20,10 @@
       "rev": "ce20224",
       "src": "https://github.com/Bekaboo/dropbar.nvim"
     },
+    "flash.nvim": {
+      "rev": "fcea7ff",
+      "src": "https://github.com/folke/flash.nvim"
+    },
     "gitsigns.nvim": {
       "rev": "20ad441",
       "src": "https://github.com/lewis6991/gitsigns.nvim"

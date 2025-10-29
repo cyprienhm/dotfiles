@@ -165,6 +165,7 @@ vim.pack.add({
 	{ src = "https://github.com/folke/lazydev.nvim" },
 	{ src = "https://github.com/folke/persistence.nvim" },
 	{ src = "https://github.com/folke/which-key.nvim" },
+	{ src = "https://github.com/folke/flash.nvim" },
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
@@ -774,6 +775,16 @@ require("dropbar").setup()
 
 -- which-key
 require("which-key").setup({ delay = 500 })
+
+-- flash
+require("flash").setup({ label = { rainbow = { enabled = true } } })
+require("flash").toggle(true) -- use flash when /
+map({ "n", "x", "v" }, "s", function()
+	require("flash").jump()
+end, { desc = "Flash Jump" })
+map({ "n", "x", "v" }, "S", function()
+	require("flash").treesitter()
+end, { desc = "Flash Treesitter" })
 
 -- marks
 require("marks").setup()
