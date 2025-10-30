@@ -226,7 +226,7 @@ vim.diagnostic.config({
 			[vim.diagnostic.severity.ERROR] = "x",
 			[vim.diagnostic.severity.WARN] = "!",
 			[vim.diagnostic.severity.INFO] = "i",
-			[vim.diagnostic.severity.HINT] = "󰌶",
+			[vim.diagnostic.severity.HINT] = "h",
 		},
 	},
 	virtual_text = {
