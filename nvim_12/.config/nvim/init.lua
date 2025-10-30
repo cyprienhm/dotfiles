@@ -96,10 +96,8 @@ map("n", "<leader>fY", function()
 end, { desc = "Yank full path" })
 
 map("n", "<leader>fy", function()
-	local cwd = vim.uv.cwd()
 	local buf = vim.api.nvim_buf_get_name(0)
-	local filepath = vim.fn.fnamemodify(buf, ":." .. cwd)
-
+	local filepath = vim.fn.fnamemodify(buf, ":.")
 	vim.fn.setreg("+", filepath)
 	vim.notify("Yanked: " .. filepath)
 end, { desc = "Yank relative path" })
