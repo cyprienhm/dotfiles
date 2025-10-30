@@ -5,7 +5,7 @@
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "blink.cmp": {
-      "rev": "8743384",
+      "rev": "afc4f4d",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "bufferline.nvim": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
     "lazydev.nvim": {
-      "rev": "01bc2aa",
+      "rev": "c2dfe35",
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
@@ -57,7 +57,7 @@
       "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.surround": {
-      "rev": "444e155",
+      "rev": "3c73e2a",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "nvim-dap": {
@@ -77,7 +77,7 @@
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
     "nvim-lspconfig": {
-      "rev": "a9b2fb5",
+      "rev": "87d3018",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -88,12 +88,16 @@
       "rev": "42fc28ba",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter"
     },
+    "nvim-web-devicons": {
+      "rev": "8dcb311",
+      "src": "https://github.com/nvim-tree/nvim-web-devicons"
+    },
     "oil.nvim": {
       "rev": "7e1cd77",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "persistence.nvim": {
-      "rev": "51eef57",
+      "rev": "b20b2a7",
       "src": "https://github.com/folke/persistence.nvim"
     },
     "rose-pine": {
@@ -101,7 +105,7 @@
       "src": "https://github.com/rose-pine/neovim"
     },
     "snacks.nvim": {
-      "rev": "c952834",
+      "rev": "ba529d4",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "vim-slime": {
@@ -109,7 +113,7 @@
       "src": "https://github.com/jpalardy/vim-slime"
     },
     "which-key.nvim": {
-      "rev": "b4177e3",
+      "rev": "3aab214",
       "src": "https://github.com/folke/which-key.nvim"
     }
   }

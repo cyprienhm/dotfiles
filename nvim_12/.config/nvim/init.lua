@@ -171,6 +171,7 @@ vim.pack.add({
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
 	{ src = "https://github.com/nvim-mini/mini.ai" },
+	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim", name = "ibl" },
 	{ src = "https://github.com/saghen/blink.cmp" },
 	{ src = "https://github.com/lewis6991/gitsigns.nvim" },
@@ -641,6 +642,9 @@ lualine.setup(config)
 
 -- mini.ai
 require("mini.ai").setup({})
+
+-- nvim-web-devicons
+require("nvim-web-devicons").setup()
 
 -- persistence
 require("persistence").setup()
