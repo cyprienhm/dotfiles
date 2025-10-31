@@ -302,6 +302,7 @@ require("snacks").setup({
 	image = {},
 	words = {},
 	toggle = { map = vim.keymap.set },
+	zen = { show = { statusline = true }, toggles = { dim = false } },
 })
 
 map("n", "<leader><space>", function()
@@ -379,6 +380,10 @@ end, { desc = "Git Log (cwd)" })
 map("n", "<leader>gd", function()
 	Snacks.picker.git_diff()
 end, { desc = "Git Diff (hunks)" })
+map("n", "<leader>uz", function()
+	Snacks.zen()
+end, { desc = "Toggle Zen" })
+
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "*",
 	callback = function()
