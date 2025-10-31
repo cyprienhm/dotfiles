@@ -31,6 +31,11 @@ fi
 alias ls="ls -G"
 alias ll="ls -lhaG"
 
+mkcd() {
+    mkdir -p "$1"
+    cd "$1"
+}
+
 alias n=nvim
 
 alias l="lazygit"
