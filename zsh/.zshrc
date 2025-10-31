@@ -82,8 +82,31 @@ alias t=tmux
 alias tn="tmux new-session"
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
+# attach to existing sessions
+te() {
+    tmux attach -t $(tl | fzf --reverse | cut -d: -f1)
+}
+# session switcher + dispenser
 tt() {
-    tmux attach -t $(tl | fzf | cut -d: -f1)
+    TMUX_SESSION_DIRS=("$HOME/projects/" "$HOME/sandbox/" "$HOME/")
+    if [[ -z $1 ]]; then
+        search_path=("${TMUX_SESSION_DIRS[@]}")
+    else
+        search_path=("$1")
+    fi
+    selection=$(fd . "${search_path[@]}" --type=directory --max-depth=1 | fzf --reverse)
+    [[ -z $selection ]] && return
+    session_name=$(basename $selection)
+    if ! tmux has-session -t "$session_name"; then
+        tmux new-session -ds "$session_name" -c "$selection"
+    fi
+
+    # if $TMUX is not set, we are outside of tmux
+    if [[ -n $TMUX ]]; then
+        tmux switch-client -t "$session_name"
+    else
+        tmux attach -t "$session_name"
+    fi
 }
 
 [ -f ~/.ghcup/env ] && . ~/.ghcup/env # ghcup-env
