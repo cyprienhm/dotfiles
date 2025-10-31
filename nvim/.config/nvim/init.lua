@@ -235,7 +235,7 @@ vim.lsp.enable({
 vim.diagnostic.config({
 	severity_sort = true,
 	float = { border = "rounded", source = true },
-	underline = { severity = vim.diagnostic.severity.ERROR },
+	underline = false,
 	signs = {
 		text = {
 			[vim.diagnostic.severity.ERROR] = "x",
