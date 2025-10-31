@@ -1,5 +1,5 @@
 theme = Rose Pine Moon
-font-family = "JetBrainsMonoNL Nerd Font Mono"
+font-family = "Monaspace Neon NF"
 font-thicken = true
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 keybind = shift+enter=text:\n
