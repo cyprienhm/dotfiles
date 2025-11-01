@@ -211,6 +211,7 @@ local servers = {
 	"tinymist",
 	"beautysh",
 	"css-lsp",
+	"clangd",
 }
 
 require("mason").setup()
@@ -230,6 +231,7 @@ vim.lsp.enable({
 	"tinymist",
 	"cssls",
 	"hls",
+	"clangd",
 })
 
 vim.diagnostic.config({
@@ -294,6 +296,7 @@ require("conform").setup({
 		yaml = { "prettier" },
 		javascript = { "prettier" },
 		typescript = { "prettier" },
+		c = { "clang-format" },
 	},
 })
 
