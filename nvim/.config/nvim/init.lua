@@ -297,6 +297,7 @@ require("conform").setup({
 		javascript = { "prettier" },
 		typescript = { "prettier" },
 		c = { "clang-format" },
+		haskell = { "ormolu" },
 	},
 })
 
@@ -386,18 +387,6 @@ end, { desc = "Git Diff (hunks)" })
 map("n", "<leader>uz", function()
 	Snacks.zen()
 end, { desc = "Toggle Zen" })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "*",
-	callback = function()
-		map("n", "[[", function()
-			Snacks.words.jump(-1, true)
-		end, { buffer = true, desc = "Jump to previous word" })
-		map("n", "]]", function()
-			Snacks.words.jump(1, true)
-		end, { buffer = true, desc = "Jump to next word" })
-	end,
-})
 
 -- snippets
 local ls = require("luasnip")
@@ -804,6 +793,9 @@ end, { desc = "Flash Jump" })
 map({ "n", "x", "v" }, "S", function()
 	require("flash").treesitter()
 end, { desc = "Flash Treesitter" })
+map("c", "<C-S>", function()
+	require("flash").toggle()
+end, { desc = "Toggle Flash Search" })
 
 -- marks
 require("marks").setup()
