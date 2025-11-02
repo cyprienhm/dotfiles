@@ -1,5 +1,3 @@
-[[ $- == *i* ]] && fastfetch
-
 eval "$(starship init zsh)"
 
 bindkey -e
@@ -111,3 +109,5 @@ tt() {
 
 [ -f ~/.ghcup/env ] && . ~/.ghcup/env # ghcup-env
 
+
+alias claude="/Users/hex/.claude/local/claude"
