@@ -786,16 +786,12 @@ require("which-key").setup({ delay = 500 })
 
 -- flash
 require("flash").setup({ label = { rainbow = { enabled = true } } })
-require("flash").toggle(true) -- use flash when /
 map({ "n", "x", "v" }, "s", function()
 	require("flash").jump()
 end, { desc = "Flash Jump" })
 map({ "n", "x", "v" }, "S", function()
 	require("flash").treesitter()
 end, { desc = "Flash Treesitter" })
-map("c", "<C-S>", function()
-	require("flash").toggle()
-end, { desc = "Toggle Flash Search" })
 
 -- marks
 require("marks").setup()
