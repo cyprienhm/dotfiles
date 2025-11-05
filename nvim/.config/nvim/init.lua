@@ -195,6 +195,15 @@ require("lazydev").setup()
 -- treesitter
 require("nvim-treesitter.configs").setup({
 	ensure_installed = { "python" },
+	incremental_selection = {
+		enable = true,
+		keymaps = {
+			init_selection = "<C-Space>",
+			node_incremental = "<C-Space>",
+			scope_incremental = "grc",
+			node_decremental = "grm",
+		},
+	},
 })
 
 -- lsp
