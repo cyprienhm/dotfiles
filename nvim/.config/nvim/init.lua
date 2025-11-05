@@ -160,6 +160,7 @@ opt.grepprg = "rg --vimgrep"
 -- plugins
 vim.pack.add({
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 	{ src = "https://github.com/folke/snacks.nvim" },
 	{ src = "https://github.com/folke/lazydev.nvim" },
 	{ src = "https://github.com/folke/persistence.nvim" },
@@ -173,7 +174,6 @@ vim.pack.add({
 	{ src = "https://github.com/williamboman/mason.nvim" },
 	{ src = "https://github.com/L3MON4D3/LuaSnip" },
 	{ src = "https://github.com/nvim-lualine/lualine.nvim" },
-	{ src = "https://github.com/nvim-mini/mini.ai" },
 	{ src = "https://github.com/nvim-tree/nvim-web-devicons" },
 	{ src = "https://github.com/lukas-reineke/indent-blankline.nvim", name = "ibl" },
 	{ src = "https://github.com/saghen/blink.cmp" },
@@ -662,8 +662,31 @@ ins_right({
 -- Now don't forget to initialize lualine
 lualine.setup(config)
 
--- mini.ai
-require("mini.ai").setup({})
+-- nvim-treesitter-textobjects
+require("nvim-treesitter.configs").setup({
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true,
+			keymaps = {
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+				["as"] = "@local.scope",
+				["aa"] = "@parameter.outer",
+				["ia"] = "@parameter.inner",
+			},
+			selection_modes = {
+				["@function.inner"] = "V",
+				["@function.outer"] = "V",
+				["@class.inner"] = "V",
+				["@class.outer"] = "V",
+			},
+			include_surrounding_whitespace = true,
+		},
+	},
+})
 
 -- nvim-web-devicons
 require("nvim-web-devicons").setup()
