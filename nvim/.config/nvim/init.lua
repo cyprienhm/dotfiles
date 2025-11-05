@@ -232,6 +232,7 @@ vim.lsp.enable({
 	"cssls",
 	"hls",
 	"clangd",
+	"rust_analyzer",
 })
 
 vim.diagnostic.config({
@@ -298,6 +299,7 @@ require("conform").setup({
 		typescript = { "prettier" },
 		c = { "clang-format" },
 		haskell = { "ormolu" },
+		rust = { "rustfmt" },
 	},
 })
 
