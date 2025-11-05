@@ -50,14 +50,8 @@ export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
 alias zathura="/opt/homebrew/bin/zathura"
 
 function zp() {
-    local dir="${HOME}/papers"
-    local oldpwd=$PWD
-    cd "$dir"
-    command -v fd >/dev/null || { echo "fd not found"; return 1; }
-    command -v fzf >/dev/null || { echo "fzf not found"; return 1; }
-
-    local selected_file=$(fd --type f . --strip-cwd-prefix | fzf --reverse --height=80% --preview '
-    p='$dir'/{}
+    local selected_file=$(fd --extension pdf . $HOME/papers | fzf --delimiter / --with-nth {-1} --reverse --height=80% --preview '
+    p={}
     case "$p" in
       *.pdf) command -v pdftotext >/dev/null && pdftotext -l 1 "$p" - 2>/dev/null | sed -n "1,80p" || file -b "$p" ;;
         *) file -b "$p" ;;
@@ -65,8 +59,20 @@ function zp() {
     ') || return
     [ -z "$selected_file" ] && return
 
-    nohup zathura "$dir/$selected_file" >/dev/null 2>&1 & disown || true
-    cd "$oldpwd"
+    nohup zathura "$selected_file" >/dev/null 2>&1 & disown || true
+}
+
+function zf() {
+    local selected_file=$(fd --extension pdf . $HOME | fzf --reverse --height=80% --preview '
+    p={}
+    case "$p" in
+      *.pdf) command -v pdftotext >/dev/null && pdftotext -l 1 "$p" - 2>/dev/null | sed -n "1,80p" || file -b "$p" ;;
+        *) file -b "$p" ;;
+    esac
+    ') || return
+    [ -z "$selected_file" ] && return
+
+    nohup zathura "$selected_file" >/dev/null 2>&1 & disown || true
 }
 
 eval "$(zoxide init zsh)"
