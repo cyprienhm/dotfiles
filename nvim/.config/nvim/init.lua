@@ -206,6 +206,56 @@ require("nvim-treesitter.configs").setup({
 	},
 })
 
+-- nvim-treesitter-textobjects
+require("nvim-treesitter.configs").setup({
+	textobjects = {
+		select = {
+			enable = true,
+			lookahead = true,
+			keymaps = {
+				["af"] = "@function.outer",
+				["if"] = "@function.inner",
+				["ac"] = "@class.outer",
+				["ic"] = "@class.inner",
+				["as"] = "@local.scope",
+				["aa"] = "@parameter.outer",
+				["ia"] = "@parameter.inner",
+				["ai"] = "@conditional.outer",
+				["ii"] = "@conditional.inner",
+				["al"] = "@loop.outer",
+				["il"] = "@loop.inner",
+			},
+			selection_modes = {
+				["@function.inner"] = "V",
+				["@function.outer"] = "V",
+				["@class.inner"] = "V",
+				["@class.outer"] = "V",
+			},
+			include_surrounding_whitespace = true,
+		},
+		move = {
+			enable = true,
+			set_jumps = true,
+			goto_next_start = {
+				["]f"] = "@function.outer",
+				["]c"] = "@class.outer",
+			},
+			goto_next_end = {
+				["]F"] = "@function.outer",
+				["]C"] = "@class.outer",
+			},
+			goto_previous_start = {
+				["[f"] = "@function.outer",
+				["[c"] = "@class.outer",
+			},
+			goto_previous_end = {
+				["[F"] = "@function.outer",
+				["[C"] = "@class.outer",
+			},
+		},
+	},
+})
+
 -- lsp
 -- mason-tool-installer only accepts mason names
 local servers = {
@@ -661,32 +711,6 @@ ins_right({
 
 -- Now don't forget to initialize lualine
 lualine.setup(config)
-
--- nvim-treesitter-textobjects
-require("nvim-treesitter.configs").setup({
-	textobjects = {
-		select = {
-			enable = true,
-			lookahead = true,
-			keymaps = {
-				["af"] = "@function.outer",
-				["if"] = "@function.inner",
-				["ac"] = "@class.outer",
-				["ic"] = "@class.inner",
-				["as"] = "@local.scope",
-				["aa"] = "@parameter.outer",
-				["ia"] = "@parameter.inner",
-			},
-			selection_modes = {
-				["@function.inner"] = "V",
-				["@function.outer"] = "V",
-				["@class.inner"] = "V",
-				["@class.outer"] = "V",
-			},
-			include_surrounding_whitespace = true,
-		},
-	},
-})
 
 -- nvim-web-devicons
 require("nvim-web-devicons").setup()
