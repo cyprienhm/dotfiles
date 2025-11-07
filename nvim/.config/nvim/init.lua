@@ -843,13 +843,19 @@ require("dropbar").setup()
 require("which-key").setup({ delay = 500 })
 
 -- flash
-require("flash").setup({ label = { rainbow = { enabled = true } } })
+require("flash").setup({
+	label = { rainbow = { enabled = true } },
+	modes = { char = { enabled = false } },
+})
 map({ "n", "x", "v" }, "s", function()
 	require("flash").jump()
 end, { desc = "Flash Jump" })
 map({ "n", "x", "v" }, "S", function()
 	require("flash").treesitter()
 end, { desc = "Flash Treesitter" })
+map({ "x", "o" }, "r", function()
+	require("flash").remote()
+end, { desc = "Flash Remote" })
 
 -- marks
 require("marks").setup()
