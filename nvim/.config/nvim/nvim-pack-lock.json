@@ -1,11 +1,11 @@
 {
   "plugins": {
     "LuaSnip": {
-      "rev": "ccf25a5",
+      "rev": "3732756",
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "blink.cmp": {
-      "rev": "afc4f4d",
+      "rev": "40380e7",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "bufferline.nvim": {
@@ -13,7 +13,7 @@
       "src": "https://github.com/akinsho/bufferline.nvim"
     },
     "conform.nvim": {
-      "rev": "9fd3d5e",
+      "rev": "cde4da5",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "dropbar.nvim": {
@@ -33,7 +33,7 @@
       "src": "https://github.com/lukas-reineke/indent-blankline.nvim"
     },
     "lazydev.nvim": {
-      "rev": "c2dfe35",
+      "rev": "5231c62",
       "src": "https://github.com/folke/lazydev.nvim"
     },
     "lualine.nvim": {
@@ -53,15 +53,15 @@
       "src": "https://github.com/williamboman/mason.nvim"
     },
     "mini.ai": {
-      "rev": "11c5718",
+      "rev": "0d3c9cf",
       "src": "https://github.com/nvim-mini/mini.ai"
     },
     "mini.surround": {
-      "rev": "3c73e2a",
+      "rev": "88c5229",
       "src": "https://github.com/nvim-mini/mini.surround"
     },
     "nvim-dap": {
-      "rev": "6782b09",
+      "rev": "e97dc47",
       "src": "https://codeberg.org/mfussenegger/nvim-dap.git"
     },
     "nvim-dap-python": {
@@ -77,7 +77,7 @@
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
     "nvim-lspconfig": {
-      "rev": "87d3018",
+      "rev": "2010fc6",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -105,11 +105,11 @@
       "src": "https://github.com/folke/persistence.nvim"
     },
     "rose-pine": {
-      "rev": "72a04c4",
+      "rev": "eb3ff49",
       "src": "https://github.com/rose-pine/neovim"
     },
     "snacks.nvim": {
-      "rev": "ba529d4",
+      "rev": "9a15b31",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "vim-slime": {
