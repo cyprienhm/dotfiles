@@ -109,7 +109,7 @@
       "src": "https://github.com/rose-pine/neovim"
     },
     "snacks.nvim": {
-      "rev": "9a15b31",
+      "rev": "eee204d",
       "src": "https://github.com/folke/snacks.nvim"
     },
     "vim-slime": {
