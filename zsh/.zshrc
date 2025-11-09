@@ -100,7 +100,7 @@ tt() {
     fi
     selection=$(fd . "${search_path[@]}" --type=directory --max-depth=1 | fzf --reverse)
     [[ -z $selection ]] && return
-    session_name=$(basename $selection)
+    session_name=$(basename "$selection" | sed 's/\.//g')
     if ! tmux has-session -t "$session_name"; then
         tmux new-session -ds "$session_name" -c "$selection"
     fi
