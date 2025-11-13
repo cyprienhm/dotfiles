@@ -473,6 +473,12 @@ ls.add_snippets("python", {
 	}),
 })
 
+ls.add_snippets("rust", {
+	s("debug", {
+		t({ 'println!("{:?}");' }),
+	}),
+})
+
 -- lualine
 local lualine = require("lualine")
 
