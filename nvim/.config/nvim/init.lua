@@ -22,6 +22,7 @@ map("n", "<C-Right>", "<cmd>vertical resize +2<cr>", { desc = "Increase Window W
 map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bd", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
+map("n", "<leader>ba", "<cmd>:%bd<cr>", { desc = "Delete All Buffers" })
 
 -- Clear search and stop snippet on escape
 map({ "i", "n", "s" }, "<esc>", function()
@@ -159,6 +160,7 @@ opt.grepprg = "rg --vimgrep"
 
 -- plugins
 vim.pack.add({
+	{ src = "tableview.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 	{ src = "https://github.com/folke/snacks.nvim" },
@@ -427,9 +429,6 @@ end, { desc = "Recent (cwd)" })
 map("n", "<leader>sl", function()
 	Snacks.picker.resume()
 end, { desc = "Last picker" })
-map("n", "<leader>bo", function()
-	Snacks.bufdelete.other()
-end, { desc = "Delete Other Buffers" })
 map("n", "<leader>gg", function()
 	Snacks.lazygit({ cwd = git_root() })
 end, { desc = "Lazygit (Root Dir)" })
