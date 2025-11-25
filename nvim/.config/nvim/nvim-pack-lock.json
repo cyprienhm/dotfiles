@@ -104,6 +104,10 @@
       "rev": "b20b2a7",
       "src": "https://github.com/folke/persistence.nvim"
     },
+    "plenary.nvim": {
+      "rev": "b9fd522",
+      "src": "https://github.com/nvim-lua/plenary.nvim"
+    },
     "rose-pine": {
       "rev": "eb3ff49",
       "src": "https://github.com/rose-pine/neovim"
@@ -119,6 +123,10 @@
     "which-key.nvim": {
       "rev": "3aab214",
       "src": "https://github.com/folke/which-key.nvim"
+    },
+    "yazi.nvim": {
+      "rev": "f97cbb7",
+      "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
 }

@@ -66,6 +66,9 @@ vim.keymap.set("n", "<leader>e", function()
 	require("oil").open()
 end, { desc = "Open Oil", noremap = true, silent = true })
 
+vim.keymap.set("n", "<leader>yy", "<cmd>Yazi<cr>", { desc = "Open Yazi", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>yt", "<cmd>Yazi toggle<cr>", { desc = "Open Yazi", noremap = true, silent = true })
+
 -- toggle function
 local function toggle_buffer_format()
 	if vim.b.autoformat == nil then
@@ -160,7 +163,7 @@ opt.grepprg = "rg --vimgrep"
 
 -- plugins
 vim.pack.add({
-	{ src = "tableview.nvim" },
+	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
 	{ src = "https://github.com/folke/snacks.nvim" },
@@ -171,6 +174,7 @@ vim.pack.add({
 	{ src = "https://github.com/rose-pine/neovim", name = "rose-pine" },
 	{ src = "https://github.com/stevearc/conform.nvim" },
 	{ src = "https://github.com/stevearc/oil.nvim" },
+	{ src = "https://github.com/mikavilpas/yazi.nvim" },
 	{ src = "https://github.com/neovim/nvim-lspconfig" },
 	{ src = "https://github.com/WhoIsSethDaniel/mason-tool-installer.nvim" },
 	{ src = "https://github.com/williamboman/mason.nvim" },
@@ -336,6 +340,14 @@ require("oil").setup({
 		-- Set to true to autosave buffers that are updated with LSP willRenameFiles
 		-- Set to "unmodified" to only save unmodified buffers
 		autosave_changes = false,
+	},
+})
+
+-- yazi
+require("yazi").setup({
+	keymaps = {
+		open_file_in_horizontal_split = "<c-s>",
+		grep_in_directory = "<c-x>",
 	},
 })
 
