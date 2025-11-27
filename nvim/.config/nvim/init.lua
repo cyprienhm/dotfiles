@@ -319,8 +319,8 @@ vim.diagnostic.config({
 })
 
 -- colorscheme
-require("rose-pine").setup({ styles = { transparency = true } })
-vim.cmd.colorscheme("rose-pine-moon")
+require("rose-pine").setup({ styles = { transparency = false } })
+vim.cmd.colorscheme("rose-pine-main")
 
 -- oil
 require("oil").setup({
@@ -496,7 +496,7 @@ local lualine = require("lualine")
 -- Color table for highlights
 -- stylua: ignore
 local colors = {
-  -- bg       = '#202328', commented for transparency
+  bg       = '#202328',
   fg       = '#bbc2cf',
   yellow   = '#ECBE7B',
   cyan     = '#008080',
