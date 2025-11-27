@@ -1,7 +1,7 @@
-theme = Rose Pine Moon
+theme = Rose Pine
 font-family = "Monaspace Neon NF"
 keybind = global:cmd+grave_accent=toggle_quick_terminal
 keybind = shift+enter=text:\n
 macos-titlebar-style = hidden
-background-opacity = 0.8
-background-blur = 40
+background-opacity = 1.0
+# background-blur = 40
