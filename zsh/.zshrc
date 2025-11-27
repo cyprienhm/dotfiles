@@ -86,6 +86,7 @@ alias t=tmux
 alias tn="tmux new-session"
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
+alias tb="tmux capture-pane -p | $EDITOR -"
 # attach to existing sessions
 te() {
     tmux attach -t $(tl | fzf --reverse | cut -d: -f1)
