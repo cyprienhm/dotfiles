@@ -266,7 +266,7 @@ require("nvim-treesitter.configs").setup({
 -- mason-tool-installer only accepts mason names
 local servers = {
 	"lua-language-server",
-	"basedpyright",
+	"pyright",
 	"ast-grep",
 	"typescript-language-server",
 	"svelte-language-server",
@@ -286,7 +286,7 @@ require("mason-tool-installer").setup({
 
 -- configs will automatically be read from lsp/. use these names
 vim.lsp.enable({
-	"basedpyright",
+	"pyright",
 	"ruff",
 	"lua_ls",
 	"ast_grep",
