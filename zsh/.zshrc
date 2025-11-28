@@ -116,4 +116,12 @@ tt() {
 
 [ -f ~/.ghcup/env ] && . ~/.ghcup/env # ghcup-env
 
+# >>> juliaup initialize >>>
+
+# !! Contents within this block are managed by juliaup !!
+
+path=('/Users/hex/.juliaup/bin' $path)
+export PATH
+
+# <<< juliaup initialize <<<
 
