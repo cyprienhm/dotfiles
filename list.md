@@ -29,7 +29,6 @@ remember to Keys -> Key Mappings -> Import the preset Natural Text Editing
 - on ghostty, just use confg
 brew install --cask ghostty
 - fzf
-- lazyvim
 - fd
 - brew install ripgrep
 - pyenv
@@ -96,7 +95,34 @@ userstyles
 brew install yazi
 ```
 
+## stuff useful for neovim
+
 - imagemagick (for neovim image viewing usually)
 ```sh
 brew install imagemagick
+```
+
+- luarocks
+```sh
+brew install luarocks
+```
+
+- wget (for mason.nvim)
+```sh
+brew install wget
+```
+
+- julia
+```sh
+curl -fsSL https://install.julialang.org | sh
+```
+
+- brew coreutils
+```sh
+brew install coreutils
+```
+
+- pynvim
+```sh
+uv tool install --upgrade pynvim
 ```

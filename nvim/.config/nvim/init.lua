@@ -356,7 +356,6 @@ require("conform").setup({
 	formatters_by_ft = {
 		python = { "ruff_format", "ruff_organize_imports" },
 		lua = { "stylua" },
-		fish = { "fish_indent" },
 		sh = { "beautysh" },
 		zsh = { "beautysh" },
 		go = { "gofmt" },
@@ -378,6 +377,7 @@ require("conform").setup({
 
 -- snacks
 require("snacks").setup({
+	picker = {},
 	image = {},
 	words = {},
 	toggle = { map = vim.keymap.set },
