@@ -120,6 +120,10 @@
       "rev": "fe7cfe9",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "typst-preview.nvim": {
+      "rev": "87d0f3a1beedefe6fdd96422c04c3dceb69d1063",
+      "src": "https://github.com/chomosuke/typst-preview.nvim"
+    },
     "vim-slime": {
       "rev": "67b24bf",
       "src": "https://github.com/jpalardy/vim-slime"
