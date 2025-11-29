@@ -299,6 +299,7 @@ vim.lsp.enable({
 	"hls",
 	"clangd",
 	"rust_analyzer",
+	"julials",
 })
 
 vim.diagnostic.config({
