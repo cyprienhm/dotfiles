@@ -125,3 +125,6 @@ export PATH
 
 # <<< juliaup initialize <<<
 
+function wep() {
+    nodemon -w $1 --exec "python $1"
+}
