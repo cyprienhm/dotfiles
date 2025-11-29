@@ -3,3 +3,8 @@ set relativenumber
 set mouse=a
 set incsearch
 set hlsearch
+syntax enable
+set tabstop=2
+set shiftwidth=2
+set expandtab
+set ruler
