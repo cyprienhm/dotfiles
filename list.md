@@ -126,3 +126,8 @@ brew install coreutils
 ```sh
 uv tool install --upgrade pynvim
 ```
+
+- treesitter cli
+```sh
+cargo install --locked tree-sitter-cli
+```

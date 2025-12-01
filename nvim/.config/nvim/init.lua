@@ -164,8 +164,8 @@ opt.grepprg = "rg --vimgrep"
 -- plugins
 vim.pack.add({
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter" },
-	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
+	{ src = "https://github.com/nvim-treesitter/nvim-treesitter-textobjects", version = "main" },
 	{ src = "https://github.com/folke/snacks.nvim" },
 	{ src = "https://github.com/folke/lazydev.nvim" },
 	{ src = "https://github.com/folke/persistence.nvim" },
@@ -199,39 +199,12 @@ vim.pack.add({
 
 require("lazydev").setup()
 
--- treesitter
-require("nvim-treesitter.configs").setup({
-	ensure_installed = { "python" },
-	incremental_selection = {
-		enable = true,
-		keymaps = {
-			init_selection = "<C-Space>",
-			node_incremental = "<C-Space>",
-			scope_incremental = "grc",
-			node_decremental = "grm",
-		},
-	},
-})
-
 -- nvim-treesitter-textobjects
-require("nvim-treesitter.configs").setup({
+require("nvim-treesitter-textobjects").setup({
 	textobjects = {
 		select = {
 			enable = true,
 			lookahead = true,
-			keymaps = {
-				["af"] = "@function.outer",
-				["if"] = "@function.inner",
-				["ac"] = "@class.outer",
-				["ic"] = "@class.inner",
-				["as"] = "@local.scope",
-				["aa"] = "@parameter.outer",
-				["ia"] = "@parameter.inner",
-				["ai"] = "@conditional.outer",
-				["ii"] = "@conditional.inner",
-				["al"] = "@loop.outer",
-				["il"] = "@loop.inner",
-			},
 			selection_modes = {
 				["@function.inner"] = "V",
 				["@function.outer"] = "V",
@@ -240,28 +213,26 @@ require("nvim-treesitter.configs").setup({
 			},
 			include_surrounding_whitespace = true,
 		},
-		move = {
-			enable = true,
-			set_jumps = true,
-			goto_next_start = {
-				["]f"] = "@function.outer",
-				["]c"] = "@class.outer",
-			},
-			goto_next_end = {
-				["]F"] = "@function.outer",
-				["]C"] = "@class.outer",
-			},
-			goto_previous_start = {
-				["[f"] = "@function.outer",
-				["[c"] = "@class.outer",
-			},
-			goto_previous_end = {
-				["[F"] = "@function.outer",
-				["[C"] = "@class.outer",
-			},
-		},
 	},
 })
+vim.keymap.set({ "x", "o" }, "af", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "if", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ac", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ic", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "aa", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@parameter.outer", "textobjects")
+end)
+vim.keymap.set({ "x", "o" }, "ia", function()
+	require("nvim-treesitter-textobjects.select").select_textobject("@parameter.inner", "textobjects")
+end)
 
 -- lsp
 -- mason-tool-installer only accepts mason names
