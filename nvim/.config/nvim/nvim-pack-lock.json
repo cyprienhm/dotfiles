@@ -89,12 +89,12 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "00c906abb9550e72bc0c640545b5499b9525bb40",
+      "rev": "c5623d3486c1cda5f73e28a3a4abb454f708c48c",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "63c4dce4a56312ef1bdeafd16bdefa008fcc950a",
+      "rev": "dfbf9596f8aa8b4bed5301647485594ff7252955",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
@@ -135,7 +135,7 @@
       "src": "https://github.com/folke/which-key.nvim"
     },
     "yazi.nvim": {
-      "rev": "06eaf06a555dd481e8f8e9ebb9aaca54c4a0f87b",
+      "rev": "7ffb707ab34d425486eee0ae195546c25e05bf42",
       "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
