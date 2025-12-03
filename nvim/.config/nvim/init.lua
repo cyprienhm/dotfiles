@@ -508,8 +508,7 @@ local function mode()
 		["!"] = "shell!", -- Shell mode
 		t = "terminal", -- Terminal mode
 	}
-	-- Return the mode shorthand or [UNKNOWN] if no match
-	return mode_map[vim.fn.mode()] or "[UNKNOWN]"
+	return mode_map[vim.fn.mode()] or "[unknown]"
 end
 
 local conditions = {
@@ -605,7 +604,7 @@ ins_left({
 			rm = colors.cyan,
 			["r?"] = colors.cyan,
 			["!"] = colors.red,
-			t = colors.red,
+			t = colors.magenta,
 		}
 		return { fg = mode_color[vim.fn.mode()] }
 	end,
@@ -631,7 +630,7 @@ ins_left({ "progress", color = { fg = colors.fg, gui = "bold" } })
 ins_left({
 	"diagnostics",
 	sources = { "nvim_diagnostic" },
-	symbols = { error = " ", warn = " ", info = " " },
+	symbols = { error = "x", warn = "! ", info = "i ", hint = "h " },
 	diagnostics_color = {
 		error = { fg = colors.red },
 		warn = { fg = colors.yellow },
@@ -650,7 +649,7 @@ ins_left({
 ins_left({
 	-- Lsp server name .
 	function()
-		local msg = "No Active Lsp"
+		local msg = "no lsp"
 		local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 		local clients = vim.lsp.get_clients()
 		if next(clients) == nil then
@@ -664,7 +663,7 @@ ins_left({
 		end
 		return msg
 	end,
-	icon = " LSP:",
+	icon = "",
 	color = { fg = "#ffffff", gui = "bold" },
 })
 
@@ -678,14 +677,13 @@ ins_right({
 
 ins_right({
 	"branch",
-	icon = "",
+	icon = "",
 	color = { fg = colors.violet, gui = "bold" },
 })
 
 ins_right({
 	"diff",
-	-- Is it me or the symbol for modified us really weird
-	symbols = { added = " ", modified = "󰝤 ", removed = " " },
+	symbols = { added = "+", modified = "~", removed = "-" },
 	diff_color = {
 		added = { fg = colors.green },
 		modified = { fg = colors.orange },
