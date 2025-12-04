@@ -160,6 +160,9 @@ opt.ignorecase = true
 opt.smartcase = true
 opt.winborder = "rounded"
 opt.grepprg = "rg --vimgrep"
+opt.fillchars = {
+	foldinner = " ",
+}
 
 -- plugins
 vim.pack.add({
