@@ -13,7 +13,7 @@
       "src": "https://github.com/akinsho/bufferline.nvim"
     },
     "conform.nvim": {
-      "rev": "4993e07",
+      "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "dropbar.nvim": {
@@ -81,7 +81,7 @@
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
     "nvim-lspconfig": {
-      "rev": "effe4bf2e1afb881ea67291c648b68dd3dfc927a",
+      "rev": "7757d54716b26280b1b1785d89364a016a29c445",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -89,7 +89,7 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "c5623d3486c1cda5f73e28a3a4abb454f708c48c",
+      "rev": "857fb97bb65c8a71b0c4a568cfcfef95679854d5",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -127,7 +127,7 @@
       "src": "https://github.com/chomosuke/typst-preview.nvim"
     },
     "vim-slime": {
-      "rev": "67b24bf",
+      "rev": "3fb77a9d1d3dd3abfbdbd4840eb20947f39f688b",
       "src": "https://github.com/jpalardy/vim-slime"
     },
     "which-key.nvim": {
