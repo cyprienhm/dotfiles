@@ -276,6 +276,8 @@ vim.lsp.enable({
 	"julials",
 })
 
+vim.lsp.inlay_hint.enable()
+
 vim.diagnostic.config({
 	severity_sort = true,
 	float = { border = "rounded", source = true },
