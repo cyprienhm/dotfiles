@@ -5,7 +5,7 @@
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "blink.cmp": {
-      "rev": "7beba91fdc61fdc84ea6d6395d614671e609f895",
+      "rev": "ee7cfac8e1d0bf9b90a27d7a9823c13389bead08",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "bufferline.nvim": {
@@ -13,7 +13,7 @@
       "src": "https://github.com/akinsho/bufferline.nvim"
     },
     "conform.nvim": {
-      "rev": "ffe26e8df8115c9665d24231f8a49fadb2d611ce",
+      "rev": "9b8fa5e0b78168f68bee9bf886dc20f287c61e02",
       "src": "https://github.com/stevearc/conform.nvim"
     },
     "dropbar.nvim": {
@@ -81,7 +81,7 @@
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
     "nvim-lspconfig": {
-      "rev": "7757d54716b26280b1b1785d89364a016a29c445",
+      "rev": "ad95655ec5d13ff7c728d731eb9fd39f34395a03",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -89,12 +89,12 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "857fb97bb65c8a71b0c4a568cfcfef95679854d5",
+      "rev": "d3218d988f72ed34414959c9ccd802d393432d6e",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
     "nvim-treesitter-textobjects": {
-      "rev": "dfbf9596f8aa8b4bed5301647485594ff7252955",
+      "rev": "0d7c800fadcfe2d33089f5726cb8907fc846eece",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter-textobjects",
       "version": "'main'"
     },
@@ -135,7 +135,7 @@
       "src": "https://github.com/folke/which-key.nvim"
     },
     "yazi.nvim": {
-      "rev": "7ffb707ab34d425486eee0ae195546c25e05bf42",
+      "rev": "4bdbbd763bd5dbf5eefe778024fd5b10728feb05",
       "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
