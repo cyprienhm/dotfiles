@@ -5,7 +5,7 @@
       "src": "https://github.com/L3MON4D3/LuaSnip"
     },
     "blink.cmp": {
-      "rev": "ee7cfac8e1d0bf9b90a27d7a9823c13389bead08",
+      "rev": "b14922e5c4b30efe0857256989b72eaf1f14109f",
       "src": "https://github.com/saghen/blink.cmp"
     },
     "bufferline.nvim": {
@@ -81,7 +81,7 @@
       "src": "https://github.com/theHamsta/nvim-dap-virtual-text"
     },
     "nvim-lspconfig": {
-      "rev": "ad95655ec5d13ff7c728d731eb9fd39f34395a03",
+      "rev": "0d7d33e40f0c27f57cb29654ed78cab17d705e68",
       "src": "https://github.com/neovim/nvim-lspconfig"
     },
     "nvim-nio": {
@@ -89,7 +89,7 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "d3218d988f72ed34414959c9ccd802d393432d6e",
+      "rev": "4fc09bee78e91bf4ba471cdab4bf9dfa37fde51c",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -135,7 +135,7 @@
       "src": "https://github.com/folke/which-key.nvim"
     },
     "yazi.nvim": {
-      "rev": "4bdbbd763bd5dbf5eefe778024fd5b10728feb05",
+      "rev": "d34cbb3778fc92aa0954bda0ce5f32cac842d4a9",
       "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
