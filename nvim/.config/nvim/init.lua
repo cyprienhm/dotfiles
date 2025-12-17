@@ -293,6 +293,7 @@ vim.diagnostic.config({
 	virtual_text = {
 		source = true,
 		spacing = 2,
+		prefix = ">",
 	},
 })
 
