@@ -241,7 +241,7 @@ end)
 -- mason-tool-installer only accepts mason names
 local servers = {
 	"lua-language-server",
-	"basedpyright",
+	"ty",
 	"ast-grep",
 	"typescript-language-server",
 	"svelte-language-server",
@@ -261,7 +261,7 @@ require("mason-tool-installer").setup({
 
 -- configs will automatically be read from lsp/. use these names
 vim.lsp.enable({
-	"basedpyright",
+	"ty",
 	"ruff",
 	"lua_ls",
 	"ast_grep",
@@ -659,6 +659,7 @@ ins_left({
 	-- Lsp server name .
 	function()
 		local msg = "no lsp"
+		local lsps_found = {}
 		local buf_ft = vim.api.nvim_get_option_value("filetype", { buf = 0 })
 		local clients = vim.lsp.get_clients()
 		if next(clients) == nil then
@@ -667,10 +668,13 @@ ins_left({
 		for _, client in ipairs(clients) do
 			local filetypes = client.config.filetypes
 			if filetypes and vim.fn.index(filetypes, buf_ft) ~= -1 then
-				return client.name
+				table.insert(lsps_found, client.name)
 			end
 		end
-		return msg
+		if #lsps_found == 0 then
+			return msg
+		end
+		return table.concat(lsps_found, ", ")
 	end,
 	icon = "",
 	color = { fg = "#ffffff", gui = "bold" },
