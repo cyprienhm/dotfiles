@@ -252,6 +252,7 @@ local servers = {
 	"beautysh",
 	"css-lsp",
 	"clangd",
+	"gopls",
 }
 
 require("mason").setup()
@@ -274,6 +275,7 @@ vim.lsp.enable({
 	"clangd",
 	"rust_analyzer",
 	"julials",
+	"gopls",
 })
 
 vim.lsp.inlay_hint.enable()
