@@ -5,6 +5,7 @@ $directory\
 $git_branch\
 $git_state\
 $git_status\
+$git_metrics\
 $cmd_duration\
 $line_break\
 $python\
@@ -39,6 +40,11 @@ diverged="+/-"
 [git_state]
 format = '\([$state( $progress_current/$progress_total)]($style)\) '
 style = "bright-black"
+
+[git_metrics]
+added_style = 'bold blue'
+format = ' [+$added]($added_style)/[-$deleted]($deleted_style) '
+disabled = false
 
 [cmd_duration]
 format = " [$duration]($style) "
