@@ -11,7 +11,7 @@
 # sudo yabai --load-sa
 #
 
-SKETCHYBAR_UP=$(brew services info sketchybar --json | jq '.[0].running')
+SKETCHYBAR_UP=$(pgrep -x sketchybar >/dev/null && echo true || echo false)
 PROFILER_OUTPUT=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:')
 
 if [ "$SKETCHYBAR_UP" = "false" ]; then
