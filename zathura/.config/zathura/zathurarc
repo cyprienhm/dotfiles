@@ -34,3 +34,8 @@ set recolor-darkcolor           "#e0def4"
 
 set recolor true
 set recolor-keephue true
+
+map u scroll half-up
+map d scroll half-down
+map D toggle_page_mode
+map U cycle_first_column
