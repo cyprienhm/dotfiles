@@ -280,8 +280,6 @@ vim.lsp.enable({
 	"gopls",
 })
 
-vim.lsp.inlay_hint.enable()
-
 vim.diagnostic.config({
 	severity_sort = true,
 	float = { border = "rounded", source = true },
