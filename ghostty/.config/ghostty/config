@@ -5,3 +5,5 @@ keybind = shift+enter=text:\n
 macos-titlebar-style = hidden
 background-opacity = 1.0
 # background-blur = 40
+auto-update = check
+auto-update-channel = tip
