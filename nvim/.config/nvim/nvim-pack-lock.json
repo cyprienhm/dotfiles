@@ -89,7 +89,7 @@
       "src": "https://github.com/nvim-neotest/nvim-nio"
     },
     "nvim-treesitter": {
-      "rev": "5a7e5638e7d220575b1c22c8a2e099b52231886e",
+      "rev": "15b3416cc1f557c4932468e512a0bd45871167bc",
       "src": "https://github.com/nvim-treesitter/nvim-treesitter",
       "version": "'main'"
     },
@@ -102,8 +102,12 @@
       "rev": "803353450c374192393f5387b6a0176d0972b848",
       "src": "https://github.com/nvim-tree/nvim-web-devicons"
     },
+    "octo.nvim": {
+      "rev": "4a3a4fc5a9d3a372c91041f5b846f33b8d6b31fa",
+      "src": "https://github.com/pwntester/octo.nvim"
+    },
     "oil.nvim": {
-      "rev": "fbbb2a98721da86f46b06994fd3b4833b04c6e9b",
+      "rev": "6b59a6cf623fa2245c7454ddb458df5bdb6615d3",
       "src": "https://github.com/stevearc/oil.nvim"
     },
     "persistence.nvim": {
@@ -135,7 +139,7 @@
       "src": "https://github.com/folke/which-key.nvim"
     },
     "yazi.nvim": {
-      "rev": "26715d17e21f181c44056134539b1bcb9631b23d",
+      "rev": "806d2df8deb1abe7493a61d4e1cbcf5176877068",
       "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }

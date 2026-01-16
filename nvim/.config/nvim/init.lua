@@ -200,6 +200,7 @@ vim.pack.add({
 	{ src = "https://github.com/mfussenegger/nvim-dap-python" },
 	{ src = "https://github.com/theHamsta/nvim-dap-virtual-text" },
 	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
+	{ src = "https://github.com/pwntester/octo.nvim" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -929,3 +930,6 @@ end
 dap.listeners.before.event_exited["dapui_config"] = function()
 	dapui.close({})
 end
+
+-- octo
+require("octo").setup({ picker = "snacks", use_local_fs = true })
