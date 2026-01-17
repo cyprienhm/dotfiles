@@ -93,7 +93,7 @@ te() {
 }
 # session switcher + dispenser
 tt() {
-    TMUX_SESSION_DIRS=("$HOME/projects/" "$HOME/sandbox/" "$HOME/")
+    TMUX_SESSION_DIRS=("$HOME/projects/" "$HOME/sandbox/" "$HOME/.nb/" "$HOME/")
     if [[ -z $1 ]]; then
         search_path=("${TMUX_SESSION_DIRS[@]}")
     else
