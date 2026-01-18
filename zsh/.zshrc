@@ -18,7 +18,7 @@ export EDITOR="nvim"
 
 source <(fzf --zsh)
 
-source /opt/homebrew/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -45,9 +45,7 @@ u() {
     [ -f "$venv_path" ] && source "$venv_path"
 }
 
-export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
-
-alias zathura="/opt/homebrew/bin/zathura"
+export PATH="$(brew --prefix)/opt/openjdk/bin:$PATH"
 
 function zp() {
     local selected_file=$(fd --extension pdf . $HOME/papers | fzf --delimiter / --with-nth {-1} --reverse --height=80% --preview '
