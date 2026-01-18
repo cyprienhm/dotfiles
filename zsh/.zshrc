@@ -61,7 +61,12 @@ function zp() {
 }
 
 function zf() {
-    local selected_file=$(fd --extension pdf . $HOME | fzf --reverse --height=80% --preview '
+    if [[ -z $1 ]]; then
+        search_path="$HOME"
+    else
+        search_path=$1
+    fi
+    local selected_file=$(fd --extension pdf . $search_path | fzf --reverse --height=80% --preview '
     p={}
     case "$p" in
       *.pdf) command -v pdftotext >/dev/null && pdftotext -l 1 "$p" - 2>/dev/null | sed -n "1,80p" || file -b "$p" ;;
