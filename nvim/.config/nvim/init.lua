@@ -932,4 +932,12 @@ dap.listeners.before.event_exited["dapui_config"] = function()
 end
 
 -- octo
-require("octo").setup({ picker = "snacks", use_local_fs = true })
+require("octo").setup({
+	picker = "snacks",
+	use_local_fs = true,
+	mappings = {
+		review_diff = {
+			copy_sha = { lhs = "", desc = "disable C-e copy commit SHA to system clipboard" },
+		},
+	},
+})
