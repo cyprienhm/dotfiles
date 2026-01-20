@@ -48,14 +48,6 @@ do
     sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
 done
 
-
-sketchybar --add item chevron left \
-    --set chevron icon='->' label.drawing=off \
-    --add item front_app left \
-    --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
-    --subscribe front_app front_app_switched
-
-
 sketchybar --add item volume right \
     --set volume script="$PLUGIN_DIR/volume.sh" \
     --subscribe volume volume_change
