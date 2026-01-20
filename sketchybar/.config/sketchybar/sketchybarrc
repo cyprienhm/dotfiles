@@ -1,11 +1,69 @@
-#!/usr/bin/env sh
+# https://felixkratz.github.io/SketchyBar/config/
+PLUGIN_DIR="$CONFIG_DIR/plugins"
+source "$CONFIG_DIR/utils.sh"
+source "$CONFIG_DIR/colors.sh"
 
-SKETCHYBAR_CONFIG="$HOME/.config/sketchybar"
+FONT_SIZE=14.0
+LABEL_PAD=2
 
-PROFILER_OUTPUT=$(system_profiler SPDisplaysDataType | grep -B 3 'Main Display:')
-if [[ $PROFILER_OUTPUT = *"Built-in"* ]]; then
-  source "$SKETCHYBAR_CONFIG/sketchybarrc_laptop"
-else
-  source "$SKETCHYBAR_CONFIG/sketchybarrc_desktop"
-fi
-source "$SKETCHYBAR_CONFIG/sketchybarrc_shared"
+sketchybar --bar position=left height=70 blur_radius=30 color=$ROSE_PINE_BASE
+
+default=(
+    padding_left=5
+    padding_right=5
+    icon.font="Monaspace Neon NF:regular:$FONT_SIZE"
+    label.font="Monaspace Neon NF:regular:$FONT_SIZE"
+    label.color=$ROSE_PINE_TEXT
+    label.padding_left=$LABEL_PAD
+    label.padding_right=$LABEL_PAD
+)
+sketchybar --default "${default[@]}"
+
+sketchybar \
+    --add item clock left \
+    --set clock \
+    update_freq=10 \
+    icon.drawing=off \
+    label.font.size=$FONT_SIZE \
+    script="$PLUGIN_DIR/clock.sh"
+
+sb_separator left 16 16
+
+sketchybar \
+    --add item day left --set day update_freq=120 padding_right=4 label="$(date '+%a')" \
+    --add item date left --set date update_freq=120 padding_right=4 label="$(date '+%d' | sed s/^0//)" \
+    --add item month left --set month update_freq=120 padding_right=4 label="$(date '+%b')"
+
+sb_separator left 16 16
+
+SPACE_TEXTS=("code" "net" "misc" "chat" "call" "music" "notes" "8" "9" "10")
+for i in "${!SPACE_TEXTS[@]}"
+do
+    sid="$(($i+1))"
+    space=(
+        space="$sid"
+        label="${SPACE_TEXTS[i]}"
+        script="$PLUGIN_DIR/space.sh"
+    )
+    sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
+done
+
+
+sketchybar --add item chevron left \
+    --set chevron icon='->' label.drawing=off \
+    --add item front_app left \
+    --set front_app icon.drawing=off script="$PLUGIN_DIR/front_app.sh" \
+    --subscribe front_app front_app_switched
+
+
+sketchybar --add item volume right \
+    --set volume script="$PLUGIN_DIR/volume.sh" \
+    --subscribe volume volume_change
+
+sketchybar --add item battery right \
+    --set battery update_freq=30 script="$PLUGIN_DIR/battery.sh" \
+    --subscribe battery system_woke power_source_change
+
+sb_separator right 10 16
+
+sketchybar --update
