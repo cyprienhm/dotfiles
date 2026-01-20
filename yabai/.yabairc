@@ -21,11 +21,7 @@ if [ "$SKETCHYBAR_UP" = "false" ]; then
     RIGHT_PADDING=0
     WINDOW_GAP=3
 else
-    if [[ $PROFILER_OUTPUT = *"Built-in"* ]]; then
-        TOP_PADDING=12
-    else
-        TOP_PADDING=20
-    fi
+    TOP_PADDING=12
     BOTTOM_PADDING=12
     LEFT_PADDING=89 # 70 (bar) + 12 + 5 (bar margin)
     RIGHT_PADDING=12
