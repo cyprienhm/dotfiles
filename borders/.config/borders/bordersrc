@@ -1,11 +1,23 @@
 #!/bin/bash
 
+ROSE_PINE_BASE=0xaa191724
+ROSE_PINE_SURFACE=0xff1f1d2e
+ROSE_PINE_OVERLAY=0xff26233a
+ROSE_PINE_MUTED=0xff6e6a86
+ROSE_PINE_SUBTLE=0xff908caa
+ROSE_PINE_TEXT=0xffe0def4
+ROSE_PINE_LOVE=0xffeb6f92
+ROSE_PINE_GOLD=0xfff6c177
+ROSE_PINE_ROSE=0xffebbcba
+ROSE_PINE_PINE=0xff31748f
+ROSE_PINE_FOAM=0xff9ccfd8
+
 options=(
-  style=square
-  width=6.0
-  hidpi=on
-  active_color=0xff429ef5
-  inactive_color=0xff414550
+    style=round
+    width=5
+    hidpi=on
+    active_color=$ROSE_PINE_PINE
+    inactive_color=$ROSE_PINE_MUTED
 )
 
 borders "${options[@]}"
