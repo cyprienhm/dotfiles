@@ -69,3 +69,5 @@ yabai -m rule --add app="Finder" manage=off
 yabai -m rule --add app="Messages" manage=off
 yabai -m rule --add app="Activity Monitor" manage=off
 yabai -m rule --add app="licecap" manage=off
+yabai -m rule --add app="Preview" manage=off
+yabai -m rule --add app="mpv" manage=off
