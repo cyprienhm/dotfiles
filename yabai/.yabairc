@@ -27,7 +27,7 @@ else
         TOP_PADDING=20
     fi
     BOTTOM_PADDING=12
-    LEFT_PADDING=82
+    LEFT_PADDING=89 # 70 (bar) + 12 + 5 (bar margin)
     RIGHT_PADDING=12
     WINDOW_GAP=12
 fi
