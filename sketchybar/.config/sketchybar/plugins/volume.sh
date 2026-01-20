@@ -3,7 +3,7 @@
 # The volume_change event supplies a $INFO variable in which the current volume
 # percentage is passed to the script.
 
-source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/rose_pine_colors.sh"
 if [ "$SENDER" = "volume_change" ]; then
     VOLUME="$INFO"
 

@@ -1,7 +1,7 @@
 # https://felixkratz.github.io/SketchyBar/config/
 PLUGIN_DIR="$CONFIG_DIR/plugins"
 source "$CONFIG_DIR/utils.sh"
-source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/rose_pine_colors.sh"
 
 FONT_SIZE=14.0
 LABEL_PAD=2

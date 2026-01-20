@@ -2,7 +2,7 @@
 
 PERCENTAGE="$(pmset -g batt | grep -Eo "\d+%" | cut -d% -f1)"
 CHARGING="$(pmset -g batt | grep 'AC Power')"
-source "$CONFIG_DIR/colors.sh"
+source "$CONFIG_DIR/rose_pine_colors.sh"
 
 if [ "$PERCENTAGE" = "" ]; then
     exit 0
