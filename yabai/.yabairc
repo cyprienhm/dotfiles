@@ -24,11 +24,11 @@ else
     if [[ $PROFILER_OUTPUT = *"Built-in"* ]]; then
         TOP_PADDING=12
     else
-        TOP_PADDING=40
+        TOP_PADDING=20
     fi
-    BOTTOM_PADDING=20
-    LEFT_PADDING=20
-    RIGHT_PADDING=20
+    BOTTOM_PADDING=12
+    LEFT_PADDING=82
+    RIGHT_PADDING=12
     WINDOW_GAP=12
 fi
 
