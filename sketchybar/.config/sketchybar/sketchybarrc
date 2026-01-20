@@ -6,7 +6,15 @@ source "$CONFIG_DIR/colors.sh"
 FONT_SIZE=14.0
 LABEL_PAD=2
 
-sketchybar --bar position=left height=70 blur_radius=30 color=$ROSE_PINE_BASE
+sketchybar --bar position=left \
+  height=70 \
+  blur_radius=30 \
+  color=$ROSE_PINE_BASE \
+  border_color=$ROSE_PINE_LOVE \
+  border_width=1 \
+  margin=5 \
+  y_offset=12 \
+  corner_radius=15 \
 
 default=(
     padding_left=5
