@@ -3,7 +3,7 @@ sb_separator() {
     sketchybar \
         --add item "$sepName" "$1" \
         --set "$sepName" \
-        label="───────" \
+        label="─────────" \
         padding_left="$2" \
         padding_right="$3" \
         icon.drawing=off \
