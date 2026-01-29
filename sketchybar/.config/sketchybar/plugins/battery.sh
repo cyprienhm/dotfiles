@@ -29,8 +29,7 @@ case "${PERCENTAGE}" in
 esac
 
 if [[ "$CHARGING" != "" ]]; then
-    ICON="󱋥"
-    ICON="󰄌"
+    ICON=""
     COLOR=0xff50fa7b
 fi
 
