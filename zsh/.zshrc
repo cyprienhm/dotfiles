@@ -3,6 +3,9 @@ eval "$(starship init zsh)"
 bindkey -e
 set -o emacs
 
+autoload -U select-word-style
+select-word-style bash
+
 fpath+=("$(brew --prefix)/share/zsh/site-functions")
 
 autoload -U compinit
