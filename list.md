@@ -95,6 +95,11 @@ userstyles
 brew install yazi
 ```
 
+- fx
+```sh
+brew install fx
+```
+
 ## stuff useful for neovim
 
 - imagemagick (for neovim image viewing usually)
