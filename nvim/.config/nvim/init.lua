@@ -167,6 +167,21 @@ opt.fillchars = {
 }
 
 -- plugins
+
+-- hooks for plugins which need them
+-- taken from :h vim.pack-events
+local hooks = function(ev)
+	local name, kind = ev.data.spec.name, ev.data.kind
+	if name == "markdown-preview.nvim" and (kind == "install" or kind == "update") then
+		if not ev.data.active then
+			vim.cmd.packadd("markdown-preview.nvim")
+		end
+		vim.fn["mkdp#util#install"]()
+	end
+end
+
+vim.api.nvim_create_autocmd("PackChanged", { callback = hooks })
+
 vim.pack.add({
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
 	{ src = "https://github.com/nvim-treesitter/nvim-treesitter", version = "main" },
@@ -201,6 +216,7 @@ vim.pack.add({
 	{ src = "https://github.com/theHamsta/nvim-dap-virtual-text" },
 	{ src = "https://github.com/chomosuke/typst-preview.nvim" },
 	{ src = "https://github.com/pwntester/octo.nvim" },
+	{ src = "https://github.com/iamcco/markdown-preview.nvim" },
 }, { confirm = false })
 
 require("lazydev").setup()

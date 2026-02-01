@@ -40,6 +40,10 @@
       "rev": "47f91c4",
       "src": "https://github.com/nvim-lualine/lualine.nvim"
     },
+    "markdown-preview.nvim": {
+      "rev": "a923f5fc5ba36a3b17e289dc35dc17f66d0548ee",
+      "src": "https://github.com/iamcco/markdown-preview.nvim"
+    },
     "marks.nvim": {
       "rev": "f353e8c",
       "src": "https://github.com/chentoast/marks.nvim"
@@ -139,7 +143,7 @@
       "src": "https://github.com/folke/which-key.nvim"
     },
     "yazi.nvim": {
-      "rev": "cc44c583e1faaf350f983c180822a249b6116988",
+      "rev": "7a5a72d915241a2f07901c324a14c02a30b8515e",
       "src": "https://github.com/mikavilpas/yazi.nvim"
     }
   }
