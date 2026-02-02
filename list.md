@@ -136,3 +136,8 @@ uv tool install --upgrade pynvim
 ```sh
 cargo install --locked tree-sitter-cli
 ```
+
+- choose (kind of like dmenu)
+```sh
+brew install choose-gui
+```
