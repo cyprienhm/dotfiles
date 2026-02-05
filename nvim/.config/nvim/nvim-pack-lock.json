@@ -122,6 +122,10 @@
       "rev": "b9fd522",
       "src": "https://github.com/nvim-lua/plenary.nvim"
     },
+    "render-markdown.nvim": {
+      "rev": "48b4175dbca8439d30c1f52231cbe5a712c8f9d9",
+      "src": "https://github.com/MeanderingProgrammer/render-markdown.nvim"
+    },
     "rose-pine": {
       "rev": "cf2a288",
       "src": "https://github.com/rose-pine/neovim"
