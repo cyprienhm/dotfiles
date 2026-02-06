@@ -954,7 +954,7 @@ end
 -- octo
 require("octo").setup({
 	picker = "snacks",
-	use_local_fs = true,
+	use_local_fs = false,
 	mappings = {
 		review_diff = {
 			copy_sha = { lhs = "", desc = "disable C-e copy commit SHA to system clipboard" },
