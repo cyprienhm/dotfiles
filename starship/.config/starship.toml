@@ -11,6 +11,14 @@ $line_break\
 $python\
 $character"""
 
+[username]
+show_always = false
+format = '[$user]($style)@'
+
+[hostname]
+ssh_only = true
+format = '[$hostname]($style) '
+
 [directory]
 style = "blue"
 
