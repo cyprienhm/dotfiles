@@ -66,8 +66,14 @@ vim.keymap.set("n", "<leader>e", function()
 	require("oil").open()
 end, { desc = "Open Oil", noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>yy", "<cmd>Yazi<cr>", { desc = "Open Yazi", noremap = true, silent = true })
-vim.keymap.set("n", "<leader>yt", "<cmd>Yazi toggle<cr>", { desc = "Open Yazi", noremap = true, silent = true })
+vim.keymap.set("n", "<leader>yy", "<cmd>Yazi<cr>", { desc = "Open Yazi (current file)", noremap = true, silent = true })
+vim.keymap.set(
+	"n",
+	"<leader>yt",
+	"<cmd>Yazi toggle<cr>",
+	{ desc = "Open Yazi (resume)", noremap = true, silent = true }
+)
+vim.keymap.set("n", "<leader>yc", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi (cwd)", noremap = true, silent = true })
 
 -- toggle function
 local function toggle_buffer_format()
