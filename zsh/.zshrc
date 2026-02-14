@@ -51,19 +51,6 @@ u() {
 
 export PATH="$BREW_PREFIX/opt/openjdk/bin:$PATH"
 
-function zp() {
-    local selected_file=$(fd --extension pdf . $HOME/papers | fzf --delimiter / --with-nth {-1} --reverse --height=80% --preview '
-    p={}
-    case "$p" in
-      *.pdf) command -v pdftotext >/dev/null && pdftotext -l 1 "$p" - 2>/dev/null | sed -n "1,80p" || file -b "$p" ;;
-        *) file -b "$p" ;;
-    esac
-    ') || return
-    [ -z "$selected_file" ] && return
-
-    nohup zathura "$selected_file" >/dev/null 2>&1 & disown || true
-}
-
 function zf() {
     if [[ -z $1 ]]; then
         search_path="$HOME"
@@ -81,6 +68,8 @@ function zf() {
 
     nohup zathura "$selected_file" >/dev/null 2>&1 & disown || true
 }
+
+alias zp="zf ~/papers/"
 
 eval "$(zoxide init zsh)"
 
