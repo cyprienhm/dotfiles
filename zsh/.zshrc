@@ -6,7 +6,8 @@ set -o emacs
 autoload -U select-word-style
 select-word-style bash
 
-fpath+=("$(brew --prefix)/share/zsh/site-functions")
+BREW_PREFIX="$(brew --prefix)"
+fpath+=("$BREW_PREFIX/share/zsh/site-functions")
 
 autoload -U compinit
 compinit
@@ -21,7 +22,7 @@ export EDITOR="nvim"
 
 source <(fzf --zsh)
 
-source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 export PYENV_ROOT="$HOME/.pyenv"
 [[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
@@ -48,7 +49,7 @@ u() {
     [ -f "$venv_path" ] && source "$venv_path"
 }
 
-export PATH="$(brew --prefix)/opt/openjdk/bin:$PATH"
+export PATH="$BREW_PREFIX/opt/openjdk/bin:$PATH"
 
 function zp() {
     local selected_file=$(fd --extension pdf . $HOME/papers | fzf --delimiter / --with-nth {-1} --reverse --height=80% --preview '
