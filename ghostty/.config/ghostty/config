@@ -6,3 +6,5 @@ macos-titlebar-style = hidden
 background-opacity = 1.0
 auto-update = download
 auto-update-channel = tip
+quick-terminal-size = 70%
+quick-terminal-animation-duration = 0
