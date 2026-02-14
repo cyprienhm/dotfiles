@@ -30,6 +30,9 @@ map({ "i", "n", "s" }, "<esc>", function()
 	return "<esc>"
 end, { expr = true, desc = "Escape and Clear hlsearch" })
 
+-- Search non-ASCII characters
+map("n", "<leader>ca", "/[^\\d0-\\d127]<cr>", { desc = "Search non-ASCII characters" })
+
 -- better indenting
 map("v", "<", "<gv")
 map("v", ">", ">gv")
