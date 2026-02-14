@@ -105,7 +105,7 @@ tt() {
     else
         search_path=("$1")
     fi
-    selection=$(fd . "${search_path[@]}" --type=directory --max-depth=1 | fzf --reverse)
+    selection=$({ echo "$HOME/.nb"; fd . "${search_path[@]}" --type=directory --max-depth=1; } | fzf --reverse)
     [[ -z $selection ]] && return
     session_name=$(basename "$selection" | sed 's/\.//g')
     if ! tmux has-session -t "$session_name"; then
