@@ -129,7 +129,6 @@ vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
 })
 
 -- options
-vim.b.autoformat = true
 local opt = vim.opt
 
 opt.cursorline = true -- Enable highlighting of the current line
