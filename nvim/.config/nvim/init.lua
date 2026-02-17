@@ -179,7 +179,7 @@ opt.fillchars = {
 
 -- hooks for plugins which need them
 -- taken from :h vim.pack-events
-local hooks = function(ev)
+local plugins_hooks = function(ev)
 	local name, kind = ev.data.spec.name, ev.data.kind
 	if name == "markdown-preview.nvim" and (kind == "install" or kind == "update") then
 		if not ev.data.active then
@@ -189,7 +189,7 @@ local hooks = function(ev)
 	end
 end
 
-vim.api.nvim_create_autocmd("PackChanged", { callback = hooks })
+vim.api.nvim_create_autocmd("PackChanged", { callback = plugins_hooks })
 
 vim.pack.add({
 	{ src = "https://github.com/nvim-lua/plenary.nvim" },
