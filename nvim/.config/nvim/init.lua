@@ -65,18 +65,13 @@ map("n", "[e", function()
 	vim.diagnostic.jump({ count = -1, float = true, severity = vim.diagnostic.severity.ERROR })
 end, { desc = "Previous Error" })
 
-vim.keymap.set("n", "<leader>e", function()
+map("n", "<leader>e", function()
 	require("oil").open()
 end, { desc = "Open Oil", noremap = true, silent = true })
 
-vim.keymap.set("n", "<leader>yy", "<cmd>Yazi<cr>", { desc = "Open Yazi (current file)", noremap = true, silent = true })
-vim.keymap.set(
-	"n",
-	"<leader>yt",
-	"<cmd>Yazi toggle<cr>",
-	{ desc = "Open Yazi (resume)", noremap = true, silent = true }
-)
-vim.keymap.set("n", "<leader>yc", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi (cwd)", noremap = true, silent = true })
+map("n", "<leader>yy", "<cmd>Yazi<cr>", { desc = "Open Yazi (current file)", noremap = true, silent = true })
+map("n", "<leader>yt", "<cmd>Yazi toggle<cr>", { desc = "Open Yazi (resume)", noremap = true, silent = true })
+map("n", "<leader>yc", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi (cwd)", noremap = true, silent = true })
 
 -- toggle function
 local function toggle_buffer_format()
@@ -242,22 +237,22 @@ require("nvim-treesitter-textobjects").setup({
 		},
 	},
 })
-vim.keymap.set({ "x", "o" }, "af", function()
+map({ "x", "o" }, "af", function()
 	require("nvim-treesitter-textobjects.select").select_textobject("@function.outer", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "if", function()
+map({ "x", "o" }, "if", function()
 	require("nvim-treesitter-textobjects.select").select_textobject("@function.inner", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "ac", function()
+map({ "x", "o" }, "ac", function()
 	require("nvim-treesitter-textobjects.select").select_textobject("@class.outer", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "ic", function()
+map({ "x", "o" }, "ic", function()
 	require("nvim-treesitter-textobjects.select").select_textobject("@class.inner", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "aa", function()
+map({ "x", "o" }, "aa", function()
 	require("nvim-treesitter-textobjects.select").select_textobject("@parameter.outer", "textobjects")
 end)
-vim.keymap.set({ "x", "o" }, "ia", function()
+map({ "x", "o" }, "ia", function()
 	require("nvim-treesitter-textobjects.select").select_textobject("@parameter.inner", "textobjects")
 end)
 
@@ -486,15 +481,15 @@ end, { desc = "Toggle Zen" })
 
 -- snippets
 local ls = require("luasnip")
-vim.keymap.set({ "i", "s" }, "<C-K>", function()
+map({ "i", "s" }, "<C-K>", function()
 	if ls.expand_or_jumpable() then
 		ls.expand_or_jump()
 	end
 end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-L>", function()
+map({ "i", "s" }, "<C-L>", function()
 	ls.jump(1)
 end, { silent = true })
-vim.keymap.set({ "i", "s" }, "<C-J>", function()
+map({ "i", "s" }, "<C-J>", function()
 	ls.jump(-1)
 end, { silent = true })
 
@@ -533,7 +528,7 @@ local colors = {
   red      = '#ec5f67',
 }
 -- -- Function to get the current mode indicator
-local function mode()
+local function mode_str()
 	-- Map of modes to their respective shorthand indicators
 	local mode_map = {
 		n = "normal", -- Normal mode
@@ -629,7 +624,7 @@ ins_left({
 
 ins_left({
 	-- mode component
-	mode,
+	mode_str,
 	color = function()
 		-- auto change color according to neovims mode
 		local mode_color = {
@@ -850,31 +845,31 @@ require("gitsigns").setup({
 	on_attach = function(buffer)
 		local gs = package.loaded.gitsigns
 
-		local function map(mode, l, r, desc)
+		local function gs_map(mode, l, r, desc)
 			vim.keymap.set(mode, l, r, { buffer = buffer, desc = desc })
 		end
 
       -- stylua: ignore start
-      map("n", "]h", function()
+      gs_map("n", "]h", function()
         if vim.wo.diff then
           vim.cmd.normal({ "]c", bang = true })
         else
           gs.nav_hunk("next")
         end
       end, "Next Hunk")
-      map("n", "[h", function()
+      gs_map("n", "[h", function()
         if vim.wo.diff then
           vim.cmd.normal({ "[c", bang = true })
         else
           gs.nav_hunk("prev")
         end
       end, "Prev Hunk")
-      map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
-      map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
-      map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
-      map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
-      map("n", "<leader>ghB", function() gs.blame() end, "Blame Buffer")
-      map("n", "<leader>ghd", gs.diffthis, "Diff This")
+      gs_map({ "n", "v" }, "<leader>ghr", ":Gitsigns reset_hunk<CR>", "Reset Hunk")
+      gs_map("n", "<leader>ghR", gs.reset_buffer, "Reset Buffer")
+      gs_map("n", "<leader>ghp", gs.preview_hunk_inline, "Preview Hunk Inline")
+      gs_map("n", "<leader>ghb", function() gs.blame_line({ full = true }) end, "Blame Line")
+      gs_map("n", "<leader>ghB", function() gs.blame() end, "Blame Buffer")
+      gs_map("n", "<leader>ghd", gs.diffthis, "Diff This")
 	end,
 })
 
