@@ -1,0 +1,6 @@
+[completion]
+# The style of wiki links completion.
+# Other values include:
+# * "file-stem" to complete using file name without an extension,
+# * "file-path-stem" same as above but using file path.
+wiki.style = "file-stem"
