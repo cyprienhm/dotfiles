@@ -56,14 +56,6 @@
       "rev": "44d1e90e1f66e077268191e3ee9d2ac97cc18e65",
       "src": "https://github.com/williamboman/mason.nvim"
     },
-    "mini.ai": {
-      "rev": "b0247752cf629ce7c6bd0a1efd82fb58ff60f9d6",
-      "src": "https://github.com/nvim-mini/mini.ai"
-    },
-    "mini.icons": {
-      "rev": "68c178e0958d95b3977a771f3445429b1bded985",
-      "src": "https://github.com/nvim-mini/mini.icons"
-    },
     "mini.surround": {
       "rev": "01dd2620e50ebc0f28f7d4ea2db6f846f1540c95",
       "src": "https://github.com/nvim-mini/mini.surround"
