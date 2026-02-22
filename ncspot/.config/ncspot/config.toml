@@ -1,0 +1,6 @@
+[keybindings]
+"d" = "noop"
+"Space" = "playpause"
+"Ctrl+u" = "move up 10"
+"Ctrl+d" = "move down 10"
+"s" = "sort artist"
