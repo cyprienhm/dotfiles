@@ -393,7 +393,26 @@ require("snacks").setup({
 	image = {},
 	words = {},
 	toggle = { map = vim.keymap.set },
-	zen = { show = { statusline = true }, toggles = { dim = false } },
+	zen = {
+		show = { statusline = true },
+		toggles = { dim = false },
+		win = {
+			enter = true,
+			fixbuf = false,
+			minimal = false,
+			width = 120,
+			height = 0,
+			backdrop = { transparent = false },
+			keys = { q = false },
+			zindex = 40,
+			wo = {
+				winhighlight = "NormalFloat:Normal",
+			},
+			w = {
+				snacks_main = true,
+			},
+		},
+	},
 })
 
 map("n", "<leader><space>", function()
