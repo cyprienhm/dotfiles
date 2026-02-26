@@ -216,6 +216,7 @@ vim.pack.add({
 	{ src = "https://github.com/pwntester/octo.nvim" },
 	{ src = "https://github.com/iamcco/markdown-preview.nvim" },
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
+	{ src = "https://github.com/obsidian-nvim/obsidian.nvim" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -983,3 +984,44 @@ require("octo").setup({
 		},
 	},
 })
+
+-- obsidian
+require("obsidian").setup({
+	legacy_commands = false, -- this will be removed in the next major release
+	workspaces = {
+		{
+			name = "personal",
+			path = "~/notes/personal",
+		},
+		{
+			name = "work",
+			path = "~/notes/work",
+		},
+	},
+	frontmatter = {
+		enabled = false,
+		func = require("obsidian.builtin").frontmatter,
+		sort = { "id", "aliases", "tags" },
+	},
+	attachments = {
+		folder = ".",
+		img_text_func = require("obsidian.builtin").img_text_func,
+		img_name_func = function()
+			return string.format("Pasted image %s", os.date("%Y%m%d%H%M%S"))
+		end,
+		confirm_img_paste = true,
+	},
+	note = {
+		template = vim.NIL, -- disables the default note template and just use a blank note
+	},
+	note_id_func = function(title, path)
+		return title
+	end,
+})
+
+map("n", "<leader>nn", "<cmd>Obsidian<cr>", { desc = "Obsidian" })
+map("n", "<leader>no", "<cmd>Obsidian new<cr>", { desc = "New Note" })
+map("n", "<leader>nf", "<cmd>Obsidian quick_switch<cr>", { desc = "Find Notes" })
+map("n", "<leader>ns", "<cmd>Obsidian search<cr>", { desc = "Search Notes" })
+map("n", "<leader>nt", "<cmd>Obsidian today<cr>", { desc = "Today Note" })
+map("n", "<leader>ni", "<cmd>Obsidian paste_img<cr>", { desc = "Paste Image" })
