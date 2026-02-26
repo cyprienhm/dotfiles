@@ -89,13 +89,13 @@ te() {
 }
 # session switcher + dispenser
 tt() {
-    TMUX_SESSION_DIRS=("$HOME/projects/" "$HOME/sandbox/" "$HOME/.nb/" "$HOME/")
+    TMUX_SESSION_DIRS=("$HOME/projects/" "$HOME/sandbox/" "$HOME/notes/" "$HOME/")
     if [[ -z $1 ]]; then
         search_path=("${TMUX_SESSION_DIRS[@]}")
     else
         search_path=("$1")
     fi
-    selection=$({ echo "$HOME/.nb"; fd . "${search_path[@]}" --type=directory --max-depth=1; } | fzf --reverse)
+    selection=$({ fd . "${search_path[@]}" --type=directory --max-depth=1; } | fzf --reverse)
     [[ -z $selection ]] && return
     session_name=$(basename "$selection" | sed 's/\.//g')
     if ! tmux has-session -t "$session_name"; then
