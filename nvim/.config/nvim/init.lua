@@ -391,7 +391,11 @@ require("conform").setup({
 -- snacks
 require("snacks").setup({
 	picker = {},
-	image = {},
+	image = {
+		doc = {
+			max_height = 20,
+		},
+	},
 	words = {},
 	toggle = { map = vim.keymap.set },
 	zen = {
