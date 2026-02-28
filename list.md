@@ -16,11 +16,12 @@ defaults write -g NSWindowShouldDragOnGesture -bool true
 
 - JetBrainsMono Nerd Font
 - zsh
-- pure & zsh-autosuggestions
+- pure, zsh-autosuggestions, zsh-syntax-highlighting
 
 ```zsh
 brew install pure
 brew install zsh-autosuggestions
+brew install zsh-syntax-highlighting
 ```
 
 - on iterm2, remember in profiles settings: Keys -> Left Option key -> set as Esc+. and,

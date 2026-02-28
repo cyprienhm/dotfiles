@@ -124,3 +124,5 @@ export PATH
 function wep() {
     nodemon -w $1 --exec "python $1"
 }
+
+source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
