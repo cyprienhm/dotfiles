@@ -4,7 +4,7 @@ keybind = global:cmd+grave_accent=toggle_quick_terminal
 keybind = shift+enter=text:\n
 macos-titlebar-style = hidden
 background-opacity = 1.0
-auto-update = download
+auto-update = off
 auto-update-channel = tip
 quick-terminal-size = 70%
 quick-terminal-animation-duration = 0
