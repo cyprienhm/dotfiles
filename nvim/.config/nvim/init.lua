@@ -420,6 +420,9 @@ require("snacks").setup({
 	},
 })
 
+map("n", "<leader>p", function()
+	Snacks.picker.pickers()
+end, { desc = "Snacks Pickers" })
 map("n", "<leader><space>", function()
 	Snacks.picker.smart()
 end, { desc = "Find Files (Root Dir)" })
