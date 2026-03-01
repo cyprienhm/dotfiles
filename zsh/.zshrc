@@ -98,15 +98,15 @@ tt() {
     selection=$({ fd . "${search_path[@]}" --type=directory --max-depth=1; } | fzf --reverse)
     [[ -z $selection ]] && return
     session_name=$(basename "$selection" | sed 's/\.//g')
-    if ! tmux has-session -t "$session_name"; then
-        tmux new-session -ds "$session_name" -c "$selection"
+    if ! tmux has-session -t "=$session_name"; then
+        tmux new-session -ds "=$session_name" -c "$selection"
     fi
 
     # if $TMUX is not set, we are outside of tmux
     if [[ -n $TMUX ]]; then
-        tmux switch-client -t "$session_name"
+        tmux switch-client -t "=$session_name"
     else
-        tmux attach -t "$session_name"
+        tmux attach -t "=$session_name"
     fi
 }
 
