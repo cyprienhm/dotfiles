@@ -99,7 +99,7 @@ tt() {
     [[ -z $selection ]] && return
     session_name=$(basename "$selection" | sed 's/\.//g')
     if ! tmux has-session -t "=$session_name"; then
-        tmux new-session -ds "=$session_name" -c "$selection"
+        tmux new-session -ds "$session_name" -c "$selection"
     fi
 
     # if $TMUX is not set, we are outside of tmux
