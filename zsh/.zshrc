@@ -39,7 +39,7 @@ mkcd() {
 }
 
 alias n=nvim
-
+alias y=yazi
 alias l="lazygit"
 alias glog="git log --oneline --graph --decorate"
 
