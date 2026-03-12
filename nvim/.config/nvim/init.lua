@@ -122,7 +122,7 @@ vim.api.nvim_create_autocmd("TextYankPost", {
 })
 
 vim.api.nvim_create_autocmd({ "BufRead", "BufNewFile" }, {
-	pattern = vim.fn.expand("~/.nb/journal") .. "/*",
+	pattern = vim.fn.expand("~/notes") .. "/*",
 	callback = function()
 		vim.opt_local.textwidth = 80
 		vim.opt_local.formatoptions:append("t")
