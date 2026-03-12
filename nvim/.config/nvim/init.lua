@@ -217,6 +217,7 @@ vim.pack.add({
 	{ src = "https://github.com/iamcco/markdown-preview.nvim" },
 	{ src = "https://github.com/MeanderingProgrammer/render-markdown.nvim" },
 	{ src = "https://github.com/obsidian-nvim/obsidian.nvim" },
+	{ src = "https://github.com/cyprienhm/tableview.nvim" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -1032,3 +1033,10 @@ map("n", "<leader>nf", "<cmd>Obsidian quick_switch<cr>", { desc = "Find Notes" }
 map("n", "<leader>ns", "<cmd>Obsidian search<cr>", { desc = "Search Notes" })
 map("n", "<leader>nt", "<cmd>Obsidian today<cr>", { desc = "Today Note" })
 map("n", "<leader>ni", "<cmd>Obsidian paste_img<cr>", { desc = "Paste Image" })
+
+-- tableview
+require("tableview").setup({
+	max_rows = 100,
+	column_width_cap = 50,
+	auto_open = { "parquet", "arrow", "feather", "xlsx" },
+})

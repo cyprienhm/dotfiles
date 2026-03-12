@@ -130,6 +130,10 @@
       "rev": "9912042fc8bca2209105526ac7534e9a0c2071b2",
       "src": "https://github.com/folke/snacks.nvim"
     },
+    "tableview.nvim": {
+      "rev": "5e516e4c9c407900c02ca148efd953e623b91ce6",
+      "src": "https://github.com/cyprienhm/tableview.nvim"
+    },
     "typst-preview.nvim": {
       "rev": "cbf8492873073d11f03c6b4e1405e3fb3b0feecc",
       "src": "https://github.com/chomosuke/typst-preview.nvim"
