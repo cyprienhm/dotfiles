@@ -531,6 +531,7 @@ end, { silent = true })
 
 local s = ls.snippet
 local t = ls.text_node
+local f = ls.function_node
 
 ls.add_snippets("python", {
 	s("log", {
@@ -542,6 +543,21 @@ ls.add_snippets("rust", {
 	s("debug", {
 		t({ 'println!("{:?}");' }),
 	}),
+})
+
+ls.add_snippets("all", {
+	s("date", { f(function()
+		return os.date("%Y-%m-%d")
+	end) }),
+	s("time", { f(function()
+		return os.date("%H:%M")
+	end) }),
+	s("dt", { f(function()
+		return os.date("%Y-%m-%d %H:%M")
+	end) }),
+	s("iso", { f(function()
+		return os.date("%Y-%m-%dT%H:%M:%S%z")
+	end) }),
 })
 
 -- lualine
