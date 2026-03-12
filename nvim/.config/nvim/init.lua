@@ -41,6 +41,7 @@ map("v", ">", ">gv")
 map("n", "<leader>fn", "<cmd>enew<cr>", { desc = "New File" })
 
 map("n", "<leader>qq", "<cmd>qa<cr>", { desc = "Quit All" })
+map("n", "<leader>qr", "<cmd>restart<cr>", { desc = "Restart Neovim" })
 
 -- tabs
 map("n", "<leader><tab>o", "<cmd>tabonly<cr>", { desc = "Close Other Tabs" })
@@ -258,6 +259,8 @@ map({ "x", "o" }, "ia", function()
 end)
 
 -- lsp
+map("n", "<leader>lr", "<cmd>lsp restart<cr>", { desc = "Restart LSP" })
+
 -- mason-tool-installer only accepts mason names
 local servers = {
 	"lua-language-server",
