@@ -12,7 +12,7 @@ map("n", "<C-j>", "<C-w>j", { desc = "Go to Lower Window", remap = true })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to Upper Window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to Right Window", remap = true })
 
--- Resize window using <ctrl> arrow keys
+-- Resize window using <meta> hjkl keys
 map("n", "<M-k>", "<cmd>resize +2<cr>", { desc = "Increase Window Height" })
 map("n", "<M-j>", "<cmd>resize -2<cr>", { desc = "Decrease Window Height" })
 map("n", "<M-h>", "<cmd>vertical resize -2<cr>", { desc = "Decrease Window Width" })
