@@ -74,7 +74,10 @@ map("n", "<leader>yy", "<cmd>Yazi<cr>", { desc = "Open Yazi (current file)" })
 map("n", "<leader>yt", "<cmd>Yazi toggle<cr>", { desc = "Open Yazi (resume)" })
 map("n", "<leader>yc", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi (cwd)" })
 
--- toggle function
+-- toggles
+map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
+map("n", "<leader>us", "<cmd>set spell!<cr>", { desc = "Toggle spell" })
+
 local function toggle_buffer_format()
 	if vim.b.autoformat == nil then
 		vim.b.autoformat = false
@@ -98,8 +101,6 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 		maybe_format(args.buf)
 	end,
 })
-
-map("n", "<leader>uw", "<cmd>set wrap!<cr>", { desc = "Toggle wrap" })
 
 map("n", "<leader>fY", function()
 	local filepath = vim.api.nvim_buf_get_name(0)
