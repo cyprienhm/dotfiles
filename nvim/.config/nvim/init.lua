@@ -68,11 +68,11 @@ end, { desc = "Previous Error" })
 
 map("n", "<leader>e", function()
 	require("oil").open()
-end, { desc = "Open Oil", noremap = true, silent = true })
+end, { desc = "Open Oil" })
 
-map("n", "<leader>yy", "<cmd>Yazi<cr>", { desc = "Open Yazi (current file)", noremap = true, silent = true })
-map("n", "<leader>yt", "<cmd>Yazi toggle<cr>", { desc = "Open Yazi (resume)", noremap = true, silent = true })
-map("n", "<leader>yc", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi (cwd)", noremap = true, silent = true })
+map("n", "<leader>yy", "<cmd>Yazi<cr>", { desc = "Open Yazi (current file)" })
+map("n", "<leader>yt", "<cmd>Yazi toggle<cr>", { desc = "Open Yazi (resume)" })
+map("n", "<leader>yc", "<cmd>Yazi cwd<cr>", { desc = "Open Yazi (cwd)" })
 
 -- toggle function
 local function toggle_buffer_format()
@@ -521,13 +521,13 @@ map({ "i", "s" }, "<C-K>", function()
 	if ls.expand_or_jumpable() then
 		ls.expand_or_jump()
 	end
-end, { silent = true })
+end)
 map({ "i", "s" }, "<C-L>", function()
 	ls.jump(1)
-end, { silent = true })
+end)
 map({ "i", "s" }, "<C-J>", function()
 	ls.jump(-1)
-end, { silent = true })
+end)
 
 local s = ls.snippet
 local t = ls.text_node
@@ -851,7 +851,10 @@ require("blink.cmp").setup({
 	-- C-k: Toggle signature help (if signature.enabled = true)
 	--
 	-- See :h blink-cmp-config-keymap for defining your own keymap
-	keymap = { preset = "default" },
+	keymap = {
+		preset = "default",
+		["<C-k>"] = false,
+	},
 
 	appearance = {
 		-- 'mono' (default) for 'Nerd Font Mono' or 'normal' for 'Nerd Font'
