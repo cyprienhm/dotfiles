@@ -51,7 +51,7 @@ u() {
 
 export PATH="$BREW_PREFIX/opt/openjdk/bin:$PATH"
 
-function zf() {
+function rf() {
     if [[ -z $1 ]]; then
         search_path="$HOME"
     else
@@ -66,10 +66,10 @@ function zf() {
     ') || return
     [ -z "$selected_file" ] && return
 
-    nohup zathura "$selected_file" >/dev/null 2>&1 & disown || true
+    nohup sioyek "$selected_file" >/dev/null 2>&1 & disown || true
 }
 
-alias zp="zf ~/papers/"
+alias rp="rf ~/papers/"
 
 eval "$(zoxide init zsh)"
 
