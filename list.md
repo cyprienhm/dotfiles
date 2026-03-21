@@ -142,3 +142,8 @@ cargo install --locked tree-sitter-cli
 ```sh
 brew install choose-gui
 ```
+
+- sioyek
+```sh
+brew install --cask sioyek
+```
