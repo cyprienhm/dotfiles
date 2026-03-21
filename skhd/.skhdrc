@@ -156,4 +156,6 @@ ctrl + cmd + shift - r : yabai -m space --rotate 90
 ctrl + cmd + shift - b : yabai -m space --balance
 ctrl + cmd - y : ~/scripts/toggleyabai.sh
 ctrl + shift + cmd - space : yabai -m window --toggle float
-alt - space : ~/scripts/chooseguiscripts/urls.sh
+alt - space : ~/scripts/launch/launch.sh
+ctrl + cmd - r : ~/scripts/launch/readpdf.sh
+cmd - return: open -n /Applications/Ghostty.app
