@@ -5,6 +5,7 @@ https://google.com
 https://gmail.com
 https://calendar.google.com
 https://news.ycombinator.com
+https://news.google.com
 /Applications/Ghostty.app/
 /Applications/Zen.app/
 /Applications/sioyek.app/"
