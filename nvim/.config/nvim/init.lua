@@ -1056,6 +1056,7 @@ map("n", "<leader>no", "<cmd>Obsidian new<cr>", { desc = "New Note" })
 map("n", "<leader>nf", "<cmd>Obsidian quick_switch<cr>", { desc = "Find Notes" })
 map("n", "<leader>ns", "<cmd>Obsidian search<cr>", { desc = "Search Notes" })
 map("n", "<leader>nt", "<cmd>Obsidian today<cr>", { desc = "Today Note" })
+map("n", "<leader>ny", ":Obsidian today -", { desc = "Past Note" })
 map("n", "<leader>ni", "<cmd>Obsidian paste_img<cr>", { desc = "Paste Image" })
 
 -- tableview
