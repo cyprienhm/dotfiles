@@ -224,7 +224,15 @@ vim.pack.add({
 
 require("lazydev").setup()
 
--- nvim-treesitter-textobjects
+-- nvim-treesitter & nvim-treesitter-textobjects
+
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "*",
+	callback = function()
+		pcall(vim.treesitter.start)
+	end,
+})
+
 require("nvim-treesitter-textobjects").setup({
 	textobjects = {
 		select = {
