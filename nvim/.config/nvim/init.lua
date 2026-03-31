@@ -23,6 +23,7 @@ map("n", "<S-h>", "<cmd>bprevious<cr>", { desc = "Prev Buffer" })
 map("n", "<S-l>", "<cmd>bnext<cr>", { desc = "Next Buffer" })
 map("n", "<leader>bd", "<cmd>:bd<cr>", { desc = "Delete Buffer and Window" })
 map("n", "<leader>ba", "<cmd>:%bd<cr>", { desc = "Delete All Buffers" })
+map("n", "<leader>br", "<cmd>e!<cr>", { desc = "Reload Buffer" })
 
 -- Clear search and stop snippet on escape
 map({ "i", "n", "s" }, "<esc>", function()
