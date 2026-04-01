@@ -1,0 +1,5 @@
+export EDITOR="nvim"
+alias ll="ls -lhaG"
+alias t=tmux
+alias ta="tmux attach"
+alias tl="tmux list-sessions"
