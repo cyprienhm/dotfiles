@@ -420,7 +420,7 @@ require("snacks").setup({
 			enter = true,
 			fixbuf = false,
 			minimal = false,
-			width = 80,
+			width = 100,
 			height = 0,
 			backdrop = { transparent = false },
 			keys = { q = false },
