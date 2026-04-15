@@ -400,6 +400,7 @@ require("conform").setup({
 		c = { "clang-format" },
 		haskell = { "ormolu" },
 		rust = { "rustfmt" },
+		xml = { "xmlformatter" },
 	},
 })
 
