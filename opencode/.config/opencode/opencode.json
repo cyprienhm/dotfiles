@@ -1,0 +1,17 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "provider": {
+    "localhost": {
+      "npm": "@ai-sdk/openai-compatible",
+      "name": "mlx_vlm (local)",
+      "options": {
+        "baseURL": "http://127.0.0.1:9999/v1"
+      },
+      "models": {
+        "mlx-community/gemma-4-e4b-it-8bit": {
+          "name": "mlx-community/gemma-4-e4b-it-8bit"
+        }
+      }
+    }
+  }
+}
