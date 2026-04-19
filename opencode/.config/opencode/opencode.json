@@ -13,5 +13,17 @@
         }
       }
     }
+  },
+  "agent": {
+    "ray-agent": {
+      "permission": {
+        "external_directory": {
+          "~/.cache/ray-agent/**": "allow"
+        },
+        "edit": {
+          "~/.cache/ray-agent/**": "deny"
+        }
+      }
+    }
   }
 }
