@@ -1,0 +1,15 @@
+backups
+cache
+debug
+file-history
+plans
+history.jsonl
+projects
+sessions
+shell-snapshots
+statsig
+tasks
+telemetry
+todos
+stats-cache.json
+mcp-needs-auth-cache.json
