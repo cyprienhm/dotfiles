@@ -11,17 +11,15 @@ esac
 
 cache_root="${XDG_CACHE_HOME:-$HOME/.cache}/ray-agent/versions"
 dest="$cache_root/$tag"
-docs="$dest/doc/source"
 
-if [ -d "$docs" ] && [ -n "$(ls -A "$docs" 2>/dev/null)" ]; then
-  echo "$docs"
+if [ -d "$dest/.git" ]; then
+  echo "$dest"
   exit 0
 fi
 
 mkdir -p "$cache_root"
 rm -rf "$dest"
-git clone --depth 1 --branch "$tag" --filter=blob:none --sparse \
+git clone --depth 1 --branch "$tag" --filter=blob:none \
   https://github.com/ray-project/ray.git "$dest" >&2
-git -C "$dest" sparse-checkout set doc/source >&2
 
-echo "$docs"
+echo "$dest"
