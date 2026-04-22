@@ -104,14 +104,29 @@ vim.api.nvim_create_autocmd("BufWritePre", {
 })
 
 map("n", "<leader>fY", function()
+	if vim.bo.filetype == "oil" then
+		require("oil.actions").copy_to_system_clipboard.callback()
+		return
+	end
 	local filepath = vim.api.nvim_buf_get_name(0)
 	vim.fn.setreg("+", filepath)
 	vim.notify("Yanked: " .. filepath)
 end, { desc = "Yank full path" })
 
 map("n", "<leader>fy", function()
-	local buf = vim.api.nvim_buf_get_name(0)
-	local filepath = vim.fn.fnamemodify(buf, ":.")
+	local filepath
+	if vim.bo.filetype == "oil" then
+		local oil = require("oil")
+		local entry = oil.get_cursor_entry()
+		local dir = oil.get_current_dir()
+		if not entry or not dir then
+			return
+		end
+		filepath = vim.fn.fnamemodify(dir .. entry.name, ":.")
+	else
+		local buf = vim.api.nvim_buf_get_name(0)
+		filepath = vim.fn.fnamemodify(buf, ":.")
+	end
 	vim.fn.setreg("+", filepath)
 	vim.notify("Yanked: " .. filepath)
 end, { desc = "Yank relative path" })
@@ -357,6 +372,7 @@ require("oil").setup({
 		["<C-s>"] = { "actions.select", opts = { horizontal = true } },
 		["<C-h>"] = {},
 		["gS"] = { "actions.change_sort", mode = "n" },
+		["gy"] = { "actions.copy_to_system_clipboard", mode = "n" },
 	},
 	lsp_file_methods = {
 		-- Enable or disable LSP file operations
