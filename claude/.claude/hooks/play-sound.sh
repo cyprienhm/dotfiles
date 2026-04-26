@@ -4,8 +4,8 @@
 # Categories: session-start, task-complete, task-error, input-required, resource-limit
 set -uo pipefail
 
-SOUNDS_DIR="$HOME/.claude/sounds/sc2_medivac/"
-VOLUME=0.5
+SOUNDS_DIR="$HOME/.claude/sounds/sc2_toss_probe/"
+VOLUME=0.2
 
 INPUT=$(cat)
 EVENT=$(echo "$INPUT" | python3 -c "import json,sys; print(json.load(sys.stdin).get('hook_event_name',''))" 2>/dev/null || echo "")

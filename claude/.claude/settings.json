@@ -98,5 +98,5 @@
   },
   "alwaysThinkingEnabled": true,
   "effortLevel": "high",
-  "tui": "default"
+  "tui": "fullscreen"
 }
