@@ -5,7 +5,7 @@
       "npm": "@ai-sdk/openai-compatible",
       "name": "local",
       "options": {
-        "baseURL": "http://127.0.0.1:9999/v1"
+        "baseURL": "http://localhost:9999/v1"
       },
       "models": {
         "mlx-community/gemma-4-e4b-it-8bit": {
