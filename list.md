@@ -147,3 +147,8 @@ brew install choose-gui
 ```sh
 brew install --cask sioyek
 ```
+
+- tldr
+```sh
+brew install tlrc
+```
