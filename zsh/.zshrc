@@ -112,11 +112,11 @@ tt() {
 
 dev() {
     [[ -z $TMUX ]] && { echo "not in tmux"; return 1 }
-    tmux send-keys 'claude' C-m
-    tmux split-window -h -c "#{pane_current_path}"
     tmux send-keys 'nvim' C-m
-    tmux new-window -c "#{pane_current_path}" 'lazygit'
-    tmux new-window -c "#{pane_current_path}" 'yazi'
+    tmux new-window -c "#{pane_current_path}"
+    tmux send-keys 'lazygit' C-m
+    tmux new-window -c "#{pane_current_path}"
+    tmux send-keys 'yazi' C-m
     tmux new-window -c "#{pane_current_path}"
     tmux select-window -t 1
 }
