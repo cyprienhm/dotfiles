@@ -580,6 +580,7 @@ end)
 local s = ls.snippet
 local t = ls.text_node
 local f = ls.function_node
+local i = ls.insert_node
 
 ls.add_snippets("python", {
 	s("log", {
@@ -606,6 +607,14 @@ ls.add_snippets("all", {
 	s("iso", { f(function()
 		return os.date("%Y-%m-%dT%H:%M:%S%z")
 	end) }),
+})
+
+ls.add_snippets("all", {
+	s("p", {
+		t("<p>"),
+		i(0),
+		t("</p>"),
+	}),
 })
 
 -- lualine
