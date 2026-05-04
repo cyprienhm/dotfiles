@@ -901,13 +901,40 @@ require("blink.cmp").setup({
 	keymap = {
 		preset = "default",
 		["<C-k>"] = false,
+		["<Tab>"] = {
+			function(cmp)
+				if cmp.snippet_active() then
+					return cmp.accept()
+				else
+					return cmp.select_and_accept()
+				end
+			end,
+			"snippet_forward",
+			"fallback",
+		},
+	},
+	cmdline = {
+		keymap = {
+			["<Tab>"] = { "show", "accept" },
+		},
+		completion = { menu = { auto_show = true } },
 	},
 
 	appearance = {
 		nerd_font_variant = "mono",
 	},
 
-	completion = { documentation = { auto_show = true } },
+	completion = {
+		documentation = { auto_show = true },
+		list = {
+			selection = {
+				preselect = function(ctx)
+					return not require("blink.cmp").snippet_active({ direction = 1 })
+				end,
+			},
+		},
+	},
+
 	signature = { enabled = true },
 
 	snippets = { preset = "luasnip" },
