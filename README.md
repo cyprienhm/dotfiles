@@ -1,0 +1,3 @@
+```sh
+curl https://raw.githubusercontent.com/cyprienhm/dotfiles/refs/heads/main/setupremote.sh | bash
+```

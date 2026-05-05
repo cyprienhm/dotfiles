@@ -21,7 +21,7 @@ bind -T copy-mode-vi y send -X copy-pipe 'xclip -selection clipboard'
 bind | split-window -h
 bind - split-window -v
 
-set -g mouse on
+set -g mouse off
 
 bind J join-pane
 bind S swap-pane
