@@ -1,5 +1,7 @@
+# >>> dotfiles bashrc >>>
 export EDITOR="vim"
 alias ll="ls -lhaG"
 alias t=tmux
 alias ta="tmux attach"
 alias tl="tmux list-sessions"
+# <<< dotfiles bashrc <<<
