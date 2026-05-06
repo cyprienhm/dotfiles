@@ -3,46 +3,24 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 source "$CONFIG_DIR/utils.sh"
 source "$CONFIG_DIR/rose_pine_colors.sh"
 
-FONT_SIZE=14.0
+FONT_SIZE=12.0
 LABEL_PAD=2
 
-sketchybar --bar position=left \
-  height=70 \
-  blur_radius=30 \
-  color=$ROSE_PINE_BASE \
-  border_color=$ROSE_PINE_LOVE \
-  border_width=1 \
-  margin=5 \
-  y_offset=12 \
-  corner_radius=15 \
+sketchybar --bar position=bottom \
+  height=35 \
+  blur_radius=1000 \
+  color=0xff000000
 
 default=(
     padding_left=5
     padding_right=5
     icon.font="Monaspace Neon NF:regular:$FONT_SIZE"
     label.font="Monaspace Neon NF:regular:$FONT_SIZE"
-    label.color=$ROSE_PINE_TEXT
+    label.color=0xffffffff
     label.padding_left=$LABEL_PAD
     label.padding_right=$LABEL_PAD
 )
 sketchybar --default "${default[@]}"
-
-sketchybar \
-    --add item clock left \
-    --set clock \
-    update_freq=10 \
-    icon.drawing=off \
-    label.font.size=$FONT_SIZE \
-    script="$PLUGIN_DIR/clock.sh"
-
-sb_separator left 16 16
-
-sketchybar \
-    --add item day left --set day update_freq=120 script="$PLUGIN_DIR/day.sh" \
-    --add item date left --set date update_freq=120 script="$PLUGIN_DIR/date.sh" \
-    --add item month left --set month update_freq=120 script="$PLUGIN_DIR/month.sh"
-
-sb_separator left 16 16
 
 SPACE_TEXTS=("code" "net" "misc" "chat" "call" "music" "notes" "8" "9" "10")
 for i in "${!SPACE_TEXTS[@]}"
@@ -52,19 +30,45 @@ do
         space="$sid"
         label="${SPACE_TEXTS[i]}"
         script="$PLUGIN_DIR/space.sh"
+        background.height=30
     )
     sketchybar --add space space."$sid" left --set space."$sid" "${space[@]}"
 done
+
+
+sketchybar \
+    --add item clock right \
+    --set clock \
+    update_freq=1 \
+    icon.drawing=off \
+    label.font.size=$FONT_SIZE \
+    script="$PLUGIN_DIR/clock.sh"
+
+sb_separator right 2 5
+
+sketchybar \
+    --add item day right --set day update_freq=120 script="$PLUGIN_DIR/date.sh" \
+
+sb_separator right 1 8
+
+sketchybar --add item network right \
+    --set network update_freq=10 script="$PLUGIN_DIR/network.sh"
+
+sb_separator right 1 8
 
 sketchybar --add item volume right \
     --set volume script="$PLUGIN_DIR/volume.sh" \
                  click_script="osascript -e 'set volume output muted not (output muted of (get volume settings))'" \
     --subscribe volume volume_change
 
+sb_separator right 1 8
+
 sketchybar --add item battery right \
     --set battery update_freq=30 script="$PLUGIN_DIR/battery.sh" \
     --subscribe battery system_woke power_source_change
 
-sb_separator right 16 16
+# sketchybar --add item network right \
+#     --set network update_freq=10 script="$PLUGIN_DIR/network.sh"
+
 
 sketchybar --update

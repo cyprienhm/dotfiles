@@ -22,8 +22,8 @@ if [ "$SKETCHYBAR_UP" = "false" ]; then
     WINDOW_GAP=3
 else
     TOP_PADDING=12
-    BOTTOM_PADDING=12
-    LEFT_PADDING=89 # 70 (bar) + 12 + 5 (bar margin)
+    BOTTOM_PADDING=47
+    LEFT_PADDING=12
     RIGHT_PADDING=12
     WINDOW_GAP=12
 fi
