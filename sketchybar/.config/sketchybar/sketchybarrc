@@ -3,13 +3,13 @@ PLUGIN_DIR="$CONFIG_DIR/plugins"
 source "$CONFIG_DIR/utils.sh"
 source "$CONFIG_DIR/rose_pine_colors.sh"
 
-FONT_SIZE=12.0
+FONT_SIZE=14.0
 LABEL_PAD=2
 
 sketchybar --bar position=bottom \
-  height=35 \
-  blur_radius=1000 \
-  color=0xff000000
+  height=30 \
+  color=0xff000000 \
+  topmost=on
 
 default=(
     padding_left=5
