@@ -77,9 +77,11 @@ brew install poppler
 ```sh
 brew install eza
 ```
-- zen
+- Zen browser
 always show bookmarks in single toolbar mode:
 `zen.view.hide-window-controls <- false` in about:config
+- Firefox
+installed `textfox`
 
 colorschemes
 - catppuccin
