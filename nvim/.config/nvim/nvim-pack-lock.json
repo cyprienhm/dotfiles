@@ -20,6 +20,10 @@
       "rev": "dca1a190aa85f9065979ef35802fb77131911106",
       "src": "https://github.com/stevearc/conform.nvim"
     },
+    "diffview.nvim": {
+      "rev": "4516612fe98ff56ae0415a259ff6361a89419b0a",
+      "src": "https://github.com/sindrets/diffview.nvim"
+    },
     "dropbar.nvim": {
       "rev": "f0a42bd92aa647e44221397723453403f5e20f16",
       "src": "https://github.com/Bekaboo/dropbar.nvim"
