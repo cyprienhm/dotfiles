@@ -22,7 +22,7 @@ default=(
 )
 sketchybar --default "${default[@]}"
 
-SPACE_TEXTS=("code" "net" "misc" "chat" "call" "music" "notes" "8" "9" "10")
+SPACE_TEXTS=("code" "net" "misc" "chat" "call" "music" "notes" "read" "9" "10")
 for i in "${!SPACE_TEXTS[@]}"
 do
     sid="$(($i+1))"
