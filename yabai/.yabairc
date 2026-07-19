@@ -68,3 +68,4 @@ yabai -m rule --add app="licecap" manage=off
 yabai -m rule --add app="Preview" manage=off
 yabai -m rule --add app="mpv" manage=off
 yabai -m rule --add app="sioyek" manage=off
+yabai -m rule --add app="GIMP" manage=off
