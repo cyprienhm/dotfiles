@@ -1,13 +1,9 @@
 {
   "permissions": {
-    "allow": [
-      "Bash(~/.claude/agents/ray-clone.sh *)"
-    ],
-    "additionalDirectories": [
-      "~/.cache/ray-agent"
-    ]
+    "allow": [],
+    "additionalDirectories": []
   },
-  "model": "opus",
+  "model": "claude-fable-5[1m]",
   "hooks": {
     "PostToolUse": [
       {
@@ -97,6 +93,6 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "high",
+  "effortLevel": "medium",
   "tui": "fullscreen"
 }
