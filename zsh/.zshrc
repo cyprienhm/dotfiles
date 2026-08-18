@@ -139,3 +139,14 @@ function wep() {
 tomp3() { ffmpeg -i "$1" -b:a 64k "${1%.*}.mp3"; }
 
 source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+nvim-update() {
+    ( set -e
+        cd ~/projects/neovim
+        git pull
+        make distclean
+        make CMAKE_BUILD_TYPE=RelWithDebInfo CMAKE_INSTALL_PREFIX="$HOME/.local"
+    make install )
+    nvim --version | head -1
+}
+
