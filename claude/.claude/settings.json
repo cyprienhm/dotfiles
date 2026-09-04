@@ -1,9 +1,10 @@
 {
   "permissions": {
     "allow": [],
+    "defaultMode": "default",
     "additionalDirectories": []
   },
-  "model": "claude-fable-5[1m]",
+  "model": "opus",
   "hooks": {
     "PostToolUse": [
       {
@@ -93,6 +94,14 @@
     ]
   },
   "alwaysThinkingEnabled": true,
-  "effortLevel": "medium",
+  "effortLevel": "high",
+  "modelSettings": {
+    "claude-fable-5": {
+      "effortLevel": "medium"
+    },
+    "claude-opus-5": {
+      "effortLevel": "medium"
+    }
+  },
   "tui": "fullscreen"
 }

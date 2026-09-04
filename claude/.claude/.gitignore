@@ -13,3 +13,6 @@ telemetry
 todos
 stats-cache.json
 mcp-needs-auth-cache.json
+daemon*
+jobs
+.last-update-result.json
