@@ -1,6 +1,6 @@
 {
-  "lastChangelogVersion": "0.84.4",
-  "theme": "dark",
+  "lastChangelogVersion": "0.85.0",
+  "theme": "rose-pine",
   "quietStartup": true,
   "collapseChangelog": false,
   "defaultProvider": "openai",
@@ -14,5 +14,8 @@
     "anthropic/claude-opus-5",
     "anthropic/claude-sonnet-5"
   ],
-  "defaultThinkingLevel": "low"
+  "defaultThinkingLevel": "low",
+  "autocompleteMaxVisible": 10,
+  "editorPaddingX": 0,
+  "outputPad": 0
 }
