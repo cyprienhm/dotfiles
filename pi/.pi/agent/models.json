@@ -1,0 +1,10 @@
+{
+  "providers": {
+    "mlx_vlm": {
+      "baseUrl": "http://localhost:9999/v1",
+      "api": "openai-completions",
+      "apiKey": "mlx_vlm",
+      "models": [{ "id": "mlx-community/gemma-4-e4b-it-8bit" }]
+    }
+  }
+}
