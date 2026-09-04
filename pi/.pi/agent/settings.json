@@ -1,4 +1,18 @@
 {
   "lastChangelogVersion": "0.84.4",
-  "theme": "dark"
+  "theme": "dark",
+  "quietStartup": true,
+  "collapseChangelog": false,
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-5.6-luna",
+  "enabledModels": [
+    "openai/gpt-5.6-luna",
+    "openai/gpt-5.6-sol",
+    "openai/gpt-5.6-terra",
+    "anthropic/claude-fable-5",
+    "anthropic/claude-haiku-4-5",
+    "anthropic/claude-opus-5",
+    "anthropic/claude-sonnet-5"
+  ],
+  "defaultThinkingLevel": "low"
 }
