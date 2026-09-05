@@ -3,7 +3,7 @@
   "theme": "rose-pine",
   "quietStartup": true,
   "collapseChangelog": false,
-  "defaultProvider": "openai",
+  "defaultProvider": "openai-codex",
   "defaultModel": "gpt-5.6-luna",
   "enabledModels": [
     "openai/gpt-5.6-luna",
@@ -12,7 +12,10 @@
     "anthropic/claude-fable-5",
     "anthropic/claude-haiku-4-5",
     "anthropic/claude-opus-5",
-    "anthropic/claude-sonnet-5"
+    "anthropic/claude-sonnet-5",
+    "openai-codex/gpt-5.6-luna",
+    "openai-codex/gpt-5.6-sol",
+    "openai-codex/gpt-5.6-terra"
   ],
   "defaultThinkingLevel": "low",
   "autocompleteMaxVisible": 10,
