@@ -160,8 +160,15 @@ function rule(w: number, theme: Theme, left: Piece[], right: Piece[]): string {
 }
 
 export default function (pi: ExtensionAPI) {
+	let accessMode = "normal";
 	pi.on("session_start", (_event, ctx) => {
 		const theme = () => ctx.ui.theme;
+		let redraw = () => {};
+		pi.events.on("access-guard:mode", (value) => {
+			if (value !== "normal" && value !== "read-only") return;
+			accessMode = value;
+			redraw();
+		});
 
 		class RuleEditor extends CustomEditor {
 			protected renderTopBorder(w: number, hidden: number): string {
@@ -201,7 +208,8 @@ export default function (pi: ExtensionAPI) {
 						`thinking${ctx.thinkingLevel[0]!.toUpperCase()}${ctx.thinkingLevel.slice(1)}` as ThemeColor;
 					right.push({ text: " ", color: "dim" }, { text: ctx.thinkingLevel, color: key });
 				}
-				right.push({ text: ` ${PIPE} `, color: "dim" }, { text: `$${cost.toFixed(3)}`, color: "muted" });
+				right.push({ text: ` ${PIPE} `, color: "dim" }, { text: accessMode, color: accessMode === "normal" ? "muted" : "warning" });
+			right.push({ text: ` ${PIPE} `, color: "dim" }, { text: `$${cost.toFixed(3)}`, color: "muted" });
 				right.push(
 					{ text: ` ${PIPE} `, color: "dim" },
 					{
@@ -217,8 +225,10 @@ export default function (pi: ExtensionAPI) {
 		}
 
 		ctx.ui.setEditorComponent(
-			(tui: TUI, editorTheme: EditorTheme, keybindings: KeybindingsManager) =>
-				new RuleEditor(tui, editorTheme, keybindings),
+			(tui: TUI, editorTheme: EditorTheme, keybindings: KeybindingsManager) => {
+				redraw = () => tui.requestRender();
+				return new RuleEditor(tui, editorTheme, keybindings);
+			},
 		);
 
 		// The rules carry everything; the footer row keeps only extension statuses.
