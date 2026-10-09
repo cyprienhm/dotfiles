@@ -160,7 +160,7 @@ function rule(w: number, theme: Theme, left: Piece[], right: Piece[]): string {
 }
 
 export default function (pi: ExtensionAPI) {
-	let accessMode = "normal";
+	let accessMode = "read-only";
 	pi.on("session_start", (_event, ctx) => {
 		const theme = () => ctx.ui.theme;
 		let redraw = () => {};

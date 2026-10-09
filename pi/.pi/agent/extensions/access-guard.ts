@@ -5,7 +5,7 @@ import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { Input, Key, matchesKey, SelectList, truncateToWidth } from "@earendil-works/pi-tui";
 
 export default function (pi: ExtensionAPI) {
-  let mode: "normal" | "read-only" = "normal";
+  let mode: "normal" | "read-only" = "read-only";
   const grants = { read: new Set<string>(), write: new Set<string>() };
   const fileGrants = { read: new Set<string>(), write: new Set<string>() };
   const inside = (path: string, dir: string) => {
@@ -47,7 +47,7 @@ export default function (pi: ExtensionAPI) {
     grants.write.clear();
     fileGrants.read.clear();
     fileGrants.write.clear();
-    mode = "normal";
+    mode = "read-only";
     pi.events.emit("access-guard:mode", mode);
   });
   pi.on("tool_call", async (event, ctx) => {
