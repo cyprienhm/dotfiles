@@ -1,25 +1,20 @@
 {
-  "lastChangelogVersion": "1.0.0",
+  "lastChangelogVersion": "1.1.0",
   "theme": "rose-pine",
   "quietStartup": true,
   "collapseChangelog": false,
-  "defaultProvider": "openai-codex",
-  "defaultModel": "gpt-5.6-luna",
+  "defaultProvider": "openai",
+  "defaultModel": "gpt-6-luna",
   "enabledModels": [
-    "openai/gpt-5.6-luna",
-    "openai/gpt-5.6-sol",
-    "openai/gpt-5.6-terra",
-    "anthropic/claude-fable-5",
-    "anthropic/claude-haiku-4-5",
-    "anthropic/claude-opus-5",
-    "anthropic/claude-sonnet-5",
-    "openai-codex/gpt-5.6-luna",
-    "openai-codex/gpt-5.6-sol",
-    "openai-codex/gpt-5.6-terra"
+    "openai/gpt-6-luna",
+    "openai/gpt-6-astra",
+    "openai/gpt-6-sol",
+    "openai/gpt-6.1-sol"
   ],
   "defaultThinkingLevel": "low",
   "autocompleteMaxVisible": 10,
   "editorPaddingX": 0,
   "outputPad": 0,
-  "tuiMode": "regular"
+  "tuiMode": "regular",
+  "deviceId": "66ceae32-6c64-4669-94a6-e347a1947fed"
 }
