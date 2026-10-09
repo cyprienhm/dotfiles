@@ -4,7 +4,7 @@
   "quietStartup": true,
   "collapseChangelog": false,
   "defaultProvider": "openai",
-  "defaultModel": "gpt-6-luna",
+  "defaultModel": "gpt-6-sol",
   "enabledModels": [
     "openai/gpt-6-luna",
     "openai/gpt-6-astra",
