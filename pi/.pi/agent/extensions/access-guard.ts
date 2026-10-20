@@ -112,7 +112,7 @@ export default function (pi: ExtensionAPI) {
         }
       }
     }
-    if (mode === "read-only" && event.toolName !== "read") {
+    if (mode === "read-only" && event.toolName !== "read" && event.toolName !== "ask_user") {
       if (!await approve(ctx, `Allow ${event.toolName} in read-only mode?`, JSON.stringify(event.input).slice(0, 2000))) {
         return { block: true, reason: `Tool denied in read-only mode: ${event.toolName}` };
       }
