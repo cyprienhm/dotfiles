@@ -1,10 +1,10 @@
 {
-  "lastChangelogVersion": "1.1.0",
+  "lastChangelogVersion": "1.3.0",
   "theme": "rose-pine",
   "quietStartup": true,
   "collapseChangelog": false,
   "defaultProvider": "openai",
-  "defaultModel": "gpt-6-sol",
+  "defaultModel": "gpt-6.1-sol",
   "enabledModels": [
     "openai/gpt-6-luna",
     "openai/gpt-6-astra",
@@ -16,5 +16,9 @@
   "editorPaddingX": 0,
   "outputPad": 0,
   "tuiMode": "regular",
-  "deviceId": "66ceae32-6c64-4669-94a6-e347a1947fed"
+  "deviceId": "66ceae32-6c64-4669-94a6-e347a1947fed",
+  "fullscreenExitOutput": "transcript",
+  "images": {
+    "blockImages": true
+  }
 }
