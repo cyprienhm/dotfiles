@@ -1,0 +1,103 @@
+#!/bin/bash
+set -euo pipefail
+
+here=$(cd -- "$(dirname -- "${BASH_SOURCE[0]}")" && pwd)
+root=$(cd -- "$here/../.." && pwd)
+image=${DEV_IMAGE:-dotfiles-dev}
+
+usage() {
+    cat <<'EOF'
+Usage:
+  dev build [docker build options]
+  dev bind NAME [DIRECTORY]
+  dev volume NAME
+  dev ephemeral NAME
+  dev list
+  dev shell NAME [COMMAND...]
+  dev start NAME
+  dev stop NAME
+
+bind:       Share DIRECTORY (default: current directory) at /workspace.
+volume:     Store /workspace in a per-project Docker named volume.
+ephemeral:  No mounts; remove container and all its state on exit.
+list:       Show dev containers, status, workspace, and available action.
+shell:      Open another shell in an existing running container.
+start:      Restart a stopped container and open a shell.
+stop:       Stop a container without removing its files or volumes.
+
+bind and volume persist a separate per-project home volume.
+DEV_IMAGE overrides the image name (default: dotfiles-dev).
+EOF
+}
+
+action=${1:-help}
+[[ $# -eq 0 ]] || shift
+case "$action" in
+    build)
+        exec docker build -f "$here/Dockerfile" -t "$image" "$@" "$root"
+        ;;
+    list)
+        [[ $# -eq 0 ]] || { usage >&2; exit 2; }
+        # Include older containers created before tracking labels were added.
+        exec docker ps --all --filter 'name=^/dev-' --format \
+            'table {{.Names}}\t{{.Label "dotfiles.dev.mode"}}\t{{.State}}\t{{.Status}}\t{{.Label "dotfiles.dev.workspace"}}\t{{if eq .State "STATE"}}NEXT{{else if eq .State "running"}}shell{{else if or (eq .State "exited") (eq .State "created")}}start{{else}}inspect{{end}}'
+        ;;
+    bind|volume|ephemeral|shell|start|stop)
+        [[ $# -ge 1 && $1 =~ ^[a-zA-Z0-9][a-zA-Z0-9_.-]*$ ]] || {
+            usage >&2; exit 2;
+        }
+        name=$1
+        shift
+        container="dev-$name"
+        ;;
+    help|-h|--help) usage; exit 0 ;;
+    *) usage >&2; exit 2 ;;
+esac
+
+case "$action" in
+    shell)
+        [[ $# -gt 0 ]] || set -- zsh
+        exec docker exec -it --env TERM=xterm-256color "$container" "$@"
+        ;;
+    start)
+        [[ $# -eq 0 ]] || { usage >&2; exit 2; }
+        docker start "$container" >/dev/null
+        exec docker exec -it --env TERM=xterm-256color "$container" zsh
+        ;;
+    stop)
+        [[ $# -eq 0 ]] || { usage >&2; exit 2; }
+        exec docker stop "$container"
+        ;;
+esac
+
+args=(run --init --name "$container" --hostname "$container"
+    --label dotfiles.dev.managed=true --label "dotfiles.dev.mode=$action"
+    --cap-drop=ALL --security-opt=no-new-privileges:true
+    --pids-limit=512 --env TERM=xterm-256color --env COLORTERM=truecolor)
+
+case "$action" in
+    bind)
+        [[ $# -le 1 ]] || { usage >&2; exit 2; }
+        directory=$(cd -- "${1:-$PWD}" && pwd -P)
+        [[ $directory != *,* ]] || { echo 'Paths containing commas are unsupported.' >&2; exit 2; }
+        args+=(--mount "type=bind,src=$directory,dst=/workspace")
+        args+=(--label "dotfiles.dev.workspace=$directory")
+        ;;
+    volume)
+        [[ $# -eq 0 ]] || { usage >&2; exit 2; }
+        args+=(--mount "type=volume,src=$container-workspace,dst=/workspace")
+        args+=(--label "dotfiles.dev.workspace=$container-workspace")
+        ;;
+    ephemeral)
+        [[ $# -eq 0 ]] || { usage >&2; exit 2; }
+        args+=(-it --rm)
+        args+=(--label dotfiles.dev.workspace=disposable)
+        ;;
+esac
+
+if [[ $action != ephemeral ]]; then
+    args+=(-d --mount "type=volume,src=$container-home,dst=/home/dev")
+    docker "${args[@]}" "$image" sleep infinity >/dev/null
+    exec docker exec -it --env TERM=xterm-256color "$container" zsh
+fi
+exec docker "${args[@]}" "$image"

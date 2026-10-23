@@ -1,0 +1,17 @@
+**
+!nvim/
+!nvim/**
+!tmux/
+!tmux/.tmux.conf
+!opencode/
+!opencode/.config/
+!opencode/.config/opencode/
+!opencode/.config/opencode/opencode.json
+!opencode/.config/opencode/cli.json
+!opencode/.config/opencode/AGENTS.md
+!containers/
+!containers/dev/
+!containers/dev/Dockerfile
+!containers/dev/entrypoint.sh
+!containers/dev/config/
+!containers/dev/config/**
