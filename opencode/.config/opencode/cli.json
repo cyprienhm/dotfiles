@@ -1,0 +1,21 @@
+{
+  "$schema": "https://opencode.ai/v2/cli.json",
+  "theme": {
+    "name": "rosepine"
+  },
+  "diffs": {
+    "wrap": "word"
+  },
+  "session": {
+    "sidebar": "hide",
+    "scrollbar": false,
+    "thinking": "show",
+    "permissions": "prompt"
+  },
+  "animations": true,
+  "debug": {
+    "devtools": false,
+    "timing": false,
+    "turn_tokens": false
+  }
+}

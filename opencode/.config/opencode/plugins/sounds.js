@@ -40,11 +40,24 @@ const play = (category) => {
   currentProc.unref();
 };
 
-export const SoundsPlugin = async () => {
-  return {
-    event: async ({ event }) => {
-      const category = EVENT_TO_CATEGORY[event.type];
-      if (category) play(category);
-    },
-  };
+export default {
+  id: "sounds",
+  setup(ctx) {
+    const controller = new AbortController();
+
+    const subscription = (async () => {
+      for await (const event of ctx.event.subscribe({ signal: controller.signal })) {
+        const category = EVENT_TO_CATEGORY[event.type];
+        if (category) play(category);
+      }
+    })().catch((error) => {
+      if (!controller.signal.aborted) console.error("Sounds subscription failed:", error);
+    });
+
+    return async () => {
+      controller.abort();
+      if (currentProc && !currentProc.killed) currentProc.kill();
+      await subscription;
+    };
+  },
 };
