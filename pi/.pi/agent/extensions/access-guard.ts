@@ -1,6 +1,6 @@
-import type { ExtensionAPI } from "@earendil-works/pi-coding-agent";
+import { getAgentDir, type ExtensionAPI } from "@earendil-works/pi-coding-agent";
 import { spawnSync } from "node:child_process";
-import { existsSync, realpathSync } from "node:fs";
+import { existsSync, realpathSync, statSync } from "node:fs";
 import { dirname, isAbsolute, relative, resolve, sep } from "node:path";
 import { Input, Key, matchesKey, SelectList, truncateToWidth } from "@earendil-works/pi-tui";
 
@@ -8,6 +8,8 @@ export default function (pi: ExtensionAPI) {
   let mode: "normal" | "read-only" = "read-only";
   const grants = { read: new Set<string>(), write: new Set<string>() };
   const fileGrants = { read: new Set<string>(), write: new Set<string>() };
+  // Runtime-only ownership, learned from successful tool execution, never from log contents/history.
+  const ownedJobs = new Map<string, { sessionId: string; directory: string; realDirectory: string; dev: number; ino: number }>();
   const inside = (path: string, dir: string) => {
     const rel = relative(dir, path);
     return rel === "" || (rel !== ".." && !rel.startsWith(`..${sep}`) && !isAbsolute(rel));
@@ -16,6 +18,15 @@ export default function (pi: ExtensionAPI) {
     let ancestor = path;
     while (!existsSync(ancestor) && dirname(ancestor) !== ancestor) ancestor = dirname(ancestor);
     return resolve(realpathSync(ancestor), relative(ancestor, path));
+  };
+  const ownedDirectory = (jobId: string, ctx: any) => {
+    const job = ownedJobs.get(jobId);
+    if (!job || job.sessionId !== ctx.sessionManager?.getSessionId()) return undefined;
+    try {
+      if (realpathSync(job.directory) !== job.realDirectory) return undefined;
+      const stat = statSync(job.directory);
+      return stat.isDirectory() && stat.dev === job.dev && stat.ino === job.ino ? job.realDirectory : undefined;
+    } catch { return undefined; }
   };
   const ignored = (path: string) => {
     let dir = dirname(path);
@@ -42,7 +53,24 @@ export default function (pi: ExtensionAPI) {
       pi.events.emit("access-guard:mode", mode);
     },
   });
+  pi.on("session_tree", () => { ownedJobs.clear(); });
+  pi.on("session_shutdown", () => { ownedJobs.clear(); });
+  pi.on("tool_result", (event, ctx) => {
+    if (event.toolName !== "job_start" || event.isError) return;
+    const data = event.details as { id?: unknown; directory?: unknown; kind?: unknown } | undefined;
+    if (!data || typeof data.id !== "string" || !/^[a-zA-Z0-9][a-zA-Z0-9._-]*$/.test(data.id)
+      || typeof data.directory !== "string" || (data.kind !== "agent" && data.kind !== "command")) return;
+    const sessionId = ctx.sessionManager.getSessionId();
+    try {
+      const directory = resolve(data.directory);
+      const realDirectory = realpathSync(directory);
+      if (realDirectory !== resolve(realpathSync(resolve(getAgentDir(), "jobs")), sessionId, data.id)) return;
+      const stat = statSync(directory);
+      if (stat.isDirectory()) ownedJobs.set(data.id, { sessionId, directory, realDirectory, dev: stat.dev, ino: stat.ino });
+    } catch { /* Missing/unverifiable directories do not acquire automatic access. */ }
+  });
   pi.on("session_start", () => {
+    ownedJobs.clear();
     grants.read.clear();
     grants.write.clear();
     fileGrants.read.clear();
@@ -57,7 +85,11 @@ export default function (pi: ExtensionAPI) {
       if (typeof raw !== "string") return { block: true, reason: "Invalid file path" };
       const path = canonical(resolve(ctx.cwd, raw));
       const cwd = canonical(ctx.cwd);
-      if (!inside(path, cwd) || ignored(path)) {
+      const ownedRead = action === "read" && [...ownedJobs.keys()].some((id) => {
+        const directory = ownedDirectory(id, ctx);
+        return directory !== undefined && inside(path, directory);
+      });
+      if (!ownedRead && (!inside(path, cwd) || ignored(path))) {
         if (!fileGrants[action].has(path) && ![...grants[action]].some((dir) => inside(path, dir))) {
           if (!ctx.hasUI) return { block: true, reason: `${action} access denied: ${path}` };
           const parent = dirname(path);
@@ -112,7 +144,8 @@ export default function (pi: ExtensionAPI) {
         }
       }
     }
-    if (mode === "read-only" && event.toolName !== "read" && event.toolName !== "ask_user") {
+    const ownedWatch = event.toolName === "job_watch" && typeof event.input.jobId === "string" && ownedDirectory(event.input.jobId, ctx) !== undefined;
+    if (mode === "read-only" && event.toolName !== "read" && event.toolName !== "ask_user" && event.toolName !== "job_status" && !ownedWatch) {
       if (!await approve(ctx, `Allow ${event.toolName} in read-only mode?`, JSON.stringify(event.input).slice(0, 2000))) {
         return { block: true, reason: `Tool denied in read-only mode: ${event.toolName}` };
       }

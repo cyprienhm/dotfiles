@@ -18,6 +18,7 @@ import {
 	CustomEditor,
 	type ExtensionAPI,
 	type KeybindingsManager,
+	type ReadonlyFooterDataProvider,
 	type Theme,
 	type ThemeColor,
 } from "@earendil-works/pi-coding-agent";
@@ -163,6 +164,7 @@ export default function (pi: ExtensionAPI) {
 	let accessMode = "read-only";
 	pi.on("session_start", (_event, ctx) => {
 		const theme = () => ctx.ui.theme;
+		let footerData: ReadonlyFooterDataProvider | undefined;
 		let redraw = () => {};
 		pi.events.on("access-guard:mode", (value) => {
 			if (value !== "normal" && value !== "read-only") return;
@@ -209,7 +211,9 @@ export default function (pi: ExtensionAPI) {
 					right.push({ text: " ", color: "dim" }, { text: ctx.thinkingLevel, color: key });
 				}
 				right.push({ text: ` ${PIPE} `, color: "dim" }, { text: accessMode, color: accessMode === "normal" ? "muted" : "warning" });
-			right.push({ text: ` ${PIPE} `, color: "dim" }, { text: `$${cost.toFixed(3)}`, color: "muted" });
+				const clarify = footerData?.getExtensionStatuses().get("clarify");
+				if (clarify) right.push({ text: ` ${PIPE} `, color: "dim" }, { text: clarify, color: "warning" });
+				right.push({ text: ` ${PIPE} `, color: "dim" }, { text: `$${cost.toFixed(3)}`, color: "muted" });
 				right.push(
 					{ text: ` ${PIPE} `, color: "dim" },
 					{
@@ -231,15 +235,18 @@ export default function (pi: ExtensionAPI) {
 			},
 		);
 
-		// The rules carry everything; the footer row keeps only extension statuses.
-		ctx.ui.setFooter((tui, t, footerData) => ({
-			dispose: footerData.onBranchChange(() => tui.requestRender()),
-			invalidate() {},
-			render(w: number): string[] {
-				const statuses = [...footerData.getExtensionStatuses().values()].filter(Boolean);
-				if (statuses.length === 0) return [];
-				return [truncateToWidth(` ${statuses.join(t.fg("dim", ` ${PIPE} `))}`, w)];
-			},
-		}));
+		// Clarification lives in the rule; retain unrelated extension statuses below.
+		ctx.ui.setFooter((tui, t, data) => {
+			footerData = data;
+			return {
+				dispose: data.onBranchChange(() => tui.requestRender()),
+				invalidate() {},
+				render(w: number): string[] {
+					const statuses = [...data.getExtensionStatuses()].filter(([key, value]) => key !== "clarify" && Boolean(value)).map(([, value]) => value);
+					if (statuses.length === 0) return [];
+					return [truncateToWidth(` ${statuses.join(t.fg("dim", ` ${PIPE} `))}`, w)];
+				},
+			};
+		});
 	});
 }

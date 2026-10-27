@@ -1,3 +1,4 @@
 auth.json
 sessions/
+agent/jobs/
 agent/models-store.json
