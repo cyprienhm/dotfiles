@@ -1,4 +1,6 @@
 # syntax=docker/dockerfile:1
+FROM node:24-bookworm-slim AS node
+
 FROM debian:trixie-slim AS neovim
 ARG NEOVIM_REF=master
 RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -22,10 +24,11 @@ RUN curl --proto '=https' --tlsv1.2 -fsSL https://sh.rustup.rs -o /rustup-init.s
 FROM debian:trixie-slim
 ARG OPENCODE_VERSION=latest
 ARG UV_VERSION=latest
+COPY --from=node /usr/local/ /usr/local/
 RUN apt-get update && apt-get install -y --no-install-recommends \
     bash bat build-essential ca-certificates cmake curl fd-find fzf gettext gh git \
-    libssl-dev locales ninja-build nodejs npm openssh-client pkg-config python3 python3-dev \
-    python3-venv ripgrep stow tmux unzip wget xz-utils zoxide zsh \
+    libssl-dev locales ninja-build openssh-client pkg-config python3 python3-dev \
+    python3-venv ripgrep stow sudo tmux unzip wget xz-utils zoxide zsh \
     zsh-autosuggestions zsh-syntax-highlighting zstd \
     && rm -rf /var/lib/apt/lists/* \
     && localedef -i en_US -f UTF-8 en_US.UTF-8 \
@@ -38,8 +41,16 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     && ln -s /usr/bin/fdfind /usr/local/bin/fd \
     && ln -s /usr/bin/batcat /usr/local/bin/bat \
     && useradd --create-home --uid 1000 --shell /usr/bin/zsh dev \
+    && printf 'dev ALL=(ALL:ALL) NOPASSWD: ALL\n' > /etc/sudoers.d/dev \
+    && chmod 0440 /etc/sudoers.d/dev \
+    && visudo -cf /etc/sudoers.d/dev \
     && mkdir -p /workspace /home/dev/dotfiles \
     && chown dev:dev /workspace /home/dev/dotfiles
+RUN curl -fsSL https://pi.dev/install.sh -o /tmp/pi-install.sh \
+    && PI_CODING_AGENT_DIR=/opt/pi sh /tmp/pi-install.sh \
+    && ln -s /opt/pi/bin/pi /usr/local/bin/pi \
+    && rm /tmp/pi-install.sh \
+    && pi --version
 COPY --from=neovim /opt/neovim /opt/neovim
 COPY --from=rust /opt/rust-tools/bin/ /opt/rust-tools/bin/
 COPY --from=rust /opt/rustup/ /opt/rustup/
@@ -49,6 +60,7 @@ RUN ln -s /opt/neovim/bin/nvim /usr/local/bin/nvim \
        done
 COPY --from=neovim /neovim-commit /usr/local/share/neovim-commit
 COPY --chown=dev:dev nvim/ /home/dev/dotfiles/nvim/
+COPY --chown=dev:dev pi/ /home/dev/dotfiles/pi/
 COPY --chown=dev:dev containers/dev/config/ /home/dev/dotfiles/container/
 COPY --chown=dev:dev opencode/.config/opencode/opencode.json opencode/.config/opencode/cli.json opencode/.config/opencode/AGENTS.md /home/dev/dotfiles/container/.config/opencode/
 COPY --chown=dev:dev tmux/.tmux.conf /home/dev/dotfiles/container/.tmux.conf
@@ -60,7 +72,7 @@ ENV LANG=en_US.UTF-8 \
 USER dev
 RUN python3 -c 'import json, pathlib; p = pathlib.Path("/home/dev/dotfiles/container/.config/opencode/opencode.json"); c = json.loads(p.read_text()); c["permissions"] = [{"action": "*", "resource": "*", "effect": "allow"}]; p.write_text(json.dumps(c, indent=2) + "\n")' \
     && rm /home/dev/.bashrc \
-    && cd /home/dev/dotfiles && stow --target=/home/dev nvim container
+    && cd /home/dev/dotfiles && stow --target=/home/dev nvim container pi
 WORKDIR /workspace
 ENTRYPOINT ["dev-entrypoint"]
 CMD ["zsh"]

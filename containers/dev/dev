@@ -72,7 +72,6 @@ esac
 
 args=(run --init --name "$container" --hostname "$container"
     --label dotfiles.dev.managed=true --label "dotfiles.dev.mode=$action"
-    --cap-drop=ALL --security-opt=no-new-privileges:true
     --pids-limit=512 --env TERM=xterm-256color --env COLORTERM=truecolor)
 
 case "$action" in
