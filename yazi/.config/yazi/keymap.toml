@@ -1,0 +1,4 @@
+[[mgr.prepend_keymap]]
+on = "<A-s>"
+run = "search --via=fd --args=-u"
+desc = "Search hidden and ignored files"
