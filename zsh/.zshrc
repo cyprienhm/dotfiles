@@ -66,7 +66,7 @@ function rf() {
     ') || return
     [ -z "$selected_file" ] && return
 
-    nohup sioyek "$selected_file" >/dev/null 2>&1 & disown || true
+    open -a /Applications/Zen.app/ "$selected_file"
 }
 
 alias rp="rf ~/papers/"
