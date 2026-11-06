@@ -146,6 +146,10 @@
       "rev": "1c2e19486397be1c580b560fc50ee36abe329c46",
       "src": "https://github.com/chomosuke/typst-preview.nvim"
     },
+    "vim-easy-align": {
+      "rev": "9815a55dbcd817784458df7a18acacc6f82b1241",
+      "src": "https://github.com/junegunn/vim-easy-align"
+    },
     "vim-slime": {
       "rev": "305b4d81ff4630af5137fdeffb54aa0fef14761b",
       "src": "https://github.com/jpalardy/vim-slime"

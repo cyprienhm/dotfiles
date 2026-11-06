@@ -238,6 +238,7 @@ vim.pack.add({
 	{ src = "https://github.com/obsidian-nvim/obsidian.nvim" },
 	{ src = "https://github.com/cyprienhm/tableview.nvim" },
 	{ src = "https://github.com/sindrets/diffview.nvim" },
+	{ src = "https://github.com/junegunn/vim-easy-align" },
 }, { confirm = false })
 
 require("lazydev").setup()
