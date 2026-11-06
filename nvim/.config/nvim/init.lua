@@ -420,6 +420,7 @@ require("conform").setup({
 		haskell = { "ormolu" },
 		rust = { "rustfmt" },
 		xml = { "xmlformatter" },
+		typst = { "typstyle" },
 	},
 })
 
