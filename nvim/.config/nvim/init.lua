@@ -486,6 +486,41 @@ require("snacks").setup({
 })
 
 -- pickers
+local function picker_with_cwd(source)
+	vim.ui.input({ prompt = "Picker directory: ", default = vim.fn.getcwd() .. "/", completion = "dir" }, function(path)
+		if not path or path == "" then
+			return
+		end
+		local cwd = vim.fn.fnamemodify(vim.fn.expand(path), ":p")
+		if vim.fn.isdirectory(cwd) == 0 then
+			vim.notify("Not a directory: " .. cwd, vim.log.levels.WARN)
+			return
+		end
+		Snacks.picker[source]({ cwd = cwd })
+	end)
+end
+
+local function picker_in_oil(source)
+	local cwd = vim.bo.filetype == "oil" and require("oil").get_current_dir() or nil
+	if not cwd then
+		vim.notify("No local Oil directory in the current buffer", vim.log.levels.WARN)
+		return
+	end
+	Snacks.picker[source]({ cwd = cwd })
+end
+
+map("n", "<leader>fo", function()
+	picker_in_oil("files")
+end, { desc = "files (Oil directory)" })
+map("n", "<leader>so", function()
+	picker_in_oil("grep")
+end, { desc = "grep (Oil directory)" })
+map("n", "<leader>sp", function()
+	picker_with_cwd("grep")
+end, { desc = "grep (pick directory)" })
+map("n", "<leader>fp", function()
+	picker_with_cwd("files")
+end, { desc = "files (pick directory)" })
 map("n", "<leader>p", function()
 	Snacks.picker.pickers()
 end, { desc = "pickers picker" })
