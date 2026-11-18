@@ -1,6 +1,8 @@
 #!/bin/zsh
 
 choices="Open pdf
+Switch input
+Use MacBook microphone
 https://github.com
 https://google.com
 https://gmail.com
@@ -16,8 +18,12 @@ selection=$(echo "$choices" | choose)
 
 if [[ "$selection" == "Open pdf" ]]; then
     exec "${0:A:h}/readpdf.sh"
+elif [[ "$selection" == "Switch input" ]]; then
+    osascript -e 'tell application "System Events" to key code 49 using {control down, option down}'
+elif [[ "$selection" == "Use MacBook microphone" ]]; then
+    exec /opt/homebrew/bin/SwitchAudioSource -t input -s 'MacBook Air Microphone'
 elif [[ "$selection" == /Applications/*.app/ ]]; then
-    open -n "$selection"
+    open "$selection"
 else
     open "$selection"
 fi
