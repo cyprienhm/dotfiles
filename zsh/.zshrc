@@ -24,12 +24,6 @@ source <(fzf --zsh)
 
 source $BREW_PREFIX/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 
-export PYENV_ROOT="$HOME/.pyenv"
-[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
-if [[ -z "$VIRTUAL_ENV" ]]; then
-    eval "$(pyenv init - zsh)"
-fi
-
 alias ls="ls -G"
 alias ll="ls -lhaG"
 
