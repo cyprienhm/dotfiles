@@ -5,4 +5,4 @@ selected_file=$(fd --extension pdf . $dir | choose) || exit
 
 [ -z "$selected_file" ] && return
 
-nohup sioyek "$selected_file" >/dev/null 2>&1 & disown || true
+open -a /Applications/Zen.app/ "$selected_file"
