@@ -239,6 +239,7 @@ vim.pack.add({
 	{ src = "https://github.com/cyprienhm/tableview.nvim" },
 	{ src = "https://github.com/sindrets/diffview.nvim" },
 	{ src = "https://github.com/junegunn/vim-easy-align" },
+	{ src = "https://github.com/monaqa/dial.nvim" },
 }, { confirm = false })
 
 require("lazydev").setup()
@@ -1199,3 +1200,42 @@ require("vim._core.ui2").enable({
 
 -- typst preview
 require("typst-preview").setup()
+
+-- dial.nvim
+do
+	local augend = require("dial.augend")
+	local function cycle(elements)
+		return augend.constant.new({ elements = elements, word = true, cyclic = true })
+	end
+
+	require("dial.config").augends:register_group({
+		default = {
+			augend.date.alias["%Y-%m-%d"],
+			augend.date.alias["%Y/%m/%d"],
+			augend.integer.alias.hex,
+			augend.integer.alias.decimal_int,
+			cycle({
+				"January",
+				"February",
+				"March",
+				"April",
+				"May",
+				"June",
+				"July",
+				"August",
+				"September",
+				"October",
+				"November",
+				"December",
+			}),
+			cycle({ "Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" }),
+			cycle({ "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" }),
+			cycle({ "Mon", "Tue", "Wed", "Thu", "Fri", "Sat", "Sun" }),
+		},
+	})
+
+	map({ "n", "x" }, "<C-a>", "<Plug>(dial-increment)", { desc = "Increment with Dial" })
+	map({ "n", "x" }, "<C-x>", "<Plug>(dial-decrement)", { desc = "Decrement with Dial" })
+	map({ "n", "x" }, "g<C-a>", "<Plug>(dial-g-increment)", { desc = "Increment sequence with Dial" })
+	map({ "n", "x" }, "g<C-x>", "<Plug>(dial-g-decrement)", { desc = "Decrement sequence with Dial" })
+end
