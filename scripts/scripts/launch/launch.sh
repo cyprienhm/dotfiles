@@ -5,6 +5,7 @@ Switch input
 Use MacBook microphone
 Toggle yabai
 Toggle window float
+Toggle SketchyBar
 https://github.com
 https://google.com
 https://gmail.com
@@ -28,6 +29,8 @@ elif [[ "$selection" == "Toggle yabai" ]]; then
     exec /bin/zsh "${0:A:h}/../toggleyabai.sh"
 elif [[ "$selection" == "Toggle window float" ]]; then
     exec /opt/homebrew/bin/yabai -m window --toggle float
+elif [[ "$selection" == "Toggle SketchyBar" ]]; then
+    exec /opt/homebrew/bin/sketchybar --bar hidden=toggle
 elif [[ "$selection" == /Applications/*.app/ ]]; then
     open "$selection"
 else
